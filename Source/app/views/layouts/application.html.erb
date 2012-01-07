@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+  	<title><%= title %></title>
+  	<meta name="description" content="">
+  	<meta name="author" content="Forevenue team" />
+  	
+  	<%= render 'layouts/stylesheets' %>
+ 
+ 	<%= csrf_meta_tags %>
+</head>
+<body>
+	<%= render 'layouts/header' %>
+	<section class="container">
+		<section class="container-fluid">
+			<section class="sidebar">
+				<h3>Navigation</h3>
+			</section>
+			<section class="content">
+				<% flash.each do |key, value| %>
+					<div class="flash <%= key %>"><%= value %></div>
+				<% end %>
+				<%= yield %>
+			</section>
+		</section>
+		<%= render 'layouts/footer' %>
+	</section>
+</body>
+</html>
