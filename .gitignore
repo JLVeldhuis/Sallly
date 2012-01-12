@@ -1,4 +1,3 @@
 .DS_Store
-Source/log
+*.log
 Source/tmp
-Source/log/development.log
