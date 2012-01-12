@@ -1,14 +1,9 @@
 class PagesController < ApplicationController
-  def home
-  end
+  before_filter :restrict_access, :only => [:welcome, :goal, :average, :activities]
 
-  def contact
-  end
-
-  def about
-  end
-    
-  def welcome
+  private
+  def restrict_access
+    deny_access unless signed_in?
   end
 
 end
