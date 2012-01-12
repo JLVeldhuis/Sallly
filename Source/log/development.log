@@ -12262,3 +12262,1290 @@ NoMethodError (undefined method `init' for Mysql:Class):
 Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (17.0ms)
 Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
 Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (47.8ms)
+DEPRECATION WARNING: ActiveRecord::Associations::AssociationCollection is deprecated! Use ActiveRecord::Associations::CollectionProxy instead. (called from /Users/jim_is_gek/Sallly/Source/config/environment.rb:5)
+
+
+Started GET "/images/favicon.ico" for 127.0.0.1 at Thu Jan 12 18:33:39 +0100 2012
+
+Mysql::Error (Unknown database 'forevenue'):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.8ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Jan 12 18:33:57 +0100 2012
+
+Mysql::Error (Unknown database 'forevenue'):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.1.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (3.8ms)
+DEPRECATION WARNING: ActiveRecord::Associations::AssociationCollection is deprecated! Use ActiveRecord::Associations::CollectionProxy instead. (called from /Users/jim_is_gek/Sallly/Source/config/environment.rb:5)
+DEPRECATION WARNING: ActiveRecord::Associations::AssociationCollection is deprecated! Use ActiveRecord::Associations::CollectionProxy instead. (called from /Users/jim_is_gek/Sallly/Source/config/environment.rb:5)
+DEPRECATION WARNING: ActiveRecord::Associations::AssociationCollection is deprecated! Use ActiveRecord::Associations::CollectionProxy instead. (called from /Users/jim_is_gek/Sallly/Source/config/environment.rb:5)
+DEPRECATION WARNING: ActiveRecord::Associations::AssociationCollection is deprecated! Use ActiveRecord::Associations::CollectionProxy instead. (called from /Users/jim_is_gek/Sallly/Source/config/environment.rb:5)
+DEPRECATION WARNING: ActiveRecord::Associations::AssociationCollection is deprecated! Use ActiveRecord::Associations::CollectionProxy instead. (called from /Users/jim_is_gek/Sallly/Source/config/environment.rb:5)
+  [1m[36m (305.9ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.7ms)[0m  SHOW KEYS FROM `schema_migrations`
+  [1m[36m (356.4ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [1m[35m (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+Migrating to CreateUsers (20111207160646)
+  [1m[36m (119.5ms)[0m  [1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (12.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20111207160646')
+Migrating to AddEmailUniquenessIndex (20111207164220)
+  [1m[36m (0.4ms)[0m  [1mSHOW KEYS FROM `users`[0m
+  [1m[35m (192.1ms)[0m  CREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`)
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20111207164220')[0m
+Migrating to AddPasswordToUsers (20111207174940)
+  [1m[35m (176.1ms)[0m  ALTER TABLE `users` ADD `encrypted_password` varchar(255)
+  [1m[36m (2.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20111207174940')[0m
+Migrating to AddSaltToUser (20111207175929)
+  [1m[35m (196.0ms)[0m  ALTER TABLE `users` ADD `salt` varchar(255)
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20111207175929')[0m
+Migrating to AddAdminToUsers (20111212210034)
+  [1m[35m (205.5ms)[0m  ALTER TABLE `users` ADD `admin` tinyint(1) DEFAULT 0
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20111212210034')[0m
+  [1m[35m (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (0.2ms)[0m  [1mSHOW KEYS FROM `users`[0m
+DEPRECATION WARNING: ActiveRecord::Associations::AssociationCollection is deprecated! Use ActiveRecord::Associations::CollectionProxy instead. (called from /Users/jim_is_gek/Sallly/Source/config/environment.rb:5)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Jan 12 18:40:27 +0100 2012
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/application (25.4ms)
+Rendered layouts/_stylesheets.html.erb (46.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Rendered layouts/_header.html.erb (23.5ms)
+Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 134ms (Views: 127.5ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/contact" for 127.0.0.1 at Thu Jan 12 18:40:56 +0100 2012
+  Processing by PagesController#contact as HTML
+Rendered pages/contact.html.erb within layouts/application (0.2ms)
+Rendered layouts/_stylesheets.html.erb (16.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Rendered layouts/_header.html.erb (11.7ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 37ms (Views: 34.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/about" for 127.0.0.1 at Thu Jan 12 18:40:57 +0100 2012
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (0.2ms)
+Rendered layouts/_stylesheets.html.erb (62.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Rendered layouts/_header.html.erb (13.2ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 84ms (Views: 82.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 18:40:58 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.8ms)
+Rendered layouts/_stylesheets.html.erb (58.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Rendered layouts/_header.html.erb (11.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 80ms (Views: 78.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/contact" for 127.0.0.1 at Thu Jan 12 18:41:00 +0100 2012
+  Processing by PagesController#contact as HTML
+Rendered pages/contact.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (18.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Rendered layouts/_header.html.erb (54.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 82ms (Views: 79.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/about" for 127.0.0.1 at Thu Jan 12 18:41:01 +0100 2012
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (20.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Rendered layouts/_header.html.erb (18.8ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 47ms (Views: 37.9ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 18:41:02 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Rendered layouts/_stylesheets.html.erb (15.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Rendered layouts/_header.html.erb (11.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 33.8ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at Thu Jan 12 18:41:05 +0100 2012
+  Processing by SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>""}, "authenticity_token"=>"V4sirUNjNUtPEeI9PpfJFN0GTyAZRogWhDTTCK4deYQ=", "utf8"=>"✓"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = '' LIMIT 1[0m
+Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Rendered layouts/_stylesheets.html.erb (14.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (2.8ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 97ms (Views: 69.6ms | ActiveRecord: 20.4ms)
+
+
+Started GET "/contact" for 127.0.0.1 at Thu Jan 12 18:41:13 +0100 2012
+  Processing by PagesController#contact as HTML
+Rendered pages/contact.html.erb within layouts/application (0.1ms)
+Rendered layouts/_stylesheets.html.erb (17.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (64.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 92ms (Views: 89.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/about" for 127.0.0.1 at Thu Jan 12 18:41:15 +0100 2012
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (0.3ms)
+Rendered layouts/_stylesheets.html.erb (15.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (15.7ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 35.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/about" for 127.0.0.1 at Thu Jan 12 18:46:26 +0100 2012
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (14.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (33.8ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 56ms (Views: 31.6ms | ActiveRecord: 24.4ms)
+
+
+Started GET "/about" for 127.0.0.1 at Thu Jan 12 18:46:46 +0100 2012
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (60.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (11.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 80ms (Views: 77.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/about" for 127.0.0.1 at Thu Jan 12 18:47:30 +0100 2012
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (0.1ms)
+Rendered layouts/_stylesheets.html.erb (58.3ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (42.1ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 109ms (Views: 77.4ms | ActiveRecord: 31.5ms)
+
+
+Started GET "/about" for 127.0.0.1 at Thu Jan 12 18:49:52 +0100 2012
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (14.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (94.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 117ms (Views: 76.4ms | ActiveRecord: 40.6ms)
+
+
+Started GET "/about" for 127.0.0.1 at Thu Jan 12 18:49:58 +0100 2012
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (14.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (52.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 75ms (Views: 73.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/about" for 127.0.0.1 at Thu Jan 12 18:57:47 +0100 2012
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (14.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (315.5ms)
+Rendered layouts/_footer.html.erb (39.0ms)
+Completed 200 OK in 470ms (Views: 256.2ms | ActiveRecord: 213.4ms)
+
+
+Started GET "/about" for 127.0.0.1 at Thu Jan 12 18:58:07 +0100 2012
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (0.1ms)
+Rendered layouts/_stylesheets.html.erb (14.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (116.1ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 392ms (Views: 285.8ms | ActiveRecord: 106.2ms)
+
+
+Started GET "/about" for 127.0.0.1 at Thu Jan 12 18:58:23 +0100 2012
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (13.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (330.9ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 379ms (Views: 57.4ms | ActiveRecord: 320.8ms)
+
+
+Started GET "/contact" for 127.0.0.1 at Thu Jan 12 18:58:25 +0100 2012
+  Processing by PagesController#contact as HTML
+Rendered pages/contact.html.erb within layouts/application (0.1ms)
+Rendered layouts/_stylesheets.html.erb (53.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (70.2ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 295ms (Views: 233.6ms | ActiveRecord: 60.9ms)
+
+
+Started GET "/about" for 127.0.0.1 at Thu Jan 12 18:58:26 +0100 2012
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (54.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (278.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 341ms (Views: 71.4ms | ActiveRecord: 269.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 18:58:27 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Rendered layouts/_stylesheets.html.erb (14.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (99.2ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 122ms (Views: 69.1ms | ActiveRecord: 53.1ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 18:58:47 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Rendered layouts/_stylesheets.html.erb (14.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (332.6ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 384ms (Views: 60.5ms | ActiveRecord: 323.5ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 18:58:49 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Rendered layouts/_stylesheets.html.erb (13.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (183.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 206ms (Views: 32.5ms | ActiveRecord: 173.4ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:02:03 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Rendered layouts/_stylesheets.html.erb (13.8ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (84.9ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 213ms (Views: 136.4ms | ActiveRecord: 76.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:02:05 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Rendered layouts/_stylesheets.html.erb (53.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (196.0ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 258ms (Views: 70.7ms | ActiveRecord: 187.1ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:02:23 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Rendered layouts/_stylesheets.html.erb (54.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (92.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 156ms (Views: 72.4ms | ActiveRecord: 83.2ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:02:59 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Rendered layouts/_stylesheets.html.erb (13.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (145.1ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 167ms (Views: 70.1ms | ActiveRecord: 97.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:03:01 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Rendered layouts/_stylesheets.html.erb (15.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (159.9ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 184ms (Views: 71.9ms | ActiveRecord: 111.4ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:03:49 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Rendered layouts/_stylesheets.html.erb (13.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (119.1ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 142ms (Views: 69.9ms | ActiveRecord: 71.9ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:04:50 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Rendered layouts/_stylesheets.html.erb (14.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (60.0ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 83ms (Views: 31.4ms | ActiveRecord: 50.9ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:05:14 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Rendered layouts/_stylesheets.html.erb (13.5ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (288.0ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 310ms (Views: 31.5ms | ActiveRecord: 278.6ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:05:48 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Rendered layouts/_stylesheets.html.erb (13.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (267.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 330ms (Views: 71.3ms | ActiveRecord: 258.5ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:06:07 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Rendered layouts/_stylesheets.html.erb (52.8ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (58.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 120ms (Views: 70.4ms | ActiveRecord: 49.3ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:06:19 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Rendered layouts/_stylesheets.html.erb (53.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (540.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 602ms (Views: 70.8ms | ActiveRecord: 531.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:06:36 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Rendered layouts/_stylesheets.html.erb (13.9ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (106.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 129ms (Views: 69.2ms | ActiveRecord: 59.5ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:06:42 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Rendered layouts/_stylesheets.html.erb (13.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (171.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 193ms (Views: 67.7ms | ActiveRecord: 125.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:06:54 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Rendered layouts/_stylesheets.html.erb (13.9ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (82.6ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 105ms (Views: 31.3ms | ActiveRecord: 73.3ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:06:56 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Rendered layouts/_stylesheets.html.erb (13.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (125.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 147ms (Views: 30.3ms | ActiveRecord: 116.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Jan 12 19:07:32 +0100 2012
+  Processing by PagesController#home as HTML
+Rendered pages/home.html.erb within layouts/application (0.6ms)
+Rendered layouts/_stylesheets.html.erb (14.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (84.7ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 193ms (Views: 117.2ms | ActiveRecord: 76.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Jan 12 19:07:43 +0100 2012
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/application (613.0ms)
+Rendered layouts/_stylesheets.html.erb (51.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (2.6ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 681ms (Views: 73.8ms | ActiveRecord: 606.6ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:07:47 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.2ms)
+Rendered layouts/_stylesheets.html.erb (13.3ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (125.0ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 146ms (Views: 69.7ms | ActiveRecord: 76.2ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:08:54 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Rendered layouts/_stylesheets.html.erb (14.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (114.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 137ms (Views: 32.1ms | ActiveRecord: 105.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:09:41 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Rendered layouts/_stylesheets.html.erb (12.9ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (193.2ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 214ms (Views: 29.9ms | ActiveRecord: 184.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Jan 12 19:10:43 +0100 2012
+  Processing by PagesController#home as HTML
+Rendered pages/home.html.erb within layouts/application (0.4ms)
+Rendered layouts/_stylesheets.html.erb (13.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (79.7ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 154ms (Views: 82.8ms | ActiveRecord: 70.8ms)
+
+
+Started GET "/contact" for 127.0.0.1 at Thu Jan 12 19:10:46 +0100 2012
+  Processing by PagesController#contact as HTML
+Rendered pages/contact.html.erb within layouts/application (0.1ms)
+Rendered layouts/_stylesheets.html.erb (51.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (124.0ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 415ms (Views: 300.4ms | ActiveRecord: 114.5ms)
+
+
+Started GET "/about" for 127.0.0.1 at Thu Jan 12 19:10:48 +0100 2012
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (0.1ms)
+Rendered layouts/_stylesheets.html.erb (14.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (454.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 572ms (Views: 166.4ms | ActiveRecord: 405.4ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:10:49 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Rendered layouts/_stylesheets.html.erb (14.2ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (305.7ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 367ms (Views: 70.1ms | ActiveRecord: 296.4ms)
+
+
+Started GET "/contact" for 127.0.0.1 at Thu Jan 12 19:10:51 +0100 2012
+  Processing by PagesController#contact as HTML
+Rendered pages/contact.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (14.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (68.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 91ms (Views: 31.9ms | ActiveRecord: 58.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Jan 12 19:10:52 +0100 2012
+  Processing by PagesController#home as HTML
+Rendered pages/home.html.erb within layouts/application (0.4ms)
+Rendered layouts/_stylesheets.html.erb (54.8ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (104.1ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 265ms (Views: 170.8ms | ActiveRecord: 94.4ms)
+
+
+Started GET "/contact" for 127.0.0.1 at Thu Jan 12 19:10:54 +0100 2012
+  Processing by PagesController#contact as HTML
+Rendered pages/contact.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (52.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (285.1ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 345ms (Views: 68.5ms | ActiveRecord: 275.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Jan 12 19:10:56 +0100 2012
+  Processing by PagesController#home as HTML
+Rendered pages/home.html.erb within layouts/application (0.4ms)
+Rendered layouts/_stylesheets.html.erb (13.9ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (347.8ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 370ms (Views: 68.9ms | ActiveRecord: 300.4ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Jan 12 19:10:58 +0100 2012
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/application (417.9ms)
+Rendered layouts/_stylesheets.html.erb (13.2ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (3.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 441ms (Views: 28.6ms | ActiveRecord: 412.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at Thu Jan 12 19:11:11 +0100 2012
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"V4sirUNjNUtPEeI9PpfJFN0GTyAZRogWhDTTCK4deYQ=", "utf8"=>"✓", "user"=>{"name"=>"Jim Veldhuis", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"jim@jimv.nl"}}
+  [1m[35mSQL (327.4ms)[0m  BEGIN
+  [1m[36m (24.7ms)[0m  [1mSELECT 1 FROM `users` WHERE LOWER(`users`.`email`) = LOWER('jim@jimv.nl') LIMIT 1[0m
+DEPRECATION WARNING: ActiveSupport::SecureRandom is deprecated! Use SecureRandom instead. (called from make_salt at /Users/jim_is_gek/Sallly/Source/app/models/user.rb:45)
+  [1m[35mSQL (96.6ms)[0m  INSERT INTO `users` (`admin`, `created_at`, `email`, `encrypted_password`, `name`, `salt`, `updated_at`) VALUES (?, ?, ?, ?, ?, ?, ?)  [["admin", false], ["created_at", Thu, 12 Jan 2012 18:11:12 UTC +00:00], ["email", "jim@jimv.nl"], ["encrypted_password", "3322e6cecfde47a8d9137ccfccb4d0c3ef942131796622cc0db0bbd4378f7554"], ["name", "Jim Veldhuis"], ["salt", "0027dac0be4645c774b473f170d26dc70b159133ea74fe0505a88828a4114534"], ["updated_at", Thu, 12 Jan 2012 18:11:12 UTC +00:00]]
+  [1m[36m (16.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/users/1
+Completed 302 Found in 754ms
+
+
+Started GET "/users/1" for 127.0.0.1 at Thu Jan 12 19:11:13 +0100 2012
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (26.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1[0m  [["id", "1"]]
+Rendered users/show.html.erb within layouts/application (1.1ms)
+Rendered layouts/_stylesheets.html.erb (13.5ms)
+Rendered layouts/_header.html.erb (1.6ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 427ms (Views: 61.8ms | ActiveRecord: 358.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at Thu Jan 12 19:12:29 +0100 2012
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1[0m  [["id", "1"]]
+Rendered users/show.html.erb within layouts/application (1.0ms)
+Rendered layouts/_stylesheets.html.erb (13.9ms)
+Rendered layouts/_header.html.erb (1.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 265ms (Views: 213.3ms | ActiveRecord: 44.9ms)
+
+
+Started GET "/signout" for 127.0.0.1 at Thu Jan 12 19:12:33 +0100 2012
+  Processing by SessionsController#destroy as HTML
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at Thu Jan 12 19:12:33 +0100 2012
+  Processing by PagesController#home as HTML
+Rendered pages/home.html.erb within layouts/application (0.3ms)
+Rendered layouts/_stylesheets.html.erb (53.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (11.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 72ms (Views: 69.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Thu Jan 12 19:12:34 +0100 2012
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/application (14.0ms)
+Rendered layouts/_stylesheets.html.erb (51.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (2.8ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 76ms (Views: 67.7ms | ActiveRecord: 7.9ms)
+
+
+Started POST "/users" for 127.0.0.1 at Thu Jan 12 19:12:50 +0100 2012
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"V4sirUNjNUtPEeI9PpfJFN0GTyAZRogWhDTTCK4deYQ=", "utf8"=>"✓", "user"=>{"name"=>"Kasem Challiou", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"kasem.challiou@gmail.com"}}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36m (18.1ms)[0m  [1mSELECT 1 FROM `users` WHERE LOWER(`users`.`email`) = LOWER('kasem.challiou@gmail.com') LIMIT 1[0m
+DEPRECATION WARNING: ActiveSupport::SecureRandom is deprecated! Use SecureRandom instead. (called from make_salt at /Users/jim_is_gek/Sallly/Source/app/models/user.rb:45)
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO `users` (`admin`, `created_at`, `email`, `encrypted_password`, `name`, `salt`, `updated_at`) VALUES (?, ?, ?, ?, ?, ?, ?)  [["admin", false], ["created_at", Thu, 12 Jan 2012 18:12:50 UTC +00:00], ["email", "kasem.challiou@gmail.com"], ["encrypted_password", "bccd60fbdd11e6ad51b9b4bb9e861dfdc1658983e4410b6b367ce5b10a3d3858"], ["name", "Kasem Challiou"], ["salt", "9c8ac60b31695f4504bacb430355b400b1a2e27f0c91154a8ee2706f924871fc"], ["updated_at", Thu, 12 Jan 2012 18:12:50 UTC +00:00]]
+  [1m[36m (14.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://0.0.0.0:3000/users/2
+Completed 302 Found in 51ms
+
+
+Started GET "/users/2" for 127.0.0.1 at Thu Jan 12 19:12:50 +0100 2012
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1[0m  [["id", "2"]]
+Rendered users/show.html.erb within layouts/application (1.1ms)
+Rendered layouts/_stylesheets.html.erb (58.6ms)
+Rendered layouts/_header.html.erb (1.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 82ms (Views: 68.3ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/signout" for 127.0.0.1 at Thu Jan 12 19:13:03 +0100 2012
+  Processing by SessionsController#destroy as HTML
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at Thu Jan 12 19:13:03 +0100 2012
+  Processing by PagesController#home as HTML
+Rendered pages/home.html.erb within layouts/application (0.4ms)
+Rendered layouts/_stylesheets.html.erb (14.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (49.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 71ms (Views: 68.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:13:05 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Rendered layouts/_stylesheets.html.erb (13.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Rendered layouts/_header.html.erb (10.7ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 30.4ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at Thu Jan 12 19:13:12 +0100 2012
+  Processing by SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"jim@jimv.nl"}, "authenticity_token"=>"V4sirUNjNUtPEeI9PpfJFN0GTyAZRogWhDTTCK4deYQ=", "utf8"=>"✓"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'jim@jimv.nl' LIMIT 1
+Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Rendered layouts/_stylesheets.html.erb (13.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Rendered layouts/_header.html.erb (2.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 43ms (Views: 23.9ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at Thu Jan 12 19:13:56 +0100 2012
+  Processing by SessionsController#new as HTML
+Rendered sessions/new.html.erb within layouts/application (1.3ms)
+Rendered layouts/_stylesheets.html.erb (13.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Rendered layouts/_header.html.erb (48.5ms)
+Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 70ms (Views: 68.6ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at Thu Jan 12 19:14:04 +0100 2012
+  Processing by SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"jim@jimv.nl"}, "authenticity_token"=>"V4sirUNjNUtPEeI9PpfJFN0GTyAZRogWhDTTCK4deYQ=", "utf8"=>"✓"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'jim@jimv.nl' LIMIT 1[0m
+Redirected to http://0.0.0.0:3000/users/1
+Completed 302 Found in 20ms
+
+
+Started GET "/users/1" for 127.0.0.1 at Thu Jan 12 19:14:04 +0100 2012
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1[0m  [["id", "1"]]
+Rendered users/show.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (51.8ms)
+Rendered layouts/_header.html.erb (1.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 75ms (Views: 60.6ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Jan 12 19:14:06 +0100 2012
+  Processing by PagesController#home as HTML
+Rendered pages/home.html.erb within layouts/application (0.4ms)
+Rendered layouts/_stylesheets.html.erb (14.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (60.2ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 82ms (Views: 73.8ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at Thu Jan 12 19:14:07 +0100 2012
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` LIMIT 10 OFFSET 0
+Rendered users/_user.html.erb (1.1ms)
+Rendered users/index.html.erb within layouts/application (9.2ms)
+Rendered layouts/_stylesheets.html.erb (13.5ms)
+Rendered layouts/_header.html.erb (1.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 380ms (Views: 67.8ms | ActiveRecord: 305.1ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at Thu Jan 12 19:14:08 +0100 2012
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1  [["id", "1"]]
+Rendered users/show.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (13.6ms)
+Rendered layouts/_header.html.erb (1.4ms)
+Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 76ms (Views: 62.5ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at Thu Jan 12 19:14:09 +0100 2012
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` LIMIT 10 OFFSET 0
+Rendered users/_user.html.erb (1.0ms)
+Rendered users/index.html.erb within layouts/application (1.8ms)
+Rendered layouts/_stylesheets.html.erb (14.0ms)
+Rendered layouts/_header.html.erb (1.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 39ms (Views: 23.9ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at Thu Jan 12 19:14:11 +0100 2012
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1  [["id", "1"]]
+Rendered users/show.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (13.2ms)
+Rendered layouts/_header.html.erb (1.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 37ms (Views: 21.8ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at Thu Jan 12 19:14:12 +0100 2012
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1  [["id", "1"]]
+Rendered shared/_error_messages.html.erb (0.3ms)
+Rendered users/edit.html.erb within layouts/application (4.2ms)
+Rendered layouts/_stylesheets.html.erb (13.3ms)
+Rendered layouts/_header.html.erb (1.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 78ms (Views: 63.7ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at Thu Jan 12 19:15:29 +0100 2012
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1  [["id", "1"]]
+Rendered shared/_error_messages.html.erb (0.1ms)
+Rendered users/edit.html.erb within layouts/application (3.5ms)
+Rendered layouts/_stylesheets.html.erb (13.5ms)
+Rendered layouts/_header.html.erb (1.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 39ms (Views: 24.9ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at Thu Jan 12 19:15:51 +0100 2012
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1  [["id", "1"]]
+Rendered shared/_error_messages.html.erb (0.1ms)
+Rendered users/edit.html.erb within layouts/application (3.4ms)
+Rendered layouts/_stylesheets.html.erb (21.0ms)
+Rendered layouts/_header.html.erb (1.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 47ms (Views: 32.6ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/contact" for 127.0.0.1 at Thu Jan 12 19:15:57 +0100 2012
+  Processing by PagesController#contact as HTML
+Rendered pages/contact.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (51.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (21.2ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 80ms (Views: 72.0ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/about" for 127.0.0.1 at Thu Jan 12 19:15:58 +0100 2012
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (0.1ms)
+Rendered layouts/_stylesheets.html.erb (53.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (22.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 107ms (Views: 98.9ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/contact" for 127.0.0.1 at Thu Jan 12 19:16:01 +0100 2012
+  Processing by PagesController#contact as HTML
+Rendered pages/contact.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (13.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (59.8ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 81ms (Views: 73.1ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at Thu Jan 12 19:16:02 +0100 2012
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1[0m  [["id", "1"]]
+Rendered shared/_error_messages.html.erb (0.2ms)
+Rendered users/edit.html.erb within layouts/application (3.2ms)
+Rendered layouts/_stylesheets.html.erb (13.1ms)
+Rendered layouts/_header.html.erb (1.4ms)
+Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 38ms (Views: 24.1ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at Thu Jan 12 19:16:04 +0100 2012
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1[0m  [["id", "1"]]
+Rendered users/show.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (13.3ms)
+Rendered layouts/_header.html.erb (1.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 75ms (Views: 22.0ms | ActiveRecord: 46.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Jan 12 19:16:06 +0100 2012
+  Processing by PagesController#home as HTML
+Rendered pages/home.html.erb within layouts/application (0.5ms)
+Rendered layouts/_stylesheets.html.erb (13.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (60.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 81ms (Views: 72.4ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Thu Jan 12 19:17:24 +0100 2012
+  Processing by PagesController#welcome as HTML
+Rendered pages/welcome.html.erb within layouts/application (0.2ms)
+Rendered layouts/_stylesheets.html.erb (13.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (57.2ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 78ms (Views: 70.1ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Thu Jan 12 19:23:24 +0100 2012
+  Processing by PagesController#welcome as HTML
+Rendered pages/welcome.html.erb within layouts/application (0.2ms)
+Rendered layouts/_stylesheets.html.erb (14.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (22.0ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 45ms (Views: 36.6ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Thu Jan 12 19:23:36 +0100 2012
+  Processing by PagesController#welcome as HTML
+Rendered pages/welcome.html.erb within layouts/application (0.2ms)
+Rendered layouts/_stylesheets.html.erb (14.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (22.7ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 45ms (Views: 36.5ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Thu Jan 12 19:24:24 +0100 2012
+  Processing by PagesController#welcome as HTML
+Rendered pages/welcome.html.erb within layouts/application (0.6ms)
+Rendered layouts/_stylesheets.html.erb (14.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (22.8ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 45ms (Views: 36.6ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Thu Jan 12 19:24:34 +0100 2012
+  Processing by PagesController#welcome as HTML
+Rendered pages/welcome.html.erb within layouts/application (0.5ms)
+Rendered layouts/_stylesheets.html.erb (61.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (23.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 93ms (Views: 83.1ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Thu Jan 12 19:24:46 +0100 2012
+  Processing by PagesController#welcome as HTML
+Rendered pages/welcome.html.erb within layouts/application (0.6ms)
+Rendered layouts/_stylesheets.html.erb (57.6ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (22.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 89ms (Views: 80.5ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Thu Jan 12 19:24:57 +0100 2012
+  Processing by PagesController#welcome as HTML
+Rendered pages/welcome.html.erb within layouts/application (0.6ms)
+Rendered layouts/_stylesheets.html.erb (14.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (40.6ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 107ms (Views: 81.0ms | ActiveRecord: 26.0ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Thu Jan 12 19:25:07 +0100 2012
+  Processing by PagesController#welcome as HTML
+Rendered pages/welcome.html.erb within layouts/application (0.5ms)
+Rendered layouts/_stylesheets.html.erb (14.2ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (63.6ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 86ms (Views: 76.9ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/goal" for 127.0.0.1 at Thu Jan 12 19:30:04 +0100 2012
+  Processing by PagesController#goal as HTML
+Rendered pages/goal.html.erb within layouts/application (0.2ms)
+Rendered layouts/_stylesheets.html.erb (14.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (133.1ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 155ms (Views: 76.8ms | ActiveRecord: 77.7ms)
+
+
+Started GET "/average.html" for 127.0.0.1 at Thu Jan 12 19:30:14 +0100 2012
+  Processing by PagesController#average as HTML
+Rendered pages/average.html.erb within layouts/application (0.2ms)
+Rendered layouts/_stylesheets.html.erb (15.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (115.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 139ms (Views: 80.8ms | ActiveRecord: 57.5ms)
+
+
+Started GET "/goal.html" for 127.0.0.1 at Thu Jan 12 19:30:16 +0100 2012
+  Processing by PagesController#goal as HTML
+Rendered pages/goal.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (15.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (23.0ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 46ms (Views: 37.2ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/average.html" for 127.0.0.1 at Thu Jan 12 19:30:19 +0100 2012
+  Processing by PagesController#average as HTML
+Rendered pages/average.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (14.2ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (24.6ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 46ms (Views: 35.8ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/activities.html" for 127.0.0.1 at Thu Jan 12 19:30:20 +0100 2012
+  Processing by PagesController#activities as HTML
+Rendered pages/activities.html.erb within layouts/application (0.2ms)
+Rendered layouts/_stylesheets.html.erb (57.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (28.7ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 94ms (Views: 79.6ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/activities.html" for 127.0.0.1 at Thu Jan 12 19:30:28 +0100 2012
+  Processing by PagesController#activities as HTML
+Rendered pages/activities.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (62.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (22.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 93ms (Views: 84.7ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/welcome%5C" for 127.0.0.1 at Thu Jan 12 19:30:47 +0100 2012
+
+ActionController::RoutingError (No route matches [GET] "/welcome%5C"):
+  
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.1.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.4ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Thu Jan 12 19:30:50 +0100 2012
+  Processing by PagesController#welcome as HTML
+Rendered pages/welcome.html.erb within layouts/application (0.6ms)
+Rendered layouts/_stylesheets.html.erb (14.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (59.8ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 83ms (Views: 74.8ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/goal" for 127.0.0.1 at Thu Jan 12 19:30:53 +0100 2012
+  Processing by PagesController#goal as HTML
+Rendered pages/goal.html.erb within layouts/application (0.0ms)
+Rendered layouts/_stylesheets.html.erb (15.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (77.1ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 100ms (Views: 80.2ms | ActiveRecord: 19.4ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Thu Jan 12 19:32:42 +0100 2012
+  Processing by PagesController#welcome as HTML
+Rendered pages/welcome.html.erb within layouts/application (0.4ms)
+Rendered layouts/_stylesheets.html.erb (15.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (100.6ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 124ms (Views: 37.7ms | ActiveRecord: 86.0ms)
+
+
+Started GET "/goal" for 127.0.0.1 at Thu Jan 12 19:32:44 +0100 2012
+  Processing by PagesController#goal as HTML
+Rendered pages/goal.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (14.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (66.7ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 89ms (Views: 36.8ms | ActiveRecord: 52.2ms)
+
+
+Started GET "/welcome" for 127.0.0.1 at Thu Jan 12 19:32:45 +0100 2012
+  Processing by PagesController#welcome as HTML
+Rendered pages/welcome.html.erb within layouts/application (0.4ms)
+Rendered layouts/_stylesheets.html.erb (66.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (22.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 97ms (Views: 88.2ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/goal" for 127.0.0.1 at Thu Jan 12 19:32:46 +0100 2012
+  Processing by PagesController#goal as HTML
+Rendered pages/goal.html.erb within layouts/application (0.6ms)
+Rendered layouts/_stylesheets.html.erb (52.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (25.2ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 86ms (Views: 76.3ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/average" for 127.0.0.1 at Thu Jan 12 19:32:47 +0100 2012
+  Processing by PagesController#average as HTML
+Rendered pages/average.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (14.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (62.1ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 86ms (Views: 77.9ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/goal" for 127.0.0.1 at Thu Jan 12 19:32:48 +0100 2012
+  Processing by PagesController#goal as HTML
+Rendered pages/goal.html.erb within layouts/application (0.6ms)
+Rendered layouts/_stylesheets.html.erb (15.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (59.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 125ms (Views: 79.9ms | ActiveRecord: 44.4ms)
+
+
+Started GET "/average" for 127.0.0.1 at Thu Jan 12 19:32:49 +0100 2012
+  Processing by PagesController#average as HTML
+Rendered pages/average.html.erb within layouts/application (0.5ms)
+Rendered layouts/_stylesheets.html.erb (15.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (22.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 46ms (Views: 37.6ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/goal" for 127.0.0.1 at Thu Jan 12 19:32:50 +0100 2012
+  Processing by PagesController#goal as HTML
+Rendered pages/goal.html.erb within layouts/application (0.5ms)
+Rendered layouts/_stylesheets.html.erb (14.8ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (33.2ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 105ms (Views: 87.0ms | ActiveRecord: 17.9ms)
+
+
+Started GET "/average" for 127.0.0.1 at Thu Jan 12 19:32:50 +0100 2012
+  Processing by PagesController#average as HTML
+Rendered pages/average.html.erb within layouts/application (0.5ms)
+Rendered layouts/_stylesheets.html.erb (56.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (22.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 87ms (Views: 78.2ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/activities" for 127.0.0.1 at Thu Jan 12 19:32:51 +0100 2012
+  Processing by PagesController#activities as HTML
+Rendered pages/activities.html.erb within layouts/application (141.9ms)
+Completed 500 Internal Server Error in 203ms
+
+ActionView::Template::Error (undefined local variable or method `profile_path' for #<#<Class:0x10febba80>:0x10feb1c88>):
+    38: </div>
+    39: <div class="actions">
+    40: 	<%= link_to "Previous", average_path, :class => "btn" %>
+    41: 	<%= link_to "Next", profile_path, :class => "btn primary" %>
+    42: </div>
+  app/views/pages/activities.html.erb:41:in `_app_views_pages_activities_html_erb__1914104388_2281012780'
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.1.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.1.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.7ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-3.1.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (49.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at Thu Jan 12 19:32:58 +0100 2012
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` LIMIT 10 OFFSET 0[0m
+Rendered users/_user.html.erb (0.9ms)
+Rendered users/index.html.erb within layouts/application (1.7ms)
+Rendered layouts/_stylesheets.html.erb (14.0ms)
+Rendered layouts/_header.html.erb (1.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 23.9ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at Thu Jan 12 19:33:00 +0100 2012
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1[0m  [["id", "1"]]
+Rendered users/show.html.erb within layouts/application (0.9ms)
+Rendered layouts/_stylesheets.html.erb (55.2ms)
+Rendered layouts/_header.html.erb (1.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 79ms (Views: 64.7ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/average" for 127.0.0.1 at Thu Jan 12 19:33:27 +0100 2012
+  Processing by PagesController#average as HTML
+Rendered pages/average.html.erb within layouts/application (0.5ms)
+Rendered layouts/_stylesheets.html.erb (14.7ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (75.6ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 98ms (Views: 76.9ms | ActiveRecord: 21.0ms)
+
+
+Started GET "/activities" for 127.0.0.1 at Thu Jan 12 19:33:28 +0100 2012
+  Processing by PagesController#activities as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered pages/activities.html.erb within layouts/application (27.4ms)
+Rendered layouts/_stylesheets.html.erb (14.7ms)
+Rendered layouts/_header.html.erb (1.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 58ms (Views: 43.4ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at Thu Jan 12 19:33:31 +0100 2012
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1[0m  [["id", "1"]]
+Rendered users/show.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (16.2ms)
+Rendered layouts/_header.html.erb (1.6ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 25.4ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Jan 12 19:33:43 +0100 2012
+  Processing by PagesController#home as HTML
+Rendered pages/home.html.erb within layouts/application (0.4ms)
+Rendered layouts/_stylesheets.html.erb (14.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (65.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 88ms (Views: 79.9ms | ActiveRecord: 7.8ms)

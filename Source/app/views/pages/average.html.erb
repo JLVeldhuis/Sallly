@@ -1,0 +1,27 @@
+<h1>Enter your Average ammount</h1>
+<p>
+	The average amount is need to determine your average qoute avlue.
+</p>
+<p>
+	The date is needed to determine your salescycle
+</p>
+<div class="clearfix">
+	<label for="revenue">Revenue:</label>
+	<div class="input">
+		<input type="text" name="revenue" style="font-size: 2em; height: 2em; width: 450px;" value="$ " />
+	</div>
+</div>
+<div class="clearfix">
+	<label>Start and End date:</label>
+	<div class="input">
+		<div class="inline-inputs">
+			<input type="date" name="fromdate" />
+			to
+			<input type="date" name="todate" />
+		</div>
+	</div>
+</div>
+<div class="actions">
+	<%= link_to "Previous", goal_path, :class => "btn" %>
+	<%= link_to "Next", activities_path, :class => "btn primary" %>
+</div>
