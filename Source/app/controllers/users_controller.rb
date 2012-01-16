@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to forevenue!"
-      redirect_to @user
+      redirect_to welcome_path
     else
       @title = "Sign up"
       render 'new'
