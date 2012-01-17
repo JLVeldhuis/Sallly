@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to forevenue!"
+      flash[:success] = "Welcome to Sallly"
       redirect_to welcome_path
     else
       @title = "Sign up"

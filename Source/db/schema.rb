@@ -31,5 +31,13 @@ ActiveRecord::Schema.define(:version => 20120113165809) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-
+  
+  create table "tasks", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "date"
+    t.string   "name"
+    t.string   "notes"
+    t.boolean  "done"
+    t.integer  "user_id"
+  end
 end
