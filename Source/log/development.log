@@ -15466,3 +15466,57 @@ Rendered layouts/_stylesheets.html.erb (20.7ms)
 Rendered layouts/_header.html.erb (94.7ms)
 Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 127ms (Views: 114.7ms | ActiveRecord: 11.7ms)
+DEPRECATION WARNING: ActiveRecord::Associations::AssociationCollection is deprecated! Use ActiveRecord::Associations::CollectionProxy instead. (called from /Users/kasemchalliou/Documents/Sallly/Source/config/environment.rb:5)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Jan 21 12:41:56 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered pages/status.html.erb within layouts/application (3.6ms)
+Rendered layouts/_stylesheets.html.erb (26.7ms)
+  [1m[36mUser Load (8.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Rendered layouts/_header.html.erb (273.5ms)
+Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 332ms (Views: 151.2ms | ActiveRecord: 180.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Jan 21 12:42:06 +0100 2012
+  Processing by PagesController#home as HTML
+Rendered pages/home.html.erb within layouts/application (1.2ms)
+Rendered layouts/_stylesheets.html.erb (59.2ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Rendered layouts/_header.html.erb (51.1ms)
+Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 124ms (Views: 108.5ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Sat Jan 21 12:42:08 +0100 2012
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/application (32.6ms)
+Rendered layouts/_stylesheets.html.erb (23.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Rendered layouts/_header.html.erb (4.1ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 74ms (Views: 57.9ms | ActiveRecord: 14.5ms)
+
+
+Started GET "/users/3/edit" for 127.0.0.1 at Sat Jan 21 12:42:10 +0100 2012
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36mUser Load (3.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = ? LIMIT 1[0m  [["id", "3"]]
+Rendered shared/_error_messages.html.erb (0.4ms)
+Rendered users/edit.html.erb within layouts/application (6.5ms)
+Rendered layouts/_stylesheets.html.erb (18.8ms)
+Rendered layouts/_header.html.erb (1.7ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 71ms (Views: 39.1ms | ActiveRecord: 15.3ms)
+
+
+Started GET "/goal" for 127.0.0.1 at Sat Jan 21 12:42:13 +0100 2012
+  Processing by PagesController#goal as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Rendered pages/goal.html.erb within layouts/application (1.6ms)
+Rendered layouts/_stylesheets.html.erb (25.3ms)
+Rendered layouts/_header.html.erb (1.8ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 121ms (Views: 41.1ms | ActiveRecord: 12.1ms)
