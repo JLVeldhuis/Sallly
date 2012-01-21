@@ -34,12 +34,22 @@ ActiveRecord::Schema.define(:version => 20120113165809) do
   
   create table "calendar_event", :force => true do |t|
     t.datetime "created_at"
-    t.datetime "date"
-    t.datetime ""
+    t.datetime "event_date"
+    t.datetime "finished_before"
     t.string   "name"
     t.string   "notes"
-    t.string   "type"  //cold_call, visist, quote 
+    t.string   "type"   
     t.boolean  "done"
     t.integer  "user_id"
   end
+  
+   create table "user_profile", :force => true do |t|
+     t.integer   "revenue"
+     t.integer   "cold_calls"
+     t.integer   "visits"
+     t.integer   "quotes"
+     t.datetime  "sales_cycle"
+     t.datetime  "estimated_time_cycle"
+   end
+
 end
