@@ -15762,3 +15762,33 @@ Rendered layouts/_stylesheets.html.erb (19.9ms)
 Rendered layouts/_header.html.erb (2.1ms)
 Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 68ms (Views: 40.6ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Jan 21 13:28:29 +0100 2012
+  Processing by PagesController#home as HTML
+Rendered pages/home.html.erb within layouts/application (9.3ms)
+Rendered layouts/_stylesheets.html.erb (737.1ms)
+  [1m[36mUser Load (33.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Rendered layouts/_header.html.erb (416.5ms)
+Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 1675ms (Views: 1308.9ms | ActiveRecord: 362.3ms)
+
+
+Started GET "/signup" for 127.0.0.1 at Sat Jan 21 13:28:43 +0100 2012
+  Processing by UsersController#new as HTML
+Rendered users/new.html.erb within layouts/application (32.3ms)
+Rendered layouts/_stylesheets.html.erb (25.7ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+Rendered layouts/_header.html.erb (5.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 77ms (Views: 61.1ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/" for 127.0.0.1 at Sat Jan 21 13:28:47 +0100 2012
+  Processing by PagesController#home as HTML
+Rendered pages/home.html.erb within layouts/application (0.5ms)
+Rendered layouts/_stylesheets.html.erb (69.9ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Rendered layouts/_header.html.erb (99.7ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 181ms (Views: 166.0ms | ActiveRecord: 15.0ms)
