@@ -1,2 +1,0 @@
-class CalendarTaskController < ApplicationController
-end
