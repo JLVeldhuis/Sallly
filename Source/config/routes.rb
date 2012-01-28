@@ -15,6 +15,7 @@ Forevenue::Application.routes.draw do
   match '/average', :to => 'pages#average'
   match '/goal', :to => 'pages#goal'
     match '/status', :to => 'pages#status'
+    match '/video', :to => 'pages#video'
 
   root :to => 'pages#home'
 end
