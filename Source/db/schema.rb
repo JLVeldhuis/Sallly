@@ -51,5 +51,12 @@ ActiveRecord::Schema.define(:version => 20120113165809) do
      t.datetime  "sales_cycle"
      t.datetime  "estimated_time_cycle"
    end
+   
+   create table "ranking", :force => true do |t|
+     t.integer   "cold_calls"
+     t.integer   "visits"
+     t.integer   "quotes"
+     t.integer   "score"
+   end
 
 end

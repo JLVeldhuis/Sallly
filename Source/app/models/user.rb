@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   
   has_many :settings, :dependent => :destroy
   has_many :tasks
+  has_one  :ranking
   
   belongs_to :user_profile
   
