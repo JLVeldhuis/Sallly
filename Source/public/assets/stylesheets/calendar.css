@@ -3,15 +3,23 @@
 	padding: 0;
 }
 #calendar .day {
-	display: inline-block;
-	background: white;
-	list-style: none;
-	height: 30px;
-	width: 62px;
-	font-size: 30px;
-	text-align: center;
-	padding: 16px 0;
+	border: 1px solid #333333;
 	cursor: default;
+	display: inline-block;
+	height: 59px;
+	list-style: none;
+	margin: -1px 0 0 -5px;
+	padding: 3px;
+	text-align: right;
+	width: 59px;
+}
+
+#calendar .header {
+	background-color: #666666;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	height: 18px;
 }
 
 #calendar .event {
@@ -23,5 +31,6 @@
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF5A2E), to(#FF3301))
 }
 
-#calendar .dag strong {
+#calendar .header:hover {
+	background: none scroll no-repeat top left #666666;
 }
