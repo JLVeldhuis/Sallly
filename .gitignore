@@ -2,3 +2,7 @@
 *.log
 .metadata/*
 Source/tmp/*
+
+Source/log/development.log
+
+Source/log/development.log

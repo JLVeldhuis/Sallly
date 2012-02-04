@@ -1,26 +1,24 @@
-<header class="topbar">
-	<section class="fill">
-		<section class="container">
-			<a href="/" class="brand">Sallly</a>
-			<ul class="nav">
-				<li><%= link_to "Home", root_url %></li>
+<header class="navbar navbar-fixed-top"><section class="navbar-inner">
+	<section class="container">
+		<a href="/" class="brand">Sallly</a>
+		<ul class="nav">
+			<li><%= link_to "Home", root_url %></li>
 			
-				<% if signed_in? %>
-					<li><%= link_to "Users", users_url %></li>
-					<li><%= link_to "Profile", edit_user_url(current_user) %></li>
-					<li><%= link_to "Settings", goal_path %><li>
-                    <li><%= link_to "Status", status_path %></li>
-				<% end %>
+			<% if signed_in? %>
+				<li><%= link_to "Users", users_url %></li>
+				<li><%= link_to "Profile", edit_user_url(current_user) %></li>
+				<li><%= link_to "Settings", goal_path %><li>
+                <li><%= link_to "Status", status_path %></li>
+			<% end %>
 			
-				<li><%= link_to "Contact", contact_url %></li>
-				<li><%= link_to "About", about_url %></li>
+			<li><%= link_to "Contact", contact_url %></li>
+			<li><%= link_to "About", about_url %></li>
 			
-				<% if signed_in? %>
-					<li><%= link_to "Sign out", signout_url, :method => :delete %></li>
-				<% else %>
-					<li><%= link_to "Sign in", signin_url %></li>
-				<% end %>
-			</ul>
-		</section>
+			<% if signed_in? %>
+				<li><%= link_to "Sign out", signout_url, :method => :delete %></li>
+			<% else %>
+				<li><%= link_to "Sign in", signin_url %></li>
+			<% end %>
+		</ul>
 	</section>
-</header>
+</section></header>

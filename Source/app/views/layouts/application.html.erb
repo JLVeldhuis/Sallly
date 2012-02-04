@@ -12,13 +12,11 @@
 </head>
 <body>
 	<%= render 'layouts/header' %>
-	<section class="container">
-			<section class="span16 content">
-				<% flash.each do |key, value| %>
-					<div class="alert-message <%= key %>"><%= value %></div>
-				<% end %>
-				<%= yield %>
-			</section>
+	<section class="container content">
+		<% flash.each do |key, value| %>
+			<section class="alert-message <%= key %>"><%= value %></section>
+		<% end %>
+		<%= yield %>
 	</section>
 	<%= render 'layouts/footer' %>
 </body>
