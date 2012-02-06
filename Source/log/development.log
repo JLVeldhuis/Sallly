@@ -22393,3 +22393,4 @@ Rendered layouts/_header.html.erb (2040.0ms)
 Rendered layouts/_footer.html.erb (0.2ms)
 Completed 200 OK in 2357ms (Views: 1083.2ms | ActiveRecord: 1271.1ms)
 >>>>>>> DEPRECATION WARNING
+DEPRECATION WARNING: ActiveRecord::Associations::AssociationCollection is deprecated! Use ActiveRecord::Associations::CollectionProxy instead. (called from /Users/kasemchalliou/Documents/Sallly/Source/config/environment.rb:5)
