@@ -4,6 +4,7 @@ function HeartRate(options) {
     this.path             = options && options.path || "./heartrate";
     this.frameRate        = 0;
     this.frameCount       = 0;
+    this.lineCount        = 0;
     this.drawCount        = 0;
     this.framesPerSecond  = 0;
     this.timeline         = new Array(32);
@@ -70,10 +71,7 @@ function HeartRate(options) {
 
 HeartRate.prototype.calculate = function() {    
     this.frameCount++;
-    
-    if (this.frameCount == 31) {
-        this.frameCount = 0;
-    }
+    this.lineCount = this.frameCount % 32;
 };
 
 // This method calculates FPS and Renders the monitor
@@ -98,7 +96,7 @@ HeartRate.prototype.monitor = function() {
         // Line graph
         ctx.strokeStyle = this.plotColor;
         
-        for (var i = 0, len = this.frameCount; i < len; i++) {
+        for (var i = 0, len = this.lineCount; i < len; i++) {
             var plot1 = 25 - this.timeline[i] / 100 * 20, 
             plot2 = 25 - this.timeline[i+1] / 100 * 20;
             
