@@ -22989,3 +22989,25 @@ Rendered layouts/_stylesheets.html.erb (13.1ms)
 Rendered layouts/_header.html.erb (76.7ms)
 Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 101ms (Views: 90.5ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:54:37 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.0ms)
+Rendered pages/status.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (11.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (78.8ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 99ms (Views: 89.0ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:55:40 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (60.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (68.8ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 137ms (Views: 128.2ms | ActiveRecord: 8.7ms)

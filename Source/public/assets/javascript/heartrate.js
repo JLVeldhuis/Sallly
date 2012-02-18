@@ -63,8 +63,9 @@ function HeartRate(options) {
 HeartRate.prototype.calculate = function() {    
     this.frameCount++;
     
-    if (this.frameCount == 31) {
-        this.frameCount = 0;
+    this.drawCount = this.frameCount % 32;
+    if (this.drawCount > 31) {
+        this.drawCount = 0;
     }
 };
 
@@ -89,7 +90,7 @@ HeartRate.prototype.monitor = function() {
         // Line graph
         ctx.strokeStyle = this.plotColor;
         
-        for (var i = 0, len = this.frameCount; i < len; i++) {
+        for (var i = 0, len = this.drawCount; i < len; i++) {
             var plot1 = 25 - this.timeline[i] / 100 * 20, 
             plot2 = 25 - this.timeline[i+1] / 100 * 20;
             
