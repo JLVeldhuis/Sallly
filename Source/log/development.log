@@ -23011,3 +23011,14 @@ Rendered layouts/_stylesheets.html.erb (60.0ms)
 Rendered layouts/_header.html.erb (68.8ms)
 Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 137ms (Views: 128.2ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:57:25 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.0ms)
+Rendered pages/status.html.erb within layouts/application (1.3ms)
+Rendered layouts/_stylesheets.html.erb (12.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (84.1ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 107ms (Views: 96.9ms | ActiveRecord: 9.8ms)
