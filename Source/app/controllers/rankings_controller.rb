@@ -1,3 +1,0 @@
-class RankingsController < ApplicationController
-  
-end

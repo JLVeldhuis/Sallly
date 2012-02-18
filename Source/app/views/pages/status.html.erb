@@ -11,7 +11,8 @@
         data.addColumn('number', 'Value');
         data.addRows([
           ['Status', 10],
-          ['Pro-activity', 55]
+          ['Pro-activity', 55],
+          ['task', 55]
         ]);
 
         var options = {
@@ -71,6 +72,7 @@
 <section class="row">
     <section class="span6 info">
         <h3>Information</h3>
+        <%= current_user.setting.id %>
         <span>Information about your status</span>
         <section>
             <h4>Heart rate</h4>

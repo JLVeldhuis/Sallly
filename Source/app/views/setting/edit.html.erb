@@ -1,0 +1,14 @@
+<h1>Edit setting</h1>
+
+<%= form_for(@setting) do |f| %>
+
+	<div class="clearfix">
+		<%= f.label :goal_revenue %>
+		<div class="input">
+			<%= f.text_field :goal_revenue %>
+		</div>
+	</div>
+    <div class="actions">
+		<%= f.submit "Update", :class => "btn primary" %>
+	</div>
+<% end %>

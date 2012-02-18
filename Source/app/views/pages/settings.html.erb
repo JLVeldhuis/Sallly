@@ -1,0 +1,64 @@
+<h1>Change settings here</h1>
+<%= form_for current_user.setting do |f| %>
+    <hr />
+    <h3>Goal</h3>
+    <div class="clearfix">
+        <%= f.label :goal_revenue %>
+        <div class="input">
+            <%= f.text_field :goal_revenue %>
+        </div>
+    </div>
+    <div class"clearfix">
+        <%= f.label :goal_start %>
+        <div class="input">
+            <div class="inline-inputs">
+                <%= f.date_select :goal_start %>
+                to
+                <%= f.date_select :goal_end %>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h3>Average</h3>
+    <div class="clearfix">
+        <%= f.label :average_revenue %>
+        <div class="input">
+            <%= f.text_field :average_revenue %>
+        </div>
+    </div>
+    <div class"clearfix">
+        <%= f.label :average_start %>
+        <div class="input">
+            <div class="inline-inputs">
+                <%= f.date_select :average_start %>
+                to
+                <%= f.date_select :average_end %>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <h3>Activity</h3>
+    <div class="clearfix">
+        <%= f.label :activity_level %>
+        <div class="input">
+            <%= f.text_field :activity_level %>
+        </div>
+    </div>
+    <div class="clearfix">
+        <%= f.label :activity_calls %>
+        <div class="input">
+            <div class="inline-inputs">
+                <span>Calls:</span>
+                <%= f.text_field :activity_calls %>
+                <span>Visits:</span>
+                <%= f.text_field :activity_visits %>
+                <span>Quotes:</span>
+                <%= f.text_field :activity_quotes %>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions">
+        <%= f.submit "Save", :class => "btn btn-primary" %>
+    </div>
+<% end %>

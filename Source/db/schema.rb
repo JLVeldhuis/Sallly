@@ -10,14 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120113165809) do
+ActiveRecord::Schema.define(:version => 20120218123645) do
 
   create_table "settings", :force => true do |t|
-    t.string   "name"
-    t.string   "content"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "goal_revenue"
+    t.date    "goal_start"
+    t.date    "goal_end"
+    t.integer "average_revenue"
+    t.date    "average_start"
+    t.date    "average_end"
+    t.integer "activity_level"
+    t.integer "activity_calls"
+    t.integer "activity_visits"
+    t.integer "activity_quotes"
+    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -31,32 +37,5 @@ ActiveRecord::Schema.define(:version => 20120113165809) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  
-  create table "calendar_event", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "event_date"
-    t.datetime "finished_before"
-    t.string   "name"
-    t.string   "notes"
-    t.string   "type"   
-    t.boolean  "done"
-    t.integer  "user_id"
-  end
-  
-   create table "user_profile", :force => true do |t|
-     t.integer   "revenue"
-     t.integer   "cold_calls"
-     t.integer   "visits"
-     t.integer   "quotes"
-     t.datetime  "sales_cycle"
-     t.datetime  "estimated_time_cycle"
-   end
-   
-   create table "ranking", :force => true do |t|
-     t.integer   "cold_calls"
-     t.integer   "visits"
-     t.integer   "quotes"
-     t.integer   "score"
-   end
 
 end

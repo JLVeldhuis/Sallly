@@ -10,7 +10,9 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    if @user.save
+    if @user.save        
+      @setting = Setting.new(:user_id => @user.id);
+      @setting.save
       sign_in @user
       flash[:success] = "Welcome to Sallly"
       redirect_to welcome_path

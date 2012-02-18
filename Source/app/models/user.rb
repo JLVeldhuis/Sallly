@@ -4,12 +4,6 @@ class User < ActiveRecord::Base
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
-  has_many :settings, :dependent => :destroy
-  has_many :tasks
-  has_one  :ranking
-  
-  belongs_to :user_profile
-  
   validates :name,     :presence     => true,
                        :length       => { :maximum => 50 }
   validates :email,    :presence     => true,
@@ -20,6 +14,8 @@ class User < ActiveRecord::Base
                        :length       => { :within => 6..40 }
                        
   before_save :encrypt_password
+    
+    has_one :setting
   
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
