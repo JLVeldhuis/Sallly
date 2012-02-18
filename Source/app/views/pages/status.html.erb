@@ -32,13 +32,8 @@
           var ctx = document.getElementById("monitor").getContext("2d");
           window.heartRate = new HeartRate({ context: ctx, path: "../" });
 
-          if (typeof window.mozRequestAnimationFrame === "function") {
-              (requestFrame = function() { window.mozRequestAnimationFrame(draw); })();
-          } else if (typeof window.webkitRequestAnimationFrame === "function") {
-              (requestFrame = function() { window.webkitRequestAnimationFrame(draw); })();
-          } else {
+          
               window.setInterval(draw, 50);
-          } 
       }
 
       // Draws the heartrate monitor.
