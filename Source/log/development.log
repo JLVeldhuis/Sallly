@@ -22730,3 +22730,262 @@ Rendered layouts/_stylesheets.html.erb (48.0ms)
 Rendered layouts/_header.html.erb (217.0ms)
 Rendered layouts/_footer.html.erb (0.3ms)
 Completed 200 OK in 303ms (Views: 296.0ms | ActiveRecord: 5.9ms)
+DEPRECATION WARNING: ActiveRecord::Associations::AssociationCollection is deprecated! Use ActiveRecord::Associations::CollectionProxy instead. (called from /Volumes/Macintosh HD/Users/jim_is_gek/Sallly/Source/config/environment.rb:5)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:26:45 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.3ms)
+Rendered pages/status.html.erb within layouts/application (6.0ms)
+Rendered layouts/_stylesheets.html.erb (12.4ms)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (116.0ms)
+Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 151ms (Views: 107.3ms | ActiveRecord: 43.3ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:26:47 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (0.9ms)
+Rendered layouts/_stylesheets.html.erb (47.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (74.9ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 131ms (Views: 121.2ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:26:50 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (11.7ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (82.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 105ms (Views: 94.6ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:27:32 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (1.0ms)
+Rendered layouts/_stylesheets.html.erb (55.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (69.1ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 141ms (Views: 131.5ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:27:36 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (1.0ms)
+Rendered layouts/_stylesheets.html.erb (11.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (83.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 104ms (Views: 93.9ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:27:41 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (0.9ms)
+Rendered layouts/_stylesheets.html.erb (14.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (74.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 98ms (Views: 85.6ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:28:10 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (12.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (107.7ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 129ms (Views: 86.9ms | ActiveRecord: 41.7ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:28:12 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (70.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (77.0ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 156ms (Views: 145.7ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:28:15 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (11.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (77.0ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 97ms (Views: 85.8ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:28:25 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.0ms)
+Rendered pages/status.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (12.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (75.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 96ms (Views: 85.2ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:28:28 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (0.9ms)
+Rendered layouts/_stylesheets.html.erb (58.1ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (77.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 145ms (Views: 132.1ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:28:32 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (0.9ms)
+Rendered layouts/_stylesheets.html.erb (13.7ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (82.0ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 105ms (Views: 93.4ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:28:35 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (0.9ms)
+Rendered layouts/_stylesheets.html.erb (11.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (75.2ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 97ms (Views: 85.8ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:28:37 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (0.9ms)
+Rendered layouts/_stylesheets.html.erb (11.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (78.0ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 137ms (Views: 124.2ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:29:19 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (13.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (90.4ms)
+Rendered layouts/_footer.html.erb (33.5ms)
+Completed 200 OK in 146ms (Views: 134.8ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:51:31 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (1.2ms)
+Rendered layouts/_stylesheets.html.erb (11.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (94.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 118ms (Views: 107.1ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:51:32 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (11.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (77.3ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 97ms (Views: 86.5ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:52:22 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (1.1ms)
+Rendered layouts/_stylesheets.html.erb (58.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (70.8ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 138ms (Views: 125.1ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:52:23 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.0ms)
+Rendered pages/status.html.erb within layouts/application (0.8ms)
+Rendered layouts/_stylesheets.html.erb (11.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (84.8ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 105ms (Views: 93.9ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:52:33 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.0ms)
+Rendered pages/status.html.erb within layouts/application (1.2ms)
+Rendered layouts/_stylesheets.html.erb (14.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (72.4ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 96ms (Views: 86.5ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:52:56 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (1.2ms)
+Rendered layouts/_stylesheets.html.erb (12.0ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (71.5ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 142ms (Views: 131.2ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:53:35 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.1ms)
+Rendered pages/status.html.erb within layouts/application (1.2ms)
+Rendered layouts/_stylesheets.html.erb (14.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (85.7ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 109ms (Views: 97.9ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/status" for 127.0.0.1 at Sat Feb 18 11:53:53 +0100 2012
+  Processing by PagesController#status as HTML
+Rendered shared/_calendar.html.erb (0.0ms)
+Rendered pages/status.html.erb within layouts/application (1.1ms)
+Rendered layouts/_stylesheets.html.erb (13.1ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered layouts/_header.html.erb (76.7ms)
+Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 101ms (Views: 90.5ms | ActiveRecord: 10.2ms)

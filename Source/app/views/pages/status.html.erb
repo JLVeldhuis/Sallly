@@ -1,4 +1,7 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<link rel="stylesheet" type="text/css" href="http://visapi-gadgets.googlecode.com/svn/trunk/pilesofmoney/pom.css"/>
+    <script type="text/javascript" src="http://visapi-gadgets.googlecode.com/svn/trunk/pilesofmoney/pom.js"></script>
+   
     <script type='text/javascript'>
       google.load('visualization', '1', {packages:['gauge']});
       google.setOnLoadCallback(drawChart);
@@ -31,15 +34,37 @@
       function init() {
           var ctx = document.getElementById("monitor").getContext("2d");
           window.heartRate = new HeartRate({ context: ctx, path: "../" });
-
-          
-              window.setInterval(draw, 50);
+          window.setInterval(draw, 50);
       }
 
       // Draws the heartrate monitor.
       function draw() {     
         // heartRate.monitor(xPosition, yPosition);
         heartRate.monitor();
+      }
+    </script>
+    <script type="text/javascript">
+      google.load("visualization", "1");
+      google.setOnLoadCallback(drawChart);
+      var chart;
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Label');
+        data.addColumn('number', 'Value');
+        data.addRows(4);
+        data.setCell(0, 0, 'Januari');
+        data.setCell(1, 0, 'Februari');
+        data.setCell(2, 0, 'Maart');
+        data.setCell(3, 0, 'April');
+        data.setCell(0, 1, 10, '$10,000');
+        data.setCell(1, 1, 30, '$30,000');
+        data.setCell(2, 1, 18, '$18,000');
+        data.setCell(3, 1, 7.5, '$7,500');
+        var chartDiv = document.getElementById('chartdiv');
+        var options = {title: 'Reveneues By Country'};
+        chart = new PilesOfMoney(chartDiv);
+        chart.draw(data, options);
+        //google.visualization.events.addListener(chart, 'select', handleSelect);
       }
     </script>
 <h1>Status</h1>
@@ -54,6 +79,7 @@
         <section>
             <h4>Activities</h4>
             <div id='chart_div'></div>
+            <div id='chartdiv'></div>
         </section>
         <section>
             <h4>Ranking</h4>
