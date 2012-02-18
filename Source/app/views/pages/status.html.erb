@@ -1,4 +1,4 @@
-<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type='text/javascript'>
       google.load('visualization', '1', {packages:['gauge']});
       google.setOnLoadCallback(drawChart);
@@ -22,33 +22,23 @@
         chart.draw(data, options);
       }
     </script>
-    <script type="text/javascript" src="/assets/javascript/mjs.js"></script>
     <script type="text/javascript" src="/assets/javascript/heartrate.js"></script>
     
     <script type="text/javascript">
-
-      var cvs, 
-          ctx,
-          width, 
-          height;
-  
       document.addEventListener("DOMContentLoaded", init, false);
 
       /* The init function creates a 2d context, runs setup and starts draw loop */
       function init() {
-        cvs = document.getElementById("monitor");
-        ctx = cvs.getContext("2d");
-    
-        width = cvs.width, height = cvs.height;
-        window.heartRate = new HeartRate({ context: ctx, path: "../" });
+          var ctx = document.getElementById("monitor").getContext("2d");
+          window.heartRate = new HeartRate({ context: ctx, path: "../" });
 
-        if (typeof window.mozRequestAnimationFrame === "function") {
-          (requestFrame = function() { window.mozRequestAnimationFrame(draw); })();
-        } else if (typeof window.webkitRequestAnimationFrame === "function") {
-          (requestFrame = function() { window.webkitRequestAnimationFrame(draw); })();
-        } else {
-          window.setInterval(draw, 50);
-        } 
+          if (typeof window.mozRequestAnimationFrame === "function") {
+              (requestFrame = function() { window.mozRequestAnimationFrame(draw); })();
+          } else if (typeof window.webkitRequestAnimationFrame === "function") {
+              (requestFrame = function() { window.webkitRequestAnimationFrame(draw); })();
+          } else {
+              window.setInterval(draw, 50);
+          } 
       }
 
       // Draws the heartrate monitor.
