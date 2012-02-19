@@ -38,11 +38,8 @@
     </div>
     <hr />
     <h3>Activity</h3>
-    <div class="clearfix">
-        <%= f.label :activity_level %>
-        <div class="input">
-            <%= f.text_field :activity_level %>
-        </div>
+    <div class="controls">
+        <%= f.select :activity_level, {"Level 1: Rookie" => 0, "Level 2: Novice" => 1, "Level 3: Ninja" => 2} %>
     </div>
     <div class="clearfix">
         <%= f.label :activity_calls %>
