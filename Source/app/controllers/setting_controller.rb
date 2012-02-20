@@ -6,7 +6,7 @@ class SettingController < ApplicationController
     def update
         @setting = Setting.find(current_user.setting.id)
         if @setting.update_attributes(params[:setting])
-            flash[:success] = "Setting updated. #{params[:setting][:activity_level]}"
+            flash[:success] = "Setting updated."
             
             if params[:target].nil?
                 @redirect = "settings"
