@@ -5,38 +5,27 @@
 <p>
 	The qeustions down below make an assumption of the amount of tasks needed to get to your next step achieving your goals. In case you don't have gained any experience yet, use the worst case scenario for each field.'
 </p>
-<div class="clearfix">
-	<label for="proactivitySelect">Whats is your pro-activity level?:</label>
-	<div class="input">
-		<select name="proactivitySelect" id="normalSelect">
-			<option selected="selected">Novice</option>
-			<option>Intermediate</option>
-			<option>Expert</option>
-		</select>
-	</div>
-</div>
-<h3>How many:</h3>
-<div class="row">
-	<div class="span10">
-		<label for="coldcalls">cold calls are needed for a customer visit?:</label>
-		<div class="input">
-			<input type="text" name="coldcalls" style="width: 20px;" />
-		</div>
-	</div>
-	<div class="span10">
-		<label for="visits">visits are needed for a quote?:</label>
-		<div class="input">
-			<input type="text" name="visits" style="width: 20px;" />
-		</div>
-	</div>
-	<div class="span10">
-		<label for="quotes">quotes are needed for an assignment?:</label>
-		<div class="input">
-			<input type="text" name="quotes" style="width: 20px;" />
-		</div>
-	</div>
-</div>
-<div class="actions">
-	<%= link_to "Previous", average_path, :class => "btn" %>
-	<%= link_to "Next", status_path, :class => "btn btn-primary" %>
-</div>
+<%= form_for current_user.setting do |f| %>
+    <input name="target" type="hidden" value="status" />
+    <div class="controls">
+        <%= f.label :activity_level %>
+        <%= f.select :activity_level, {"Level 1: Rookie" => 0, "Level 2: Novice" => 1, "Level 3: Ninja" => 2} %>
+    </div>
+    <div class="clearfix">
+        <%= f.label :activity_calls %>
+        <div class="input">
+            <div class="inline-inputs">
+                <span>Calls:</span>
+                <%= f.text_field :activity_calls %>
+                <span>Visits:</span>
+                <%= f.text_field :activity_visits %>
+                <span>Quotes:</span>
+                <%= f.text_field :activity_quotes %>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <%= link_to "Previous", goal_path, :class => "btn" %>
+        <%= f.submit "Next", :class => "btn btn-primary" %>
+    </div>
+<% end %>
