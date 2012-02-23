@@ -2,6 +2,10 @@
 <link rel="stylesheet" href="/assets/stylesheets/calendar.css" type="text/css" media="screen" />
 <!--[if lte IE 8]><link rel="stylesheet" href="http://html5advent.com/assets/css/ie8.css" type="text/css" media="screen" /><![endif]-->
 <!--[if lte IE 6]><link rel="stylesheet" href="http://html5advent.com/assets/css/ie6.css" type="text/css" media="screen" /><![endif]-->
+<% @year        = 2012 %>
+<% @month       = 4 %>
+<% @daysInMonth = (Date.new(@year, 12, 31) << (12-@month)).day %>
+<% @startDay    = (Time.local(@year, @month, 1)).wday %>
 
 <section id="calendar">
 	<ul class="calendar-month">
@@ -27,105 +31,11 @@
 			Sunday
 		</li>
 		
-		<li class="indent-5 day event" data-controls-modal="day-1" data-backdrop="true" data-keyboard="true">
-			<strong>01</strong>
-		</li>
-		<li class="day" data-controls-modal="day-2" data-backdrop="true" data-keyboard="true">
-			<strong>02</strong>
-		</li>
-		<li class="day" data-controls-modal="day-3" data-backdrop="true" data-keyboard="true">
-			<strong>03</strong>
-		</li>
-		<li class="day" data-controls-modal="day-4" data-backdrop="true" data-keyboard="true">
-			<strong>04</strong>
-		</li>
-		<li class="day" data-controls-modal="day-5" data-backdrop="true" data-keyboard="true">
-			<strong>05</strong>
-		</li>
-		<li class="day" data-controls-modal="day-6" data-backdrop="true" data-keyboard="true">
-			<strong>06</strong>
-		</li>
-		<li class="day" data-controls-modal="day-7" data-backdrop="true" data-keyboard="true">
-			<strong>07</strong>
-		</li>
+		<li class="indent-<%= @startDay %> day event" data-controls-modal="day-1" data-backdrop="true" data-keyboard="true">1</li>
 		
-		<li class="indent-5 day" data-controls-modal="day-8" data-backdrop="true" data-keyboard="true">
-			<strong>08</strong>
-		</li>
-		<li class="day" data-controls-modal="day-9" data-backdrop="true" data-keyboard="true">
-			<strong>09</strong>
-		</li>
-		<li class="day" data-controls-modal="day-10" data-backdrop="true" data-keyboard="true">
-			<strong>10</strong>
-		</li>
-		<li class="day" data-controls-modal="day-11" data-backdrop="true" data-keyboard="true">
-			<strong>11</strong>
-		</li>
-		<li class="day" data-controls-modal="day-12" data-backdrop="true" data-keyboard="true">
-			<strong>12</strong>
-		</li>
-		<li class="day" data-controls-modal="day-13" data-backdrop="true" data-keyboard="true">
-			<strong>13</strong>
-		</li>
-		<li class="day" data-controls-modal="day-14" data-backdrop="true" data-keyboard="true">
-			<strong>14</strong>
-		</li>
-		
-		<li class="indent-5 day" data-controls-modal="day-15" data-backdrop="true" data-keyboard="true">
-			<strong>15</strong>
-		</li>
-		<li class="day" data-controls-modal="day-16" data-backdrop="true" data-keyboard="true">
-			<strong>16</strong>
-		</li>
-		<li class="day" data-controls-modal="day-16" data-backdrop="true" data-keyboard="true">
-			<strong>16</strong>
-		</li>
-		<li class="day" data-controls-modal="day-17" data-backdrop="true" data-keyboard="true">
-			<strong>17</strong>
-		</li>
-		<li class="day" data-controls-modal="day-18" data-backdrop="true" data-keyboard="true">
-			<strong>18</strong>
-		</li>
-		<li class="day" data-controls-modal="day-19" data-backdrop="true" data-keyboard="true">
-			<strong>19</strong>
-		</li>
-		<li class="day" data-controls-modal="day-20" data-backdrop="true" data-keyboard="true">
-			<strong>20</strong>
-		</li>
-		
-		<li class="indent-5 day" data-controls-modal="day-21" data-backdrop="true" data-keyboard="true">
-			<strong>21</strong>
-		</li>
-		<li class="day" data-controls-modal="day-22" data-backdrop="true" data-keyboard="true">
-			<strong>22</strong>
-		</li>
-		<li class="day" data-controls-modal="day-23" data-backdrop="true" data-keyboard="true">
-			<strong>23</strong>
-		</li>
-		<li class="day" data-controls-modal="day-24" data-backdrop="true" data-keyboard="true">
-			<strong>24</strong>
-		</li>
-		<li class="day" data-controls-modal="day-25" data-backdrop="true" data-keyboard="true">
-			<strong>25</strong>
-		</li>
-		<li class="day" data-controls-modal="day-26" data-backdrop="true" data-keyboard="true">
-			<strong>26</strong>
-		</li>
-		<li class="day" data-controls-modal="day-27" data-backdrop="true" data-keyboard="true">
-			<strong>27</strong>
-		</li>
-		<li class="indent-5 day" data-controls-modal="day-28" data-backdrop="true" data-keyboard="true">
-			<strong>28</strong>
-		</li>
-		<li class="day" data-controls-modal="day-29" data-backdrop="true" data-keyboard="true">
-			<strong>29</strong>
-		</li>
-		<li class="day" data-controls-modal="day-30" data-backdrop="true" data-keyboard="true">
-			<strong>30</strong>
-		</li>
-		<li class="day" data-controls-modal="day-31" data-backdrop="true" data-keyboard="true">
-			<strong>31</strong>
-		</li>
+		<% (2..@daysInMonth).each do |day| %>			
+			<li class="day" data-controls-modal="day-<%= day %>" data-backdrop="true" data-keyboard="true"><h4><%= day %></h4></li>
+		<% end %>
 	</ul>
 </section>
     
