@@ -38,23 +38,34 @@
 		<% end %>
 	</ul>
 </section>
-    
+<article>
+    <% (1..@daysInMonth).each do |day| %>			
+        <section id="day-<%= day %>" class="modal hide fade">
+            <section class="modal-header">
+                <a href="#" class="close">&times;</a>
+                <h3><%= day %>-February-2012</h3>
+            </section>
+            <section class="modal-body">
+                <%= form_for @event do |f| %>
+                <div class="clearfix">
+                    <%= f.label :title %>
+                    <div class="input">
+                        <%= f.text_field :title %>
+                    </div>
+                </div>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <div class="actions">
+                    <%= f.submit "Sign up", :class => "btn primary" %>
+                </div>
+                <% end %>
+            </section>
+            <section class="modal-footer">
+                <a href="#" class="btn">Deny</a>
+                <a href="#" class="btn primary">Accept</a>
+            </section>
+        </section>
+    <% end %>
+</article>
 
-
-    <article>
-    	<section id="day-1" class="modal hide fade">
-    		<section class="modal-header">
-    			<a href="#" class="close">&times;</a>
-    			<h3>01-February-2012</h3>
-    		</section>
-    		<section class="modal-body">
-    			<p>Hello World!!</p>
-    		</section>
-    		<section class="modal-footer">
-    			<a href="#" class="btn">Deny</a>
-    			<a href="#" class="btn primary">Accept</a>
-    		</section>
-    	</section>
-    </article>
 <script type="text/javascript" src="/assets/javascript/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="/assets/javascript/bootstrap-modal.js"></script>

@@ -1,40 +1,35 @@
 function HeartRate(options) {
     this.context          = options && options.context || false;
-    this.path             = options && options.path || "./heartrate";
     this.frameCount       = 0;
-    this.drawCount        = 0;
-    this.timeline         = new Array(32);
+    this.timeline         = new Array(35);
     
     if (this.context) {
-        // Background template
-        this.bgImage        = new Image(), this.bgImage.src = "/assets/images/bg.png";
-        
         // Timeline..
         this.timeline[0] = 50;
         this.timeline[1] = 50;
         this.timeline[2] = 50;
         this.timeline[3] = 50;
         this.timeline[4] = 50;
-        this.timeline[5] = 45;
-        this.timeline[6] = 60;
-        this.timeline[7] = 35;
-        this.timeline[8] = 100;
-        this.timeline[9] = 0;
-        this.timeline[10] = 50;
-        this.timeline[11] = 50;
-        this.timeline[12] = 50;
-        this.timeline[13] = 50;
-        this.timeline[14] = 50;
-        this.timeline[15] = 45;
-        this.timeline[16] = 60;
-        this.timeline[17] = 35;
-        this.timeline[18] = 100;
-        this.timeline[19] = 0;
-        this.timeline[20] = 50;
-        this.timeline[21] = 50;
-        this.timeline[22] = 50;
-        this.timeline[23] = 50;
-        this.timeline[24] = 50;
+        this.timeline[5] = 50;
+        this.timeline[6] = 50;
+        this.timeline[7] = 50;
+        this.timeline[8] = 50;
+        this.timeline[9] = 50;
+        this.timeline[10] = 45;
+        this.timeline[11] = 60;
+        this.timeline[12] = 35;
+        this.timeline[13] = 100;
+        this.timeline[14] = 0;
+        this.timeline[15] = 50;
+        this.timeline[16] = 50;
+        this.timeline[17] = 50;
+        this.timeline[18] = 50;
+        this.timeline[19] = 50;
+        this.timeline[20] = 45;
+        this.timeline[21] = 60;
+        this.timeline[22] = 35;
+        this.timeline[23] = 100;
+        this.timeline[24] = 0;
         this.timeline[25] = 50;
         this.timeline[26] = 50;
         this.timeline[27] = 50;
@@ -42,10 +37,13 @@ function HeartRate(options) {
         this.timeline[29] = 50;
         this.timeline[30] = 50;
         this.timeline[31] = 50;
+        this.timeline[32] = 50;
+        this.timeline[33] = 50;
+        this.timeline[34] = 50;
         
         // Sprite strip
         this.sprites        = new Image();
-        this.sprites.src    = this.path + "/assets/images/spritestrip.png";
+        this.sprites.src    = "/assets/images/spritestrip.png";
         this.spriteCount    = 61;
         this.spriteWidth    = 20;
         this.spriteHeight   = 18;
@@ -63,8 +61,8 @@ function HeartRate(options) {
 HeartRate.prototype.calculate = function() {    
     this.frameCount++;
     
-    this.drawCount = this.frameCount % 32;
-    if (this.drawCount > 31) {
+    this.drawCount = this.frameCount % 35;
+    if (this.drawCount > 34) {
         this.drawCount = 0;
     }
 };
@@ -84,15 +82,17 @@ HeartRate.prototype.monitor = function() {
         ctx.translate(0, 0);
         
         // Background
-        ctx.drawImage(this.bgImage, 0, 0);
+        ctx.fillStyle = "rgb(255, 255, 255)";
+        ctx.fillRect(0, 0, 435, 250);
+        
         ctx.drawImage(this.sprites, (this.frameCount % this.spriteCount) * spriteWidth, 0, spriteWidth, spriteHeight, 9, 6, spriteWidth, spriteHeight);
         
         // Line graph
         ctx.strokeStyle = this.plotColor;
         
         for (var i = 0, len = this.drawCount; i < len; i++) {
-            var plot1 = 25 - this.timeline[i] / 100 * 20, 
-            plot2 = 25 - this.timeline[i+1] / 100 * 20;
+            var plot1 = 50 - this.timeline[i] / 100 * 40, 
+            plot2 = 50 - this.timeline[i+1] / 100 * 40;
             
             if (!isNaN(plot1)) { 
                 ctx.beginPath();

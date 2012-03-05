@@ -10,20 +10,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120218123645) do
+ActiveRecord::Schema.define(:version => 20120305160113) do
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.date     "date_from"
+    t.date     "date_to"
+    t.string   "location"
+    t.string   "eventtype"
+    t.string   "crm"
+    t.string   "tips"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "settings", :force => true do |t|
-    t.integer "goal_revenue"
-    t.date    "goal_start"
-    t.date    "goal_end"
-    t.integer "average_revenue"
-    t.date    "average_start"
-    t.date    "average_end"
-    t.integer "activity_level"
-    t.integer "activity_calls"
-    t.integer "activity_visits"
-    t.integer "activity_quotes"
-    t.integer "user_id"
+    t.integer  "goal_revenue"
+    t.date     "goal_start"
+    t.date     "goal_end"
+    t.integer  "average_revenue"
+    t.date     "average_start"
+    t.date     "average_end"
+    t.integer  "activity_level"
+    t.integer  "activity_calls"
+    t.integer  "activity_visits"
+    t.integer  "activity_quotes"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
