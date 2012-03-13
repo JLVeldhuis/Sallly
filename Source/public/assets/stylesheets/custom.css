@@ -15,21 +15,19 @@ body {
 	padding: 10px;
 }
 
-    .content .info
-    {
+    .content .row {
+        margin: 0;
     }
 
-        .content .info section
+        .content .info
         {
-            border: 1px solid #333333;
-            margin: 10px 0;
-            padding: 10px;
-        }
+        }   
 
-        .content .info section:first-child
-        {
-            margin: 0 0 10px;
-        }
+            .content .info section
+            {
+                min-height: 150px;
+                overflow: hidden;
+            }
 
 /**
  * 	Footer section

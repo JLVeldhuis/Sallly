@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :restrict_access, :only => [:welcome, :goal, :average, :activities]
+    before_filter :restrict_access, :only => [:welcome, :goal, :average, :activities, :status]
 
     def status
         @event = current_user.events.new() if signed_in?

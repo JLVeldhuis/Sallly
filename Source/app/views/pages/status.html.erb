@@ -44,30 +44,28 @@
         heartRate.monitor();
       }
     </script>
+    
+    
+    
     <h1>Status</h1>
-<section class="row">
-    <section class="span6 info">
-        <h3>Information</h3>
-        <span>Information about your status</span>
-        <section>
+    <section class="row info">
+        <section class="span3 well">
             <h4>Heart rate</h4>
-            <canvas id="monitor" width="435" height="50"></canvas>
+            <canvas id="monitor" width="220" height="50" style="margin-top: 40px;"></canvas>
         </section>
-        <section>
+        <section class="span4 well">
             <h4>Activities</h4>
-            <div id='chart_div'></div>
+            <div id='chart_div' style="margin-top: 25px;"></div>
         </section>
-        <section>
+        <section class="span3 well">
             <h4>Ranking</h4>
-            <%= image_tag 'images/ninja.png', :width => 125 %>
-            <%= image_tag 'images/ninja.png', :width => 125 %>
             <%= image_tag 'images/ninja.png', :width => 125 %>
         </section>
     </section>
-    <section class="span6 chart">
-        <h3>Schedular</h3>
-        <span>Your revenue so far</span>
+    <section class="row">
         <%= render 'shared/calendar' %>
+    </section>
+    <section class="row">
         <h3>New</h3>
         <%= form_for(@event) do |f| %>
             <div class="clearfix">
@@ -81,7 +79,8 @@
                 <%= f.submit "Sign up", :class => "btn primary" %>
             </div>
         <% end %>
-
+    </section>
+    <section class="row">
         <h3>Events</h3>
         <span>Your upcoming events.</span>
         <table class="table table-striped table-bordered table-condensed">
