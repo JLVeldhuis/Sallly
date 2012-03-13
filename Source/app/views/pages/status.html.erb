@@ -45,7 +45,14 @@
       }
     </script>
     
-    
+    <script src="assets/javascript/bootstrap-modal.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#myModal').modal('hide');
+        });
+    </script>
+
+
     
     <h1>Status</h1>
     <section class="row info">
@@ -67,18 +74,7 @@
     </section>
     <section class="row">
         <h3>New</h3>
-        <%= form_for(@event) do |f| %>
-            <div class="clearfix">
-                <%= f.label :title %>
-                <div class="input">
-                    <%= f.text_field :title %>
-                </div>
-            </div>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-        	<div class="actions">
-                <%= f.submit "Sign up", :class => "btn primary" %>
-            </div>
-        <% end %>
+        
     </section>
     <section class="row">
         <h3>Events</h3>

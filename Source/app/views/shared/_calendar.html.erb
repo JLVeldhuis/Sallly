@@ -1,6 +1,4 @@
-
 <link rel="stylesheet" href="/assets/stylesheets/calendar.css" type="text/css" media="screen" />
-
 <script type="text/javascript" src="/assets/javascript/jquery-1.7.1.min.js"></script>
 
    		<script type="text/javascript">
@@ -18,11 +16,35 @@
 			$(document).ready(function() {initMenu();});
    		</script>
 
+        <div id="myModal" class="modal hide fade">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal" >&times;</a>
+              <h3>New event</h3>
+            </div>
+            <%= form_for(@event) do |f| %>
+                <div class="modal-body">
+                    <div class="clearfix">
+                        <%= f.label :title %>
+                        <div class="input">
+                            <%= f.text_field :title %>
+                        </div>
+                    </div>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn" data-dismiss="modal">Close</a>
+                    <%= f.submit "Add event", :class => "btn btn-primary" %>
+                </div>
+            <% end %>
+          </div>
 		<div id="calendar">					
 			<div id="calcontainer">
 				<div id="calheader">
-					<h2>November 2011</h2>
-				</div>		
+					<h2>November 2011</h2>                    
+				</div>	
+                <div id="calheader" style="text-align: left">
+                    <a data-toggle="modal" href="#myModal"><i class="icon-plus"></i>Add new event</a>
+                </div>
 				<div id="daysweek">
 					<div class="dayweek"><p>Monday</p></div>
 					<div class="dayweek"><p>Tuesday</p></div>
