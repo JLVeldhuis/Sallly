@@ -82,10 +82,10 @@ HeartRate.prototype.monitor = function() {
         ctx.translate(0, 0);
         
         // Background
-        ctx.fillStyle = "rgb(255, 255, 255)";
+        ctx.fillStyle = "rgb(245, 245, 245)";
         ctx.fillRect(0, 0, 435, 250);
         
-        ctx.drawImage(this.sprites, (this.frameCount % this.spriteCount) * spriteWidth, 0, spriteWidth, spriteHeight, 9, 6, spriteWidth, spriteHeight);
+        ctx.drawImage(this.sprites, (this.frameCount % this.spriteCount) * spriteWidth, 0, spriteWidth, spriteHeight, 9, 20, spriteWidth, spriteHeight);
         
         // Line graph
         ctx.strokeStyle = this.plotColor;
