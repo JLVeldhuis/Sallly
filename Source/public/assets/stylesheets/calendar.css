@@ -53,10 +53,10 @@
 .yellow:hover{background:#ffbd6a;}
 .green{background:#94e354;}
 .green:hover{background:#98e857;}
-.call{background: url('/assets/images/call.png') scroll no-repeat 4px 4px #5496dd;}
-.visit{background: url('/assets/images/visit.png') scroll no-repeat 4px 4px #ff454b;}
-.quote{background: url('/assets/images/quote.png') scroll no-repeat 4px 4px #ffac4d;}
-.other{background: url('/assets/images/lightning.png') scroll no-repeat 4px 4px #94e354;}
+.call{background: url('/assets/images/call.png') scroll no-repeat 4px 4px transparent;}
+.visit{background: url('/assets/images/visit.png') scroll no-repeat 4px 4px transparent;}
+.quote{background: url('/assets/images/quote.png') scroll no-repeat 4px 4px transparent;}
+.other{background: url('/assets/images/lightning.png') scroll no-repeat 4px 4px transparent;}
 
 /**************************** Duration of an event ****************************/
 .l1{height:20px;overflow:hidden;}
