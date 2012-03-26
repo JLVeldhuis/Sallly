@@ -5,12 +5,11 @@
 			function initMenu() {
 				var block = $(".day");
 					block.addClass("clickable");
-					block.hover(function(){window.status = $(this)}, function(){window.status = ""});
 				
 				$('.open').hide();
 				block.click(
 					function() {
-						$(this).parents('div:eq(0)').find('.open').slideToggle('fast');	
+						$(this).parents('div:eq(0)').find('.open').slideToggle('slow');	
 					}
 				);}
 			$(document).ready(function() {initMenu();});
@@ -37,29 +36,29 @@
                 </div>
             <% end %>
           </div>
-		<div id="calendar">					
-			<div id="calcontainer">
-				<div id="calheader">
+          
+		<div id="calendar">
+				<div id="month">
 					<h2>November 2011</h2>                    
 				</div>	
-                <div id="calheader" style="text-align: left">
+                <div>
                     <a data-toggle="modal" href="#myModal"><i class="icon-plus"></i>Add new event</a>
                 </div>
-				<div id="daysweek">
-					<div class="dayweek"><p>Monday</p></div>
-					<div class="dayweek"><p>Tuesday</p></div>
-					<div class="dayweek"><p>Wednesday</p></div>
-					<div class="dayweek"><p>Thursday</p></div>
-					<div class="dayweek"><p>Friday</p></div>
-					<div class="dayweek"><p>Saturday</p></div>
-					<div class="dayweek brn"><p>Sunday</p></div>
+				<div id="days">
+					<p>Monday</p>
+					<p>Tuesday</p>
+					<p>Wednesday</p>
+					<p>Thursday</p>
+					<p>Friday</p>
+					<p>Saturday</p>
+					<p class="last">Sunday</p>
 				</div>
 				<div id="daysmonth">
 <!---------------------------------------- week 1 ---------------------------------------->
 					<div class="week">
 						<div class="day">
 							<div class="daybar"><p>31</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="other"></li>
 									<li class="quote"></li>
@@ -76,7 +75,7 @@
 						</div>		
 						<div class="day">
 							<div class="daybar"><p>1</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="other"></li>
 									<li class="other"></li>
@@ -95,7 +94,7 @@
 						</div>				
 						<div class="day">
 							<div class="daybar"><p>2</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="call"></li>
 									<li class="quote"></li>
@@ -112,7 +111,7 @@
 						</div>			
 						<div class="day">
 							<div class="daybar"><p>3</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="visit"></li>
 								</ul>
@@ -127,20 +126,18 @@
 						</div>	
 						<div class="day">
 							<div class="daybar"><p>4</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 								</ul>
 							</div>	
 							<!-- slide open -->
 							<div class="open">
-								<ul>
-								</ul>
 							</div>	
 							<!-- slide closed -->
 						</div>			
 						<div class="day">
 							<div class="daybar"><p>5</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="visit"></li>
 									<li class="call"></li>
@@ -155,9 +152,9 @@
 							</div>	
 							<!-- slide closed -->
 						</div>				
-						<div class="day brn">
+						<div class="day last">
 							<div class="daybar"><p>6</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="other"></li>
 									<li class="quote"></li>
@@ -177,7 +174,7 @@
 					<div class="week">
 						<div class="day">
 							<div class="daybar"><p>7</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="other"></li>
 									<li class="quote"></li>
@@ -194,7 +191,7 @@
 						</div>		
 						<div class="day">
 							<div class="daybar"><p>8</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="visit"></li>
 								</ul>
@@ -209,7 +206,7 @@
 						</div>				
 						<div class="day">
 							<div class="daybar"><p>9</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="other"></li>
 									<li class="other"></li>
@@ -228,7 +225,7 @@
 						</div>			
 						<div class="day">
 							<div class="daybar"><p>10</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="visit"></li>
 								</ul>
@@ -243,7 +240,7 @@
 						</div>	
 						<div class="day">
 							<div class="daybar"><p>11</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="other"></li>
 									<li class="call"></li>
@@ -260,7 +257,7 @@
 						</div>			
 						<div class="day">
 							<div class="daybar"><p>12</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="visit"></li>
 									<li class="call"></li>
@@ -275,9 +272,9 @@
 							</div>	
 							<!-- slide closed -->
 						</div>				
-						<div class="day brn">
+						<div class="day last">
 							<div class="daybar"><p>13</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="other"></li>
 									<li class="quote"></li>
@@ -297,7 +294,7 @@
 					<div class="week">
 						<div class="day big">
 							<div class="daybar"><p>14</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="other"></li>
 								</ul>
@@ -312,7 +309,7 @@
 						</div>		
 						<div class="day big">
 							<div class="daybar"><p>15</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="other"></li>
 									<li class="visit"></li>
@@ -329,7 +326,7 @@
 						</div>				
 						<div class="day today big">
 							<div class="daybar"><p>16</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="call"></li>
 									<li class="quote"></li>
@@ -346,7 +343,7 @@
 						</div>			
 						<div class="day big">
 							<div class="daybar"><p>17</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="visit"></li>
 								</ul>
@@ -361,7 +358,7 @@
 						</div>	
 						<div class="day big">
 							<div class="daybar"><p>18</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="other"></li>
 								</ul>
@@ -376,7 +373,7 @@
 						</div>			
 						<div class="day big">
 							<div class="daybar"><p>19</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="visit"></li>
 									<li class="call"></li>
@@ -391,9 +388,9 @@
 							</div>	
 							<!-- slide closed -->
 						</div>				
-						<div class="day big brn">
+						<div class="day big last">
 							<div class="daybar"><p>20</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="quote"></li>
 								</ul>
@@ -411,7 +408,7 @@
 					<div class="week">
 						<div class="day">
 							<div class="daybar"><p>21</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="other"></li>
 									<li class="quote"></li>
@@ -428,7 +425,7 @@
 						</div>		
 						<div class="day">
 							<div class="daybar"><p>22</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="visit"></li>
 								</ul>
@@ -443,7 +440,7 @@
 						</div>				
 						<div class="day">
 							<div class="daybar"><p>23</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="other"></li>
 									<li class="other"></li>
@@ -460,7 +457,7 @@
 						</div>			
 						<div class="day">
 							<div class="daybar"><p>24</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="visit"></li>
 								</ul>
@@ -475,7 +472,7 @@
 						</div>	
 						<div class="day">
 							<div class="daybar"><p>25</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="call"></li>
 								</ul>
@@ -490,7 +487,7 @@
 						</div>			
 						<div class="day">
 							<div class="daybar"><p>26</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="visit"></li>
 								</ul>
@@ -503,9 +500,9 @@
 							</div>	
 							<!-- slide closed -->
 						</div>				
-						<div class="day brn">
+						<div class="day last">
 							<div class="daybar"><p>27</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="other"></li>
 								</ul>
@@ -523,7 +520,7 @@
 					<div class="week">
 						<div class="day">
 							<div class="daybar"><p>28</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="other"></li>
 								</ul>
@@ -538,7 +535,7 @@
 						</div>		
 						<div class="day">
 							<div class="daybar"><p>29</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="visit"></li>
 								</ul>
@@ -553,7 +550,7 @@
 						</div>				
 						<div class="day">
 							<div class="daybar"><p>30</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="quote"></li>
 								</ul>
@@ -568,7 +565,7 @@
 						</div>			
 						<div class="day">
 							<div class="daybar"><p>1</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="visit"></li>
 								</ul>
@@ -583,7 +580,7 @@
 						</div>	
 						<div class="day">
 							<div class="daybar"><p>2</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 								</ul>
 							</div>	
@@ -596,7 +593,7 @@
 						</div>	
 						<div class="day">
 							<div class="daybar"><p>3</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="call"></li>
 								</ul>
@@ -609,9 +606,9 @@
 							</div>	
 							<!-- slide closed -->
 						</div>				
-						<div class="day brn">
+						<div class="day last">
 							<div class="daybar"><p>4</p></div>
-							<div class="dots">
+							<div class="icons">
 								<ul>
 									<li class="quote"></li>
 								</ul>
@@ -625,14 +622,13 @@
 							<!-- slide closed -->
 						</div>			
 					</div>
-<!---------------------------------------- week 5 end ---------------------------------------->
-				</div>				
+<!---------------------------------------- week 5 end ---------------------------------------->			
 			</div>					
-			<div id="calcat">
-				<div class="caldot call"></div><p>Cold calls</p>
-				<div class="caldot visit"></div><p>Visits</p>
-				<div class="caldot quote"></div><p>Quotes</p>
-				<div class="caldot other"></div><p>Other</p>
+			<div class="legend">
+				<div class="icon call"></div><p>Cold calls</p>
+				<div class="icon visit"></div><p>Visits</p>
+				<div class="icon quote"></div><p>Quotes</p>
+				<div class="icon other"></div><p>Other</p>
 			</div>				
 		</div>	
 	</div>

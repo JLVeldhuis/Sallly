@@ -1,62 +1,118 @@
-#calendar{margin: 0 auto; padding-top: 25px; width: 760px; text-align: center; position: relative;}
-#calheader{
-	width:100%;
-	height:30px;
-	text-align:center;
-}
-#calheader h2{
-	margin-top:15px;
-}
-#calcontainer{
-	float:left;
-	margin-bottom:10px;
-}
-#daysmonth{
-	clear:both;
+#calendar{
+    width: 755px;
 }
 
-#calendar ul {margin: 0;}
-.dayweek{width:107px;height:30px;float:left;border-right:1px solid #e5e5e5;}
-.dayweek p{display:block;text-align:center;font-size:10px;line-height:31px;text-shadow:0 1px 0 #ffffff;}
-.week{overflow:auto;border-top:1px solid #c2c2c2;}
-.weeku{overflow:auto;border-top:1px solid #c2c2c2;border-bottom:1px solid #e5e5e5;}
-.today{background:#fffcdf;border-right:1px solid #e5e5e5;}
-.today .daybar{background:#fffac1;}
-.day{width:107px;float:left;border-right:1px solid #e5e5e5;}
-.brn{border-right:none;}
-.bun{border-bottom:none;}
-.day:hover{background:#e9f0f8;cursor:pointer;}
-.daybar{width:100%;float:left;background:#f3f3f3;}
-.daybar p{margin-left:5px;margin-top:3px;margin-bottom:3px;font-size:10px;font-weight:400;color:#969696;text-shadow:0 1px 0 #ffffff;}
-.dots{width:100%;height:40px;clear:both;}
-.dots ul{text-align:center;white-space:nowrap;overflow:hidden;}
-.dots ul li{margin-top:10px;display:inline-block; -webkit-border-radius:12px;width:24px;height:24px;}
-.big{width:107px;float:left;}
-.big:hover{background:#e9f0f8;cursor:pointer;}
-.big .dots{height:65px;}
-.big .dots li{margin-top:25px;}
+    #calendar #month{
+        width:100%;
+        height:30px;
+        text-align:center;
+    }
+    
+    #calendar #daysmonth{
+        clear:both;
+    }
+    
+    #calendar #days p {
+        border-right:1px solid #e5e5e5;
+        display:block;
+        float:left;
+        font-size:10px;
+        height:30px;
+        line-height:31px;
+        margin: 0;
+        text-align:center;
+        text-shadow:0 1px 0 #ffffff; 
+        width:107px;
+    }
+    
+        #calendar #days p.last {
+            border-right: none;
+        }
+    
+    #calendar .day {
+        border-right:1px solid #e5e5e5;
+        float:left;
+        width:107px;
+    }
+    
+        #calendar .day .daybar {
+            background:#f3f3f3;
+            font-size:10px;font-weight:400;color:#969696;text-shadow:0 1px 0 #ffffff;
+        }
+        
+        #calendar .day .icons {
+            clear: both;
+            height: 40px;
+            width: 100%;
+        }
+        
+            #calendar .day .icons ul {
+                margin: 0;
+                overflow:hidden;
+                text-align:center;
+                white-space:nowrap;
+            }
+                
+                #calendar .day .icons ul li {
+                    display:inline-block;
+                    width:24px;
+                    height:24px;
+                }
+        
+        #calendar .day .open {
+            border-top:1px solid #e5e5e5;
+            clear:both;
+            float:left;
+            height:480px;
+            width: 107px;
+        }
+            
+            #calendar .day .open ul {
+                margin: 0;
+            }
+            
+                #calendar .day .open ul li {
+                    -webkit-border-radius:10px;
+                    border: 1px solid #333333;
+                    padding-left: 20px;
+                }
+    
+    #calendar .day.last {
+        border-right: none;    }
+    
+    #calendar .day:hover {
+        background:#e9f0f8;cursor:pointer;
+    }
+    
+    #calendar .day.today {
+        background-color: #FFFFD6;
+    }
+    
+        #calendar .day.today .daybar {
+            background:#FFF49E;
+        }
 
-/**************************** Events when slide is open ****************************/
-.open{margin: 0;height:480px;border-top:1px solid #e5e5e5;float:left;clear:both;}
-.open li{-webkit-border-radius:10px;margin-left:1px;margin-right:1px; border: 1px solid #333333;}
-.open li p{width:91px;margin-top:5px;margin-left:6px;margin-right:6px;line-height:12px;font-size:10px;color:#333333;overflow:hidden;}
-.open li:hover{cursor:pointer;}
-
-/**************************** Colors ****************************/
-.none{background:#d6d6d6;}
-.none:hover{background:#dfdfdf;}
-.blue{background:#5496dd;}
-.blue:hover{background:#5c9ef9;}
-.red{background:#ff454b;}
-.red:hover{background:#ff6164;}
-.yellow{background:#ffac4d;}
-.yellow:hover{background:#ffbd6a;}
-.green{background:#94e354;}
-.green:hover{background:#98e857;}
-.call{background: url('/assets/images/call.png') scroll no-repeat 4px 4px transparent;}
-.visit{background: url('/assets/images/visit.png') scroll no-repeat 4px 4px transparent;}
-.quote{background: url('/assets/images/quote.png') scroll no-repeat 4px 4px transparent;}
-.other{background: url('/assets/images/lightning.png') scroll no-repeat 4px 4px transparent;}
+    #calendar .call{background: url('/assets/images/call.png') scroll no-repeat 4px center transparent;}
+    #calendar .visit{background: url('/assets/images/visit.png') scroll no-repeat 4px center transparent;}
+    #calendar .quote{background: url('/assets/images/quote.png') scroll no-repeat 4px center transparent;}
+    #calendar .other{background: url('/assets/images/lightning.png') scroll no-repeat 4px center transparent;}
+    
+    #calendar .legend {
+        float:right;
+        margin-top: 10px;
+    }
+    
+        #calendar .legend .icon {
+            float:left;
+            height:20px;
+            margin-left:15px;
+            width:20px;
+        }
+    
+        #calendar .legend p {
+            float:left;
+            margin-top:4px;
+        }
 
 /**************************** Duration of an event ****************************/
 .l1{height:20px;overflow:hidden;}
@@ -110,7 +166,3 @@
 .a23{margin-top:460px;}
 .a24{margin-top:480px;}
 
-/**************************** Legend ****************************/
-#calcat{float:right;margin-bottom:20px;margin-right:5px;}
-#calcat p{margin-top:4px;float:left;}
-.caldot{float:left; -webkit-border-radius:12px;width:24px;height:24px;margin-left:10px;margin-top:4px;margin-right:8px;}
