@@ -38,8 +38,8 @@
 
 /**************************** Events when slide is open ****************************/
 .open{margin: 0;height:480px;border-top:1px solid #e5e5e5;float:left;clear:both;}
-.open li{-webkit-border-radius:10px;margin-left:1px;margin-right:1px;}
-.open li p{width:93px;margin-top:5px;margin-left:6px;margin-right:6px;line-height:12px;font-size:10px;color:#ffffff;overflow:hidden;}
+.open li{-webkit-border-radius:10px;margin-left:1px;margin-right:1px; border: 1px solid #333333;}
+.open li p{width:91px;margin-top:5px;margin-left:6px;margin-right:6px;line-height:12px;font-size:10px;color:#333333;overflow:hidden;}
 .open li:hover{cursor:pointer;}
 
 /**************************** Colors ****************************/
