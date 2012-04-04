@@ -3,6 +3,9 @@ class PagesController < ApplicationController
 
     def status
         @event = current_user.events.new() if signed_in?
+        @month = 02
+        @year  = 2012
+        @offset = Time.local(2012, 03, 01).wday
     end
     
   private

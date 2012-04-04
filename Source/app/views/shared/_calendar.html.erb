@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="/assets/stylesheets/calendar.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/assets/stylesheets/jquery-ui/jquery-ui-1.8.18.custom.css" type="text/css" media="screen" />
 <script type="text/javascript" src="/assets/javascript/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/assets/javascript/jquery-ui-1.8.18.min.js"></script>
 
    		<script type="text/javascript">
 			function initMenu() {
@@ -14,6 +16,24 @@
 				);}
 			$(document).ready(function() {initMenu();});
    		</script>
+        <script>
+	$(function() {
+		var dates = $( "#from, #to" ).datepicker({
+			defaultDate: "+1w",
+			changeMonth: true,
+			numberOfMonths: 1,
+			onSelect: function( selectedDate ) {
+				var option = this.id == "from" ? "minDate" : "maxDate",
+					instance = $( this ).data( "datepicker" ),
+					date = $.datepicker.parseDate(
+						instance.settings.dateFormat ||
+						$.datepicker._defaults.dateFormat,
+						selectedDate, instance.settings );
+				dates.not( this ).datepicker( "option", option, date );
+			}
+		});
+	});
+	</script>
 
         <div id="myModal" class="modal hide fade">
             <div class="modal-header">
@@ -23,12 +43,29 @@
             <%= form_for(@event) do |f| %>
                 <div class="modal-body">
                     <div class="clearfix">
-                        <%= f.label :title %>
                         <div class="input">
-                            <%= f.text_field :title %>
+                            <%= f.text_field :title, :class => "span6", :placeholder => "title" %>
                         </div>
                     </div>
-                <%= f.hidden_field :user_id, :value => current_user.id %>
+                    <div class="clearfix">
+                        <div class="input">
+                            <%= f.text_field :date_from, :id => "from", :class => "span3", :placeholder => "From date" %>
+                            <%= f.text_field :date_to, :id => "to", :class => "span 3", :style => "margin-left: 17px;", :placeholder => "To date" %>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="input">
+                            <%= f.text_field :location, :class => "span6", :placeholder => "Location" %>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="input">
+                            <%= f.text_area :crm, :rows => 3, :class => "span3", :placeholder => "CRM data" %>
+                            <%= f.text_area :tips, :rows => 3, :class => "span3", :style => "margin-left: 17px;", :placeholder => "Tips" %>
+                        </div>
+                    </div>
+                    
+                    <%= f.hidden_field :user_id, :value => current_user.id %>
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="btn" data-dismiss="modal">Close</a>
@@ -36,6 +73,8 @@
                 </div>
             <% end %>
           </div>
+          <%= Date.civil(@year, @month, -1) %>
+          <%= @offset %>
           
 		<div id="calendar">
 				<div id="month">
@@ -57,18 +96,14 @@
 <!---------------------------------------- week 1 ---------------------------------------->
 					<div class="week">
 						<div class="day">
-							<div class="daybar"><p>31</p></div>
+							<div class="daybar"><p>&nbsp;</p></div>
 							<div class="icons">
 								<ul>
-									<li class="other"></li>
-									<li class="quote"></li>
 								</ul>
 							</div>	
 							<!-- slide open -->
 							<div class="open">
-								<ul>
-									<li class="other l2 a9"><p>09:00 History: examination</p></li>
-									<li class="quote l2 a9"><p>19:00 Camp meeting</p></li>						
+								<ul>			
 								</ul>
 							</div>	
 							<!-- slide closed -->
