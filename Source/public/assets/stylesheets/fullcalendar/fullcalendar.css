@@ -616,3 +616,24 @@ table.fc-border-separate {
 	}
 	
 	
+    .call{background: url('/assets/images/call.png') scroll no-repeat 4px center transparent;}
+    .visit{background: url('/assets/images/visit.png') scroll no-repeat 4px center transparent;}
+    .quote{background: url('/assets/images/quote.png') scroll no-repeat 4px center transparent;}
+    .other{background: url('/assets/images/lightning.png') scroll no-repeat 4px center transparent;}
+    
+    
+    
+    .icon {
+            float:left;
+            height:20px;
+            margin-left:15px;
+            width:20px;
+        }
+    
+    .ic_frm{
+        cursor: pointer;
+        margin-left: 10px;
+    }
+    .event_type{
+        line-height: 20px;
+    }
