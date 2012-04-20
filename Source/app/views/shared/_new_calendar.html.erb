@@ -1,5 +1,6 @@
 <link rel='stylesheet' type='text/css' href='/assets/stylesheets/fullcalendar/fullcalendar.css' />
 <script type='text/javascript' src='/assets/javascript/fullcalendar/fullcalendar.js'></script>
+<script type="text/javascript" src="/assets/javascript/bootstrap-modal.js"></script>
 
 <script type='text/javascript'>
 	$(document).ready(function() {	
@@ -15,7 +16,11 @@
 				right: 'month,agendaWeek,agendaDay'
 			},
 			editable: true,
-			events: all_events
+			events: all_events,
+                        dayClick: function(date, allDay, jsEvent, view) {
+                          $( "#from").datepicker("setDate",date);
+                          $('#myModal').modal();
+                        }
 		});
 		
 	});
