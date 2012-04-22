@@ -7,8 +7,10 @@ module PagesHelper
                         title: '#{event.title}',
                         start: new Date(#{event.date_from.strftime('%Y, %m-1, %d, %H, %M')})"
         if event.date_to !=nil
-          events_js+=",end: new Date(#{event.date_to.strftime('%Y, %m-1, %d, %H, %M')}), allDay: false"
+          events_js+=",end: new Date(#{event.date_to.strftime('%Y, %m-1, %d, %H, %M')})"
+          events_js+=", allDay: false"
         end
+        events_js+=", className: '#{event.eventtype}'"
         events_js+="},"
       end
     end

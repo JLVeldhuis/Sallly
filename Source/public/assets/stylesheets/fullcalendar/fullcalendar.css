@@ -637,3 +637,20 @@ table.fc-border-separate {
     .event_type{
         line-height: 20px;
     }
+
+
+.Cold *{
+	background-color: #E01B1B;
+}
+
+.Visits *{
+	background-color: #E0AF1B;
+}
+
+.Quotes *{
+	background-color: #1BE01E;
+}
+
+.Other *{
+	background-color: #1B50E0;
+}

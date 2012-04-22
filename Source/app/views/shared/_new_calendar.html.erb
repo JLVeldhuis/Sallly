@@ -53,6 +53,7 @@ $('#to').datetimepicker({
         $('#from').datetimepicker('option', 'maxDate', new Date(end.getTime()) );
     }
 });
+		initMenu();
 		var date = new Date();
 		var d = date.getDate();
 		var m = date.getMonth();
@@ -73,6 +74,21 @@ $('#to').datetimepicker({
 		});
 		
 	});
+	
+			function initMenu() {
+				var block = $(".day");
+					block.addClass("clickable");
+				
+				$('.open').hide();
+				block.click(
+					function() {
+						$(this).parents('div:eq(0)').find('.open').slideToggle('slow');	
+					}
+				);}
+			
+                        function set_type(type){
+                          $("#event_eventtype").val(type);
+                        }
 </script>
 <div id="myModal" class="modal hide fade">
 	<div class="modal-header">
