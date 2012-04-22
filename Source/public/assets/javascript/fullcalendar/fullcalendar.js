@@ -60,11 +60,11 @@ var defaults = {
 	
 	// locale
 	isRTL: false,
-	firstDay: 0,
+	firstDay: 1,
 	monthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],
 	monthNamesShort: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
-	dayNames: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
-	dayNamesShort: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
+	dayNames: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday', 'Sunday'],
+	dayNamesShort: ['Mon','Tue','Wed','Thu','Fri','Sat', 'Sun'],
 	buttonText: {
 		prev: '&nbsp;&#9668;&nbsp;',
 		next: '&nbsp;&#9658;&nbsp;',
