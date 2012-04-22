@@ -31,9 +31,9 @@ var defaults = {
 	weekends: true,
 	
 	// editing
-	//editable: false,
-	//disableDragging: false,
-	//disableResizing: false,
+	editable: true,
+	disableDragging: false,
+	disableResizing: false,
 	
 	allDayDefault: true,
 	ignoreTimezone: true,
@@ -5220,5 +5220,6 @@ function HorizontalPositionCache(getElement) {
 	};
 	
 }
+
 
 })(jQuery);

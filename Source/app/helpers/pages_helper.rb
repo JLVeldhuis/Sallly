@@ -5,9 +5,9 @@ module PagesHelper
       if event.title != nil && event.date_from != nil
         events_js += "{
                         title: '#{event.title}',
-                        start: new Date(#{event.date_from.strftime('%Y, %m-1, %d')})"
+                        start: new Date(#{event.date_from.strftime('%Y, %m-1, %d, %H, %M')})"
         if event.date_to !=nil
-          events_js+=",end: new Date(#{event.date_to.strftime('%Y, %m-1, %d')})"
+          events_js+=",end: new Date(#{event.date_to.strftime('%Y, %m-1, %d, %H, %M')}), allDay: false"
         end
         events_js+="},"
       end
