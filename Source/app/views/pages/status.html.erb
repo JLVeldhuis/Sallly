@@ -56,9 +56,6 @@
         <%= image_tag 'images/ninja.png', :width => 125 %>
     </section>
 </section>
-<section class="row">
-    <%= render 'shared/new_calendar' %>
-</section>
 <section class="row" style="margin: 5px 0 15px 0; padding: 0 100px;">
 	<div style="float: left;">
     	<a data-toggle="modal" href="#myModal"><i class="icon-plus"></i>Add new event</a>
@@ -79,6 +76,9 @@
 	    <div style="display: inline-block; height: 15px; width: 25px; background-color: #E01B1B;"></div>
     	Cold calls
     </div>
+</section>
+<section class="row">
+    <%= render 'shared/new_calendar' %>
 </section>
 <section class="row">
     <h3>Events</h3>
