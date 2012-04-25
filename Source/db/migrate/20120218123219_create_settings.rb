@@ -11,6 +11,8 @@ class CreateSettings < ActiveRecord::Migration
         t.column :activity_calls, :integer
         t.column :activity_visits, :integer
         t.column :activity_quotes, :integer
+        t.column :average_workdays_a_year, :integer
+        t.column :average_workdays_a_week, :integer
         t.column :user_id, :integer
       t.timestamps
     end

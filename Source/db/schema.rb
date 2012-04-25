@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(:version => 20120305160113) do
     t.integer  "activity_calls"
     t.integer  "activity_visits"
     t.integer  "activity_quotes"
+    t.integer  "average_workdays_a_year"
+    t.integer  "average_workdays_a_week"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

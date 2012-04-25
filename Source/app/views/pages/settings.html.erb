@@ -12,9 +12,9 @@
         <%= f.label :goal_start %>
         <div class="input">
             <div class="inline-inputs">
-                <%= f.date_select :goal_start %>
+                <%= f.text_field :goal_start %>
                 to
-                <%= f.date_select :goal_end %>
+                <%= f.text_field :goal_end %>
             </div>
         </div>
     </div>
@@ -30,9 +30,9 @@
         <%= f.label :average_start %>
         <div class="input">
             <div class="inline-inputs">
-                <%= f.date_select :average_start %>
+                <%= f.text_field :average_start %>
                 to
-                <%= f.date_select :average_end %>
+                <%= f.text_field :average_end %>
             </div>
         </div>
     </div>
@@ -51,6 +51,18 @@
                 <%= f.text_field :activity_visits %>
                 <span>Quotes:</span>
                 <%= f.text_field :activity_quotes %>
+            </div>
+        </div>
+    </div>
+    <h3>Average workdays</h3>
+    <div class="clearfix">
+        <%= f.label :activity_calls %>
+        <div class="input">
+            <div class="inline-inputs">
+                <span>a year:</span>
+                <%= f.text_field :average_workdays_a_year %>
+                <span>a week:</span>
+                <%= f.text_field :average_workdays_a_week %>
             </div>
         </div>
     </div>
