@@ -23,6 +23,7 @@
         chart.draw(data, options);
 	}
 </script>
+
 <script type="text/javascript" src="/assets/javascript/heartrate.js"></script>
 <script type="text/javascript">
 	document.addEventListener("DOMContentLoaded", init, false);
@@ -43,7 +44,7 @@
     
 <h1>Status</h1>
 <section class="row info">
-    <section class="span3 well">
+    <section class="span3 well first">
         <h4>Heart rate</h4>
         <canvas id="monitor" width="220" height="50" style="margin-top: 40px;"></canvas>
     </section>
@@ -56,57 +57,42 @@
         <%= image_tag 'images/ninja.png', :width => 125 %>
     </section>
 </section>
-<section class="row" style="margin: 5px 0 15px 0; padding: 0 100px;">
-	<div style="float: left;">
+
+<section class="row">
+	<section class="span7">
     	<a data-toggle="modal" class="btn btn-info" href="#myModal"><i class="icon-plus"></i>Add new event</a>
-    </div>
-    <div style="float: right; margin-left: 15px;">
-	    <div style="display: inline-block; height: 15px; width: 25px; background-color: #1B50E0;"></div>
+    </section>
+    <section class="span5">
+	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #1B50E0;"></div>
     	Others
-    </div>
-    <div style="float: right; margin-left: 15px;">
-	    <div style="display: inline-block; height: 15px; width: 25px; background-color: #1BE01E;"></div>
+	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #1BE01E;"></div>
     	Quotes
-    </div>
-    <div style="float: right; margin-left: 15px;">
-	    <div style="display: inline-block; height: 15px; width: 25px; background-color: #E0AF1B;"></div>
+	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #E0AF1B;"></div>
     	Visits
-    </div>
-    <div style="float: right; margin-left: 15px;">
-	    <div style="display: inline-block; height: 15px; width: 25px; background-color: #E01B1B;"></div>
+	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #E01B1B;"></div>
     	Cold calls
-    </div>
+    </section>
 </section>
+
 <section class="row">
-    <%= render 'shared/new_calendar' %>
-</section>
-<section class="row">
-    <h3>Events</h3>
-    <span>Your upcoming events.</span>
-    <table class="table table-striped table-bordered table-condensed">
-        <thead>
-        	<tr>
-        		<th>Title</th>
-        		<th>Date from</th>
-        		<th>Date to</th>
-        		<th>Location</th>
-        		<th>eventtype</th>
-        		<th>crm</th>
-        		<th>tips</th>
-        	</tr>
-        </thead>
-        <tbody>
-        	<% current_user.events.each do |event| %>
-        		<tr>
-        			<td><%= event.title %></td>
-        			<td><%= event.date_from %></td>
-        			<td><%= event.date_to %></td>
-        			<td><%= event.location %></td>
-        			<td><%= event.eventtype %></td>
-        			<td><%= event.crm %></td>
-        			<td><%= event.tips %></td>
-        		</tr>
-        	<% end %>
-        </tbody>
-    </table>
+    <section class="span9 first">
+        <%= render 'shared/calendar' %>
+    </section>
+    <section class="span3">
+        <span>Your upcoming events.</span>
+        <table class="table table-striped table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% current_user.events.each do |event| %>
+                    <tr>
+                        <td><%= event.title %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </section>
 </section>
