@@ -33,6 +33,27 @@ class User < ActiveRecord::Base
     (user && user.salt == cookie_salt) ? user : nil
   end
   
+  # returns the user's events as json optimized for full calendar
+  
+  def calendar_events_json
+    event_feed = []
+    self.events.each do |event|
+      thisEvent = {
+                    'event_id'   => event.id,
+                    'title'      => event.title,
+                    'allDay'     => false,
+                    'className'  => event.eventtype
+                  }
+      unless event.date_to.blank?
+        thisEvent['allDay'] = false
+        thisEvent['end']    = event.date_to.iso8601 
+      end
+      thisEvent['start']    = event.date_from.iso8601 unless event.date_from.blank?
+      event_feed << thisEvent
+    end
+    event_feed
+  end
+  
   private
   
     def encrypt_password

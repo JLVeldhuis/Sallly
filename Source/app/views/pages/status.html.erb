@@ -60,7 +60,7 @@
 
 <section class="row">
 	<section class="span7">
-    	<a data-toggle="modal" class="btn btn-info" href="#myModal"><i class="icon-plus"></i>Add new event</a>
+    	<a data-toggle="modal" class="btn btn-info addNewEvent" href="#"><i class="icon-plus"></i>Add new event</a>
     </section>
     <section class="span5">
 	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #1B50E0;"></div>
@@ -96,3 +96,12 @@
         </table>
     </section>
 </section>
+<script>
+  $(".addNewEvent").click(function() {
+    $.ajax({
+  		dataType: 'script',
+  		type: 'get',
+  		url: "events/new"
+  	});
+  });
+</script>
