@@ -11,31 +11,43 @@
 .ui-timepicker-div td { font-size: 90%; }
 .ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
 </style>
-<script type="text/javascript">
-  function initMenu() {
-    var block = $(".day");
-	  block.addClass("clickable");
-    $('.open').hide();
-    block.click(function() {
-		  $(this).parents('div:eq(0)').find('.open').slideToggle('slow');	
-	  };
-	}
-  $('#cal').fullCalendar({
-		header: {
-			left: 'prev,next today',
-			center: 'title',
-			right: 'month,agendaWeek,agendaDay'
-		},
-		editable: true,
-		events: "/get_events.json",
-            dayClick: function(date, allDay, jsEvent, view) {
-              newEvent();
-            },
-            eventClick: function(event, jsEvent, view){
-              editEvent(event.event_id);
-            }
+<script type='text/javascript'>
+	$(document).ready(function() {
+		initMenu();
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+    var all_events = []
+    		
+    $('#cal').fullCalendar({
+     header: {
+       left: 'prev,next today',
+       center: 'title',
+       right: 'month,agendaWeek,agendaDay'
+     },
+     editable: true,
+     events:  "/get_events.json",
+              dayClick: function(date, allDay, jsEvent, view) {
+                newEvent();
+              },
+              eventClick: function(event, jsEvent, view){
+                editEvent(event.event_id);
+              }
+    });
+		
 	});
-	function set_type(type){
+	
+  function initMenu() {
+	  var block = $(".day");
+		block.addClass("clickable");
+  	$('.open').hide();
+  	block.click(
+  		function() {
+  			$(this).parents('div:eq(0)').find('.open').slideToggle('slow');	
+  		});
+	};	
+  function set_type(type){
     $("#event_eventtype").val(type);
   }
 </script>
