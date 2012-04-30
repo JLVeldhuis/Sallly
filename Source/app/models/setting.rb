@@ -8,56 +8,57 @@ class Setting < ActiveRecord::Base
   # populate events like cold calls, cold visits, cold quotes
   # Calls: depends upon number of cold_calls and goal_start and goal_end
   def populate_events
-    counter = 0 
-    timePeriods = []
-    total_activities = 30
+    total_activities_per_day = calls_per_day + visits_per_day + quotes_per_day
+    
     gStart  = goal_start.to_time + 9.hours # day starts from 9 in the morning
     gEnd    = goal_end.to_time + 17.hours  # day ends at 5 in the evening
     
-    if total_activities > 0
+    if total_activities_per_day > 0
       goal_period_in_days = ((gEnd - gStart) / 1.day).ceil
-      calls_per_day       = (total_activities / goal_period_in_days).ceil
-      
-      call_period         = (WORKING_MINS_A_DAY / calls_per_day).floor
+      # calls_per_day       = (total_activities / goal_period_in_days).ceil
+      activities_per_day  = total_activities_per_day
+      activity_period     = (WORKING_MINS_A_DAY / activities_per_day).floor
       eStart              = 0
       eEnd                = 0
+      
       goal_period_in_days.times do |gp|
+        counter = 0 
+        timePeriods = []
         eStart  = gStart + gp.day
-        calls_per_day.times do |calll|
-          eEnd        = eStart + call_period
+        activities_per_day.times do |activity|
+          eEnd        = eStart + activity_period
           timePeriods << [eStart, eEnd]
           eStart      = eEnd
         end
-      end
-      
-      activity_calls.times do
-        self.user.events << Event.new({
-                                        :title      => "Call: Via setting",
-                                        :eventtype  => "Others",
-                                        :date_from  => timePeriods[counter][0],
-                                        :date_to    => timePeriods[counter][1]
-                                     })
-        counter +=1
-      end
-      
-      activity_visits.times do |i|
-        self.user.events << Event.new({
-                                        :title      => "Visit: Via setting",
-                                        :eventtype  => "Visits",
-                                        :date_from  => timePeriods[counter][0],
-                                        :date_to    => timePeriods[counter][1]
-                                     })
-        counter +=1
-      end
-      
-      activity_quotes.times do |i|
-        self.user.events << Event.new({
-                                        :title      => "Quote: Via setting",
-                                        :eventtype  => "Quotes",
-                                        :date_from  => timePeriods[counter][0],
-                                        :date_to    => timePeriods[counter][1]
-                                     })
-        counter +=1
+        calls_per_day.times do
+          self.user.events << Event.new({
+                                          :title      => "Call: Via setting",
+                                          :eventtype  => "Others",
+                                          :date_from  => timePeriods[counter][0],
+                                          :date_to    => timePeriods[counter][1]
+                                       })
+          counter +=1
+        end
+
+        visits_per_day.times do |i|
+          self.user.events << Event.new({
+                                          :title      => "Visit: Via setting",
+                                          :eventtype  => "Visits",
+                                          :date_from  => timePeriods[counter][0],
+                                          :date_to    => timePeriods[counter][1]
+                                       })
+          counter +=1
+        end
+
+        quotes_per_day.times do |i|
+          self.user.events << Event.new({
+                                          :title      => "Quote: Via setting",
+                                          :eventtype  => "Quotes",
+                                          :date_from  => timePeriods[counter][0],
+                                          :date_to    => timePeriods[counter][1]
+                                       })
+          counter +=1
+        end
       end
 
     end
