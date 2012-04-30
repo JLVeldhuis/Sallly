@@ -1,35 +1,68 @@
 class Setting < ActiveRecord::Base
   belongs_to :user
   
-  WORKING_HOURS_A_DAY = 8
-  CALL_GAP_IN_MINUTES = 5
+  WORKING_MINS_A_DAY = 8.hours
   
   after_save  :populate_events
   
   # populate events like cold calls, cold visits, cold quotes
   # Calls: depends upon number of cold_calls and goal_start and goal_end
-  def populate_events 
-    if activity_calls > 0
-      goal_period_in_mins = ((goal_end - goal_start) / 1.minute).floor
-      goal_period_in_mins = (WORKING_HOURS_A_DAY.hours/1.minute).floor unless goal_period_in_mins > 0
+  def populate_events
+    counter = 0 
+    timePeriods = []
+    total_activities = 30
+    gStart  = goal_start.to_time + 9.hours # day starts from 9 in the morning
+    gEnd    = goal_end.to_time + 17.hours  # day ends at 5 in the evening
     
-      call_period         = (goal_period_in_mins / activity_calls).floor
-    
-      eStart = self.goal_start
-      eEnd   = self.goal_start + call_period.minutes
+    if total_activities > 0
+      goal_period_in_days = ((gEnd - gStart) / 1.day).ceil
+      calls_per_day       = (total_activities / goal_period_in_days).ceil
       
-      activity_calls.times do |i|
-        self.user.events << Event.new({
-                                        :title      => "Via setting at #{eStart} to #{eEnd}",
-                                        :eventtype  => "Others",
-                                        :date_from  => eStart,
-                                        :date_to    => eEnd
-                                     })
-        eStart = eEnd + CALL_GAP_IN_MINUTES.minutes
-        eEnd   += CALL_GAP_IN_MINUTES.minutes + call_period.minutes
+      call_period         = (WORKING_MINS_A_DAY / calls_per_day).floor
+      eStart              = 0
+      eEnd                = 0
+      goal_period_in_days.times do |gp|
+        eStart  = gStart + gp.day
+        calls_per_day.times do |calll|
+          eEnd        = eStart + call_period
+          timePeriods << [eStart, eEnd]
+          eStart      = eEnd
+        end
       end
-      self.user.save
+      
+      activity_calls.times do
+        self.user.events << Event.new({
+                                        :title      => "Call: Via setting at #{timePeriods[counter][0]} to #{timePeriods[counter][1]}",
+                                        :eventtype  => "Others",
+                                        :date_from  => timePeriods[counter][0],
+                                        :date_to    => timePeriods[counter][1]
+                                     })
+        counter +=1
+      end
+      
+      activity_visits.times do |i|
+        self.user.events << Event.new({
+                                        :title      => "Visit: Via setting at #{timePeriods[counter][0]} to #{timePeriods[counter][1]}",
+                                        :eventtype  => "Visits",
+                                        :date_from  => timePeriods[counter][0],
+                                        :date_to    => timePeriods[counter][1]
+                                     })
+        counter +=1
+      end
+      
+      activity_quotes.times do |i|
+        self.user.events << Event.new({
+                                        :title      => "Quote: Via setting at #{timePeriods[counter][0]} to #{timePeriods[counter][1]}",
+                                        :eventtype  => "Quotes",
+                                        :date_from  => timePeriods[counter][0],
+                                        :date_to    => timePeriods[counter][1]
+                                     })
+        counter +=1
+      end
+
     end
+    
+    self.user.save
   end
   
   # populating methods on the basis of input values of setting
