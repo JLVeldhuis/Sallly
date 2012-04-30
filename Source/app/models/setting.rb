@@ -32,7 +32,7 @@ class Setting < ActiveRecord::Base
       
       activity_calls.times do
         self.user.events << Event.new({
-                                        :title      => "Call: Via setting at #{timePeriods[counter][0]} to #{timePeriods[counter][1]}",
+                                        :title      => "Call: Via setting",
                                         :eventtype  => "Others",
                                         :date_from  => timePeriods[counter][0],
                                         :date_to    => timePeriods[counter][1]
@@ -42,7 +42,7 @@ class Setting < ActiveRecord::Base
       
       activity_visits.times do |i|
         self.user.events << Event.new({
-                                        :title      => "Visit: Via setting at #{timePeriods[counter][0]} to #{timePeriods[counter][1]}",
+                                        :title      => "Visit: Via setting",
                                         :eventtype  => "Visits",
                                         :date_from  => timePeriods[counter][0],
                                         :date_to    => timePeriods[counter][1]
@@ -52,7 +52,7 @@ class Setting < ActiveRecord::Base
       
       activity_quotes.times do |i|
         self.user.events << Event.new({
-                                        :title      => "Quote: Via setting at #{timePeriods[counter][0]} to #{timePeriods[counter][1]}",
+                                        :title      => "Quote: Via setting",
                                         :eventtype  => "Quotes",
                                         :date_from  => timePeriods[counter][0],
                                         :date_to    => timePeriods[counter][1]
