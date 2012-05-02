@@ -29,12 +29,12 @@
     <div class="clearfix">
       <div class="span6">
         <div class="pull-left event_type">Event Type :</div>
-        <div class="ic_frm pull-left" onclick="set_type('Cold calls')"><div class="call icon"></div><p class="pull-right">Cold calls</p></div>
-        <div class="ic_frm pull-left" onclick="set_type('Visits')"><div class="visit icon">
+        <div class="ic_frm pull-left" onclick="set_type(<%=EventType['Cold calls']%>)"><div class="call icon"></div><p class="pull-right">Cold calls</p></div>
+        <div class="ic_frm pull-left" onclick="set_type(<%=EventType['Visits']%>)"><div class="visit icon">
         </div><p class="pull-right">Visits</p></div>
-        <div class="ic_frm pull-left" onclick="set_type('Quotes')"><div class="quote icon"></div><p class="pull-right">Quotes</p></div>
-        <div class="ic_frm pull-left btn btn-info" onclick="set_type('Other')"><div class="other icon"></div><p class="pull-right">Other</p></div>
-      	<%= f.hidden_field :eventtype, :value => 'Other' %>
+        <div class="ic_frm pull-left" onclick="set_type(<%=EventType['Quotes']%>)"><div class="quote icon"></div><p class="pull-right">Quotes</p></div>
+        <div class="ic_frm pull-left btn btn-info" onclick="set_type(<%=EventType['Others']%>)"><div class="other icon"></div><p class="pull-right">Other</p></div>
+      	<%= f.hidden_field :eventtype %>
       </div>
     </div>              
     <%= f.hidden_field :user_id, :value => current_user.id %>

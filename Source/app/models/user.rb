@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
                     'event_id'   => event.id,
                     'title'      => event.title,
                     'allDay'     => false,
-                    'className'  => event.eventtype
+                    'className'  => Event::EventType[event.eventtype]
                   }
       unless event.date_to.blank?
         thisEvent['allDay'] = false

@@ -35,7 +35,7 @@ class Setting < ActiveRecord::Base
           calls_per_day.times do
             self.user.events << Event.new({
                                             :title      => "Call: Via setting",
-                                            :eventtype  => "Others",
+                                            :eventtype  => Event::EventType["Others"],
                                             :date_from  => timePeriods[counter][0],
                                             :date_to    => timePeriods[counter][1]
                                          })
@@ -45,7 +45,7 @@ class Setting < ActiveRecord::Base
           visits_per_day.times do |i|
             self.user.events << Event.new({
                                             :title      => "Visit: Via setting",
-                                            :eventtype  => "Visits",
+                                            :eventtype  => Event::EventType["Visits"],
                                             :date_from  => timePeriods[counter][0],
                                             :date_to    => timePeriods[counter][1]
                                          })
@@ -55,7 +55,7 @@ class Setting < ActiveRecord::Base
           quotes_per_day.times do |i|
             self.user.events << Event.new({
                                             :title      => "Quote: Via setting",
-                                            :eventtype  => "Quotes",
+                                            :eventtype  => Event::EventType["Quotes"],
                                             :date_from  => timePeriods[counter][0],
                                             :date_to    => timePeriods[counter][1]
                                          })
