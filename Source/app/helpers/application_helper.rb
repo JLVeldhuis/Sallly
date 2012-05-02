@@ -12,4 +12,8 @@ module ApplicationHelper
     image_tag("images/logo.png", :alt => "Sallly", 
                                  :class => "round logo")
   end
+  
+  def is_eventtype(cur, matching)
+    cur == Event::EventType[matching] ? "btn btn-info" : ""
+  end
 end
