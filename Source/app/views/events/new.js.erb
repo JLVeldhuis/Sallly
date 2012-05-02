@@ -1,3 +1,5 @@
 $('#myModal').html('<%= escape_javascript(render(:partial => "new")) %>');
 $('#myModal').modal();
 initDateTimePicker();
+$('#from').datepicker("setDate",  new Date());
+$('#to').datepicker("setDate", new Date());
