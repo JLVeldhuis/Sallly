@@ -74,37 +74,37 @@ class Setting < ActiveRecord::Base
   # total calls 
   # calls * visits * hitrate_quotes
   def total_calls
-    activity_calls * activity_visits * activity_quotes
+    (activity_calls * activity_visits * activity_quotes).to_f
   end
   
   # total visits 
   # visits * hitrate_quotes
   def total_visits
-    activity_visits * activity_quotes
+    (activity_visits * activity_quotes).to_f
   end
   
   # total hitrate_quotes 
   # hitrate_quotes
   def total_hitrate_quotes
-    activity_quotes
+    (activity_quotes).to_f
   end
   
   # total calls per day
   # total_calls * average_workdays_per_year
   def calls_per_day
-    (total_calls.to_f / average_workdays_a_year).ceil
+    (total_calls / average_workdays_a_year).ceil
   end
   
   # visits per day
   # total_visits / average_workdays_per_year
   def visits_per_day
-    (total_visits.to_f / average_workdays_a_year).ceil
+    (total_visits / average_workdays_a_year).ceil
   end
   
   # quotes per day
   # total_hitrate_quotes / average_workdays_per_year
   def quotes_per_day
-    (total_hitrate_quotes.to_f / average_workdays_a_year).ceil
+    (total_hitrate_quotes / average_workdays_a_year).ceil
   end
   
   # calls per week
