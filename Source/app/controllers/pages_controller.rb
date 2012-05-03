@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  skip_filter :authenticate_user!, :only => [:home]
   before_filter :restrict_access, :only => [:welcome, :goal, :average, :activities, :status, :get_events]
 
   def status

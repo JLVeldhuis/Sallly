@@ -1,14 +1,12 @@
 Forevenue::Application.routes.draw do
-  get "sessions/new"
-
-  resources :users
+  devise_for :users
+  
+  devise_scope :user do
+    get "sign_in", :to => "devise/sessions#new"
+  end
+  
   resources :events
   resources :setting
-  resources :sessions,  :only => [:new, :create, :destroy]
-
-  match '/signup',      :to => 'users#new'
-  match '/signin',      :to => 'sessions#new'
-  match 'signout',      :to => 'sessions#destroy'
 
   match '/contact',     :to => 'pages#contact'
   match '/about',       :to => 'pages#about'
