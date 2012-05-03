@@ -3,11 +3,11 @@ class Setting < ActiveRecord::Base
   
   WORKING_MINS_A_DAY = 8.hours
   
-  after_save  :populate_events
+  after_update  :populate_events_if_required
   
   # populate events like cold calls, cold visits, cold quotes
   # Calls: depends upon number of cold_calls and goal_start and goal_end
-  def populate_events
+  def populate_events_if_required
     total_activities_per_day = calls_per_day + visits_per_day + quotes_per_day
 
     # we need to figure out a way to track the time zone as per the ip address

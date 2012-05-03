@@ -1,28 +1,32 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  
+  # setup devise
+  devise :database_authenticatable, 
+         :registerable,
+         :recoverable, 
+         :rememberable, 
+         :trackable, 
+         :validatable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   
-  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  
+  # validations
   validates :name,     :presence     => true,
                        :length       => { :maximum => 50 }
-  validates :email,    :presence     => true,
-                       :format       => { :with => email_regex },
-                       :uniqueness   => { :case_sensitive => false }
-  validates :password, :presence     => true,
-                       :confirmation => true,
-                       :length       => { :within => 6..40 }
-    
+  
+  # associations
   has_one :setting
   has_many :events
   
-  # returns the user's events as json optimized for full calendar
+  # callbacks
+  before_create :add_setting_for_user
   
+  def add_setting_for_user
+    self.setting = Setting.new
+  end
+  
+  # returns the user's events as json optimized for full calendar
   def calendar_events_json
     event_feed = []
     self.events.each do |event|
