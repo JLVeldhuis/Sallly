@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   skip_filter :authenticate_user!, :only => [:home]
-  before_filter :restrict_access, :only => [:welcome, :goal, :average, :activities, :status, :get_events]
 
   def status
     @event  = current_user.events.build() if signed_in?
@@ -16,11 +15,4 @@ class PagesController < ApplicationController
   
   def settings
   end
-  
-  private
-  
-    def restrict_access
-      deny_access unless signed_in?
-    end
-
 end
