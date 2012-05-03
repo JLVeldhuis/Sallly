@@ -5,6 +5,7 @@ gem 'mysql'
 gem 'json'
 gem 'will_paginate', '3.0.pre2'
 gem 'devise'
+# gem "omniauth-facebook"
 
 # group :assets do
 #   gem 'sass-rails',   '~> 3.1.5.rc.2'
@@ -14,7 +15,7 @@ gem 'devise'
 
 gem 'jquery-rails'
 
-group :development do 
-  gem 'ruby-debug19'
-end
+# group :development do 
+#   gem 'ruby-debug19'
+# end
 
