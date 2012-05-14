@@ -8,7 +8,8 @@ class Setting < ActiveRecord::Base
   # populate events like cold calls, cold visits, cold quotes
   # Calls: depends upon number of cold_calls and goal_start and goal_end
   def populate_events_if_required
-    total_activities_per_day = calls_per_day + visits_per_day + quotes_per_day
+    # total_activities_per_day = calls_per_day + visits_per_day + quotes_per_day
+    total_activities_per_day = cold_calls
 
     # we need to figure out a way to track the time zone as per the ip address
     gStart  = Time.zone.local(goal_start.year, goal_start.month, goal_start.day, 9, 0, 0)
@@ -32,35 +33,45 @@ class Setting < ActiveRecord::Base
             eStart      = eEnd
           end
           
-          calls_per_day.times do
+          total_activities_per_day.times do
             self.user.events << Event.new({
                                             :title      => "Call: Via setting",
-                                            :eventtype  => 4,
+                                            :eventtype  => 1,
                                             :date_from  => timePeriods[counter][0],
                                             :date_to    => timePeriods[counter][1]
                                          })
             counter +=1
           end
+          
+          # calls_per_day.times do
+          #   self.user.events << Event.new({
+          #                                   :title      => "Call: Via setting",
+          #                                   :eventtype  => 4,
+          #                                   :date_from  => timePeriods[counter][0],
+          #                                   :date_to    => timePeriods[counter][1]
+          #                                })
+          #   counter +=1
+          # end
 
-          visits_per_day.times do |i|
-            self.user.events << Event.new({
-                                            :title      => "Visit: Via setting",
-                                            :eventtype  => 2,
-                                            :date_from  => timePeriods[counter][0],
-                                            :date_to    => timePeriods[counter][1]
-                                         })
-            counter +=1
-          end
-
-          quotes_per_day.times do |i|
-            self.user.events << Event.new({
-                                            :title      => "Quote: Via setting",
-                                            :eventtype  => 3,
-                                            :date_from  => timePeriods[counter][0],
-                                            :date_to    => timePeriods[counter][1]
-                                         })
-            counter +=1
-          end
+          # visits_per_day.times do |i|
+          #   self.user.events << Event.new({
+          #                                   :title      => "Visit: Via setting",
+          #                                   :eventtype  => 2,
+          #                                   :date_from  => timePeriods[counter][0],
+          #                                   :date_to    => timePeriods[counter][1]
+          #                                })
+          #   counter +=1
+          # end
+          # 
+          # quotes_per_day.times do |i|
+          #   self.user.events << Event.new({
+          #                                   :title      => "Quote: Via setting",
+          #                                   :eventtype  => 3,
+          #                                   :date_from  => timePeriods[counter][0],
+          #                                   :date_to    => timePeriods[counter][1]
+          #                                })
+          #   counter +=1
+          # end
         end
       end
 
@@ -128,7 +139,7 @@ class Setting < ActiveRecord::Base
   # average_working_hours_per_week
   # WORKING_HOURS_A_DAY * average_workdays_per_week
   def average_working_hours_per_week
-    WORKING_HOURS_A_DAY * average_workdays_a_week
+    8 * average_workdays_a_week
   end
   
   # cold calls
