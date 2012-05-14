@@ -29,11 +29,11 @@
     <div class="clearfix">
       <div class="span6">
         <div class="pull-left event_type">Event Type :</div>
-        <div class="ic_frm pull-left <%= is_eventtype(@event.eventtype, 'Cold Calls') %>" onclick="set_type(<%=Event::EventType['Cold calls']%>)"><div class="call icon"></div><p class="pull-right">Cold calls</p></div>
-        <div class="ic_frm pull-left <%= is_eventtype(@event.eventtype, 'Visits') %>" onclick="set_type(<%=Event::EventType['Visits']%>)"><div class="visit icon">
+        <div class="ic_frm pull-left <%= is_eventtype(@event.eventtype, 'Cold Calls') %>" onclick="set_type(<%=Event::Eventtype['Cold Calls']%>)"><div class="call icon"></div><p class="pull-right">Cold calls</p></div>
+        <div class="ic_frm pull-left <%= is_eventtype(@event.eventtype, 'Visits') %>" onclick="set_type(<%=Event::Eventtype['Visits']%>)"><div class="visit icon">
         </div><p class="pull-right">Visits</p></div>
-        <div class="ic_frm pull-left <%= is_eventtype(@event.eventtype, 'Quotes') %>" onclick="set_type(<%=Event::EventType['Quotes']%>)"><div class="quote icon"></div><p class="pull-right">Quotes</p></div>
-        <div class="ic_frm pull-left <%= is_eventtype(@event.eventtype, 'Others') %>" onclick="set_type(<%=Event::EventType['Others']%>)"><div class="other icon"></div><p class="pull-right">Other</p></div>
+        <div class="ic_frm pull-left <%= is_eventtype(@event.eventtype, 'Quotes') %>" onclick="set_type(<%=Event::Eventtype['Quotes']%>)"><div class="quote icon"></div><p class="pull-right">Quotes</p></div>
+        <div class="ic_frm pull-left <%= is_eventtype(@event.eventtype, 'Others') %>" onclick="set_type(<%=Event::Eventtype['Others']%>)"><div class="other icon"></div><p class="pull-right">Other</p></div>
       	<%= f.hidden_field :eventtype %>
       </div>
     </div>              

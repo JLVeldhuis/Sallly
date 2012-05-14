@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
          :recoverable, 
          :rememberable, 
          :trackable, 
-         :validatable#,
-         # :omniauthable
+         :validatable,
+         :omniauthable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   # associations
   has_one :setting
   has_many :events
+  has_many :authentications
   
   # callbacks
   before_create :add_setting_for_user
@@ -35,7 +36,7 @@ class User < ActiveRecord::Base
                     'event_id'   => event.id,
                     'title'      => event.title,
                     'allDay'     => false,
-                    'className'  => Event::EventType.invert[event.eventtype]
+                    'className'  => User.get_event_class_name(event.eventtype)
                   }
       unless event.date_to.blank?
         thisEvent['allDay'] = false
@@ -47,20 +48,60 @@ class User < ActiveRecord::Base
     event_feed
   end
   
+  def self.get_event_class_name(clnm)
+    if clnm == 1
+      return "Cold Calls"
+    elsif clnm == 2
+      return "Visits"
+    elsif clnm == 3
+      return "Quotes"
+    else
+      return "Others"
+    end
+  end
+  
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
         user.email = data["email"]
       end
+      
+      if data = session['devise.googleapps_data'] && session['devise.googleapps_data']['user_info']
+        user.email = data['email']
+      end
     end
   end
   
-  def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
-    data = access_token.extra.raw_info
-    if user = self.find_by_email(data.email)
+  def self.find_for_service_oauth_with_email(email, access_token, signed_in_resource=nil)
+    data = access_token[:extra][:raw_info]
+    if user = self.find_by_email(email)
+      account = user.authentications.find_by_provider_and_uid(access_token[:provider], access_token[:uid])
+      account ||= user.authentications.create(:provider => access_token[:provider], :uid => access_token[:uid])
       user
-    else # Create a user with a stub password. 
-      self.create!(:email => data.email, :password => Devise.friendly_token[0,20]) 
+    else # Create a user with a stub password.
+      username = data[:name] || data[:username] || email
+      user = User.new(:email => email, :password => Devise.friendly_token[0,20], :name => username) 
+      user.authentications.build(:provider => access_token[:provider], :uid => access_token[:uid])
+      user.save
+      user
+    end
+  end
+  
+  def self.find_for_service_oauth(access_token, signed_in_resource=nil)
+    if access_token.provider == "facebook"
+      data = access_token.extra.raw_info
+    else
+      data = access_token['info']
+    end
+    if user = self.find_by_email(data.email)
+      account = user.authentications.find_by_provider_and_uid(access_token.provider, access_token.uid)
+      account ||= user.authentications.create(:provider => access_token.provider, :uid => access_token.uid)
+      user
+    else # Create a user with a stub password.
+      username = data.name || data.username || data.email 
+      user = User.new(:email => data.email, :password => Devise.friendly_token[0,20], :name => username) 
+      user.authentications.build(:provider => access_token.provider, :uid => access_token.uid)
+      user.save ? user : nil
     end
   end
 end

@@ -14,6 +14,6 @@ module ApplicationHelper
   end
   
   def is_eventtype(cur, matching)
-    cur == Event::EventType[matching] ? "btn btn-info" : ""
+    cur == matching ? "btn btn-info" : ""
   end
 end

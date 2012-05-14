@@ -1,0 +1,30 @@
+source 'http://rubygems.org'
+
+gem 'rails', '3.1.2'
+gem 'json'
+gem 'will_paginate', '3.0.pre2'
+gem 'devise'
+gem 'pg'
+
+gem "omniauth-facebook"
+gem "omniauth-twitter"
+gem 'omniauth-google-apps'
+gem 'omniauth-linkedin'
+gem "omniauth-salesforce"
+
+gem 'databasedotcom'
+
+group :assets do
+  gem 'sass'
+  gem 'coffee-script'
+  gem 'uglifier'
+  gem 'therubyracer'
+end
+
+gem 'jquery-rails'
+gem 'thin', :group => [:production]
+
+group :development do 
+  gem 'debugger'
+end
+

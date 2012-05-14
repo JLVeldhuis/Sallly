@@ -15,7 +15,7 @@ class SettingController < ApplicationController
         @redirect = params[:target];
       end
           
-      redirect_to "/#{@redirect}"
+      redirect_to status_path
     end
   end
 end

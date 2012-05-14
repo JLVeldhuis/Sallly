@@ -1,0 +1,21 @@
+development:
+  site_url: 'http://locahost:4000'
+  twitter_key: 'oEjGWrd4NhPbN9J8KlmBg'
+  twitter_secret: 'AOMBG0O56sJHEM5KMd2Xy4MamnboDrINhZtvoBXWk'
+  facebook_key: '237186599666856'
+  facebook_secret: '4e1200d0194f9bccdb226a4e1590b447'
+  linkedin_key: '3heyjehcrl87'
+  linkedin_secret: '8HfvqzJpJF4kNAZm'
+  salesforce_key: '3MVG9Y6d_Btp4xp6xNqHbQc1SUpIWPMmYJtJqCaexLP4ehbqAqcIa37Ks.id8qX.0W91om8W26s3FzXa.dm6s'
+  salesforce_secret: '5826664495915710786'
+  
+production:
+  site_url: 'http://blooming-spring-4540.herokuapp.com'
+  twitter_key: 'Jh1QqMkpMmArf9r72Dqg'
+  twitter_secret: 'yp0yC5spisiv7tadAVnDAWU2Fr6dPUKiO2L6ZWK9EQ'
+  facebook_key: '232666350170797'
+  facebook_secret: '6cf0f6ee0f8e86b9645e42c33371a4b5'
+  linkedin_key: 'uvd2nw3z2z0v'
+  linkedin_secret: '2lLcKLYaSijUHlaT'
+  salesforce_key: '3MVG9Y6d_Btp4xp6xNqHbQc1SUpIWPMmYJtJqCaexLP4ehbqAqcIa37Ks.id8qX.0W91om8W26s3FzXa.dm6s'
+  salesforce_secret: '5826664495915710786'

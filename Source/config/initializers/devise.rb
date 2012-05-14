@@ -211,8 +211,24 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
-  # require "omniauth-facebook"
-  # config.omniauth :facebook, "237186599666856", "4e1200d0194f9bccdb226a4e1590b447", :strategy_class => OmniAuth::Strategies::Facebook, :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}, :scope => 'publish_stream,email'
+  require "omniauth-facebook"
+  config.omniauth :facebook, AppConfiguration['facebook_key'], AppConfiguration['facebook_secret'], :strategy_class => OmniAuth::Strategies::Facebook, :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}, :scope => 'email'
+  
+  require "openid/fetchers"
+  OpenID.fetcher.ca_file = "/etc/ssl/certs/ca-certificates.crt"
+  
+  require 'openid/store/filesystem'
+  config.omniauth :google_apps, :store => OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com', :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
+  
+  
+  require "omniauth-twitter"
+  config.omniauth :twitter, AppConfiguration["twitter_key"], AppConfiguration["twitter_secret"], :strategy_class => OmniAuth::Strategies::Twitter, :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
+  
+  require "omniauth-linkedin"
+  config.omniauth :linkedin, AppConfiguration["linkedin_key"], AppConfiguration["linkedin_secret"], :strategy_class => OmniAuth::Strategies::LinkedIn, :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
+  
+  # require "omniauth-salesforce"
+  # config.omniauth :salesforce, AppConfiguration["salesforce_key"], AppConfiguration["salesforce_secret"], :strategy_class => OmniAuth::Strategies::Salesforce, :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

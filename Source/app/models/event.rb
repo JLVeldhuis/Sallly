@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :user
   
-  EventType = {
+  Eventtype = {
                 "Cold Calls" => 1,
                 "Visits"     => 2,
                 "Quotes"     => 3,

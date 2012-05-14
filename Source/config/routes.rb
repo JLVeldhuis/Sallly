@@ -1,11 +1,14 @@
-Forevenue::Application.routes.draw do
-  devise_for :users
-  
+Forevenue::Application.routes.draw do  
   devise_scope :user do
     get "sign_in", :to => "devise/sessions#new"
+    get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   end
+  
   devise_for :users, 
-             :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+             :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => "sessions"}
+
+  match '/registrations' => 'registrations#email', :via => :get,  :as => "email"
+  match '/registrations' => 'registrations#email', :via => :post
   
   resources :events
   resources :setting
@@ -17,7 +20,7 @@ Forevenue::Application.routes.draw do
   match '/average',     :to => 'pages#average'
   match '/goal',        :to => 'pages#goal'
   match '/settings',    :to => 'pages#settings'
-  match '/status',      :to => 'pages#status'
+  match '/status',      :to => 'pages#status', :as => "status"
   match '/video',       :to => 'pages#video'
 
   match '/events/new',      :to => 'events#new'  
