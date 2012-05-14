@@ -8,21 +8,6 @@
 .ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
 </style>
 <script>
-  function editEvent(event_id){
-  	$.ajax({
-  		dataType: 'script',
-  		type: 'get',
-  		url: "events/"+ event_id +"/edit"
-  	});
-  };
-  
-  function newEvent(){
-  	$.ajax({
-  		dataType: 'script',
-  		type: 'get',
-  		url: "events/new"
-  	});
-  };
   
   function initDateTimePicker() {
     $('#from').datetimepicker({
@@ -83,9 +68,9 @@
         <%= f.label :goal_start %>
         <div class="input">
             <div class="inline-inputs">
-                <%= f.text_field :goal_start %>
+                <%= f.text_field :goal_start, :id => 'to' %>
                 to
-                <%= f.text_field :goal_end %>
+                <%= f.text_field :goal_end, :id => 'from' %>
             </div>
         </div>
     </div>
