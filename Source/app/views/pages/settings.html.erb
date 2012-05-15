@@ -1,3 +1,59 @@
+<style type="text/css"> 
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+</style>
+<script>
+  
+  function initDateTimePicker() {
+    $('#from').datetimepicker({
+      timeFormat: "hh:mm:ss",
+      dateFormat: "yy-mm-dd",
+      onClose: function(dateText, inst) {
+        var endDateTextBox = $('#to');
+        if (endDateTextBox.val() != '') {
+          var testStartDate = new Date(dateText);
+          var testEndDate = new Date(endDateTextBox.val());
+          if (testStartDate > testEndDate)
+            endDateTextBox.val(dateText);
+        }
+        else {
+          endDateTextBox.val(dateText);
+        }
+      },
+      onSelect: function (selectedDateTime){
+        var start = $(this).datetimepicker('getDate');
+        $('#from').datetimepicker('option', 'minDate', new Date(start.getTime()));
+      }
+    });
+    
+    $('#to').datetimepicker({
+      timeFormat: "hh:mm:ss",
+      dateFormat: "yy-mm-dd",
+      onClose: function(dateText, inst) {
+        var startDateTextBox = $('#from');
+        if (startDateTextBox.val() != '') {
+            var testStartDate = new Date(startDateTextBox.val());
+            var testEndDate = new Date(dateText);
+            if (testStartDate > testEndDate)
+                startDateTextBox.val(dateText);
+        }
+        else {
+            startDateTextBox.val(dateText);
+        }
+      },
+      onSelect: function (selectedDateTime){
+        var end = $(this).datetimepicker('getDate');
+        $('#from').datetimepicker('option', 'maxDate', new Date(end.getTime()) );
+      }
+    });
+  };
+</script>
+
 <h1>Change settings here</h1>
 <%= form_for current_user.setting do |f| %>
     <hr />
@@ -12,9 +68,9 @@
         <%= f.label :goal_start %>
         <div class="input">
             <div class="inline-inputs">
-                <%= f.text_field :goal_start %>
+                <%= f.text_field :goal_start, :id => 'to' %>
                 to
-                <%= f.text_field :goal_end %>
+                <%= f.text_field :goal_end, :id => 'from' %>
             </div>
         </div>
     </div>
@@ -30,9 +86,9 @@
         <%= f.label :average_start %>
         <div class="input">
             <div class="inline-inputs">
-                <%= f.text_field :average_start %>
+                <%= f.text_field :average_start, :id => 'to' %>
                 to
-                <%= f.text_field :average_end %>
+                <%= f.text_field :average_end, :id => 'from' %>
             </div>
         </div>
     </div>

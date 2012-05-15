@@ -13,6 +13,7 @@ gem 'omniauth-linkedin'
 gem "omniauth-salesforce"
 
 gem 'databasedotcom'
+gem 'mysql2'
 
 group :assets do
   gem 'sass'
