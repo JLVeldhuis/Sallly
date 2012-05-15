@@ -213,19 +213,18 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
   require "omniauth-facebook"
   config.omniauth :facebook, AppConfiguration['facebook_key'], AppConfiguration['facebook_secret'], :strategy_class => OmniAuth::Strategies::Facebook, :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}, :scope => 'email'
+    
+  require "omniauth-twitter"
+  config.omniauth :twitter, AppConfiguration["twitter_key"], AppConfiguration["twitter_secret"], :strategy_class => OmniAuth::Strategies::Twitter, :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
+  
+  require "omniauth-linkedin"
+  config.omniauth :linkedin, AppConfiguration["linkedin_key"], AppConfiguration["linkedin_secret"], :strategy_class => OmniAuth::Strategies::LinkedIn, :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
   
   require "openid/fetchers"
   OpenID.fetcher.ca_file = "/etc/ssl/certs/ca-certificates.crt"
   
   require 'openid/store/filesystem'
   config.omniauth :google_apps, :store => OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com', :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
-  
-  
-  require "omniauth-twitter"
-  config.omniauth :twitter, AppConfiguration["twitter_key"], AppConfiguration["twitter_secret"], :strategy_class => OmniAuth::Strategies::Twitter, :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
-  
-  require "omniauth-linkedin"
-  config.omniauth :linkedin, AppConfiguration["linkedin_key"], AppConfiguration["linkedin_secret"], :strategy_class => OmniAuth::Strategies::LinkedIn, :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
   
   # require "omniauth-salesforce"
   # config.omniauth :salesforce, AppConfiguration["salesforce_key"], AppConfiguration["salesforce_secret"], :strategy_class => OmniAuth::Strategies::Salesforce, :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}

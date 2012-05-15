@@ -36,3 +36,42 @@ footer {
 	border-color: #C9C9C9;
 	text-align: center;
 }
+
+/* 3rd Party Icons */
+
+.thirdPartyLink {
+	float: left;
+	width: 60px;
+	height: 48px;
+}
+
+.thirdPartyLink a {
+	line-height: 48px;
+	float: left;
+	display: block;
+	text-indent: -9999px;
+}
+
+.facebook {
+	width: 48px;
+	height: 48px;
+	background: url(../images/Facebook_48X48.png) no-repeat top left;
+}
+
+.twitter {
+	width: 48px;
+	height: 48px;
+	background: url(../images/Twitter_48X48.png) no-repeat top left;
+}
+
+.google_apps {
+	width: 48px;
+	height: 48px;
+	background: url(../images/gmail.png) no-repeat top left;
+}
+
+.linkedin {
+	width: 48px;
+	height: 48px;
+	background: url(../images/linkedin.png) no-repeat top left;
+}
