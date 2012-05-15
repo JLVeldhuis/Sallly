@@ -80,13 +80,22 @@ class Setting < ActiveRecord::Base
     self.user.save
   end
   
+  # hitrate is Goal/ Average amount
+  def hitrate
+    goal_revenue.to_f/average_revenue.to_f
+  end
+  
+  def total_calls
+    hitrate * activity_calls * activity_visits * activity_quotes
+  end
+  
   # populating methods on the basis of input values of setting
   
   # total calls 
   # calls * visits * hitrate_quotes
-  def total_calls
-    (activity_calls * activity_visits * activity_quotes).to_f
-  end
+  # def total_calls
+  #   (activity_calls * activity_visits * activity_quotes).to_f
+  # end
   
   # total visits 
   # visits * hitrate_quotes
