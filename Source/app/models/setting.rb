@@ -8,54 +8,62 @@ class Setting < ActiveRecord::Base
   # populate events like cold calls, cold visits, cold quotes
   # Calls: depends upon number of cold_calls and goal_start and goal_end
   def populate_events_if_required
-    # remove redundant events from the system for the setting
-    flush_redundant_events
-    
-    total_activities_per_day = cold_calls
+    if relevant_fields_changed
+      # remove redundant events from the system for the setting
+      flush_redundant_events
+      total_activities_per_day = cold_calls_per_day
 
-    # we need to figure out a way to track the time zone as per the ip address
-    gStart  = Time.zone.local(goal_start.year, goal_start.month, goal_start.day, 9, 0, 0)
-    gEnd    = Time.zone.local(goal_end.year, goal_end.month, goal_end.day, 17, 0, 0)
+      # we need to figure out a way to track the time zone as per the ip address
+      gStart  = Time.zone.local(goal_start.year, goal_start.month, goal_start.day, 9, 0, 0)
+      gEnd    = Time.zone.local(goal_end.year, goal_end.month, goal_end.day, 17, 0, 0)
     
-    if total_activities_per_day > 0
-      # goal_period_in_days = ((gEnd - gStart) / 1.day).ceil
-      activities_per_day      = total_activities_per_day
-      activity_period_in_mins = ((WORKING_MINS_A_DAY/activities_per_day)/60).floor
-      eStart                  = 0
-      eEnd                    = 0
+      if total_activities_per_day > 0
+        # goal_period_in_days = ((gEnd - gStart) / 1.day).ceil
+        activities_per_day      = total_activities_per_day
+        activity_period_in_mins = ((WORKING_MINS_A_DAY/activities_per_day)/60).floor
+        eStart                  = 0
+        eEnd                    = 0
       
-      gStart.to_date.upto(gEnd.to_date) do |gp|
-        unless [0,6].include?(gp.wday) #is_working_day
-          counter = 0 
-          timePeriods = []
-          eStart  = Time.zone.local(gp.year, gp.month, gp.day, 9, 0, 0) #gStart + gp.day
-          activities_per_day.times do |activity|
-            eEnd        = activity_period_in_mins.minutes.since(eStart)
-            timePeriods << [eStart, eEnd]
-            eStart      = eEnd
-          end
+        gStart.to_date.upto(gEnd.to_date) do |gp|
+          unless [0,6].include?(gp.wday) #is_working_day
+            counter = 0 
+            timePeriods = []
+            eStart  = Time.zone.local(gp.year, gp.month, gp.day, 9, 0, 0) #gStart + gp.day
+            activities_per_day.times do |activity|
+              eEnd        = activity_period_in_mins.minutes.since(eStart)
+              timePeriods << [eStart, eEnd]
+              eStart      = eEnd
+            end
           
-          total_activities_per_day.times do
-            self.user.events << Event.new({
-                                            :title      => "Call: Via setting",
-                                            :eventtype  => 1,
-                                            :date_from  => timePeriods[counter][0],
-                                            :date_to    => timePeriods[counter][1],
-                                            :source     => true
-                                         })
-            counter +=1
+            total_activities_per_day.times do
+              self.user.events << Event.new({
+                                              :title      => "Call: Via setting",
+                                              :eventtype  => 1,
+                                              :date_from  => timePeriods[counter][0],
+                                              :date_to    => timePeriods[counter][1],
+                                              :source     => true
+                                           })
+              counter +=1
+            end
           end
         end
-      end
 
-    end
+      end
     
-    self.user.save
+      self.user.save
+    end
   end
   
   # remove redundant events from the system for the setting
   def flush_redundant_events
     self.user.events.via_taskmanager_and_inactive.delete_all
+  end
+  
+  def relevant_fields_changed
+    ["goal_start", "goal_end", "goal_revenue", "average_revenue", "activity_calls", "activity_visits", "activity_quotes", "average_workdays_a_year", "average_workdays_a_week"].each do |atttr|
+     return true if self.send(atttr + "_changed?")
+    end
+    false
   end
   
   # hitrate is Goal/ Average amount
@@ -133,6 +141,10 @@ class Setting < ActiveRecord::Base
   # average_working_hours_per_week / calls_per_week
   def cold_calls
     (average_working_hours_per_week.to_f/calls_per_week).ceil
+  end
+  
+  def cold_calls_per_day
+    (cold_calls/average_workdays_a_week).ceil
   end
   
   # cold visits
