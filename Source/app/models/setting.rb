@@ -8,7 +8,9 @@ class Setting < ActiveRecord::Base
   # populate events like cold calls, cold visits, cold quotes
   # Calls: depends upon number of cold_calls and goal_start and goal_end
   def populate_events_if_required
-    # total_activities_per_day = calls_per_day + visits_per_day + quotes_per_day
+    # remove redundant events from the system for the setting
+    flush_redundant_events
+    
     total_activities_per_day = cold_calls
 
     # we need to figure out a way to track the time zone as per the ip address
@@ -38,46 +40,22 @@ class Setting < ActiveRecord::Base
                                             :title      => "Call: Via setting",
                                             :eventtype  => 1,
                                             :date_from  => timePeriods[counter][0],
-                                            :date_to    => timePeriods[counter][1]
+                                            :date_to    => timePeriods[counter][1],
+                                            :source     => true
                                          })
             counter +=1
           end
-          
-          # calls_per_day.times do
-          #   self.user.events << Event.new({
-          #                                   :title      => "Call: Via setting",
-          #                                   :eventtype  => 4,
-          #                                   :date_from  => timePeriods[counter][0],
-          #                                   :date_to    => timePeriods[counter][1]
-          #                                })
-          #   counter +=1
-          # end
-
-          # visits_per_day.times do |i|
-          #   self.user.events << Event.new({
-          #                                   :title      => "Visit: Via setting",
-          #                                   :eventtype  => 2,
-          #                                   :date_from  => timePeriods[counter][0],
-          #                                   :date_to    => timePeriods[counter][1]
-          #                                })
-          #   counter +=1
-          # end
-          # 
-          # quotes_per_day.times do |i|
-          #   self.user.events << Event.new({
-          #                                   :title      => "Quote: Via setting",
-          #                                   :eventtype  => 3,
-          #                                   :date_from  => timePeriods[counter][0],
-          #                                   :date_to    => timePeriods[counter][1]
-          #                                })
-          #   counter +=1
-          # end
         end
       end
 
     end
     
     self.user.save
+  end
+  
+  # remove redundant events from the system for the setting
+  def flush_redundant_events
+    self.user.events.via_taskmanager_and_inactive.delete_all
   end
   
   # hitrate is Goal/ Average amount
