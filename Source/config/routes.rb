@@ -18,8 +18,9 @@ Forevenue::Application.routes.draw do
   match '/welcome',     :to => 'pages#welcome'
   match '/activities',  :to => 'pages#activities'
   match '/average',     :to => 'pages#average'
-  match '/goal',        :to => 'pages#goal'
-  match '/settings',    :to => 'pages#settings'
+    match '/goal',        :to => 'pages#goal'
+    match '/settings',    :to => 'pages#settings'
+    match '/task',    :to => 'pages#task'
   match '/status',      :to => 'pages#status', :as => "status"
   match '/video',       :to => 'pages#video'
 
