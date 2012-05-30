@@ -15,6 +15,11 @@ class EventsController < ApplicationController
   
   def edit
     @event = Event.find(params[:id])
+    if @event.eventtype != 1
+      render 'edit.js.erb'
+    else
+      render 'task.js.erb'
+    end
   end
 
   def update
