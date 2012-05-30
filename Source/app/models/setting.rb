@@ -5,6 +5,15 @@ class Setting < ActiveRecord::Base
   
   after_update  :populate_events_if_required
   
+  
+  # Validations
+  
+  validates :activity_calls,
+            :activity_visits,
+            :activity_quotes,
+            :presence => true,
+            :on       => :update
+  
   # populate events like cold calls, cold visits, cold quotes
   # Calls: depends upon number of cold_calls and goal_start and goal_end
   def populate_events_if_required
