@@ -16,6 +16,7 @@ gem "omniauth-salesforce"
 
 gem 'databasedotcom'
 gem 'mysql2'
+gem 'sqlite3'
 
 group :assets do
   gem 'sass'
