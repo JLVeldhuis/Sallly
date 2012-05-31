@@ -27,6 +27,8 @@ Forevenue::Application.routes.draw do
   match '/events/new',      :to => 'events#new'  
   match '/events/:id/edit', :to => 'events#edit'
   match '/get_events.json', :to => 'pages#get_events'
+  
+  match '/events/accept/:id', :to => 'events#accept'
 
   root  :to => 'pages#home'
 end

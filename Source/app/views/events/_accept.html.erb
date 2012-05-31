@@ -1,0 +1,29 @@
+<h1>Incoming Cold Call</h1>
+<div class="modal" id="myModal">
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h2>Did you made planned a meeting visit?</h2>
+  </div>
+  <%= form_for(@event) do |f| %>
+    <div class="modal-body">
+      <div class="column datePickers clearfix">
+        <div class="input">
+          <%= f.text_field :date_from, :id => "from", :class => "span2", :placeholder => "From date" %>
+          <%= f.text_field :date_to, :id => "to", :class => "span2", :style => "margin-left: 17px;", :placeholder => "To date" %>
+        </div>
+      </div>
+      <div class="info column">
+        <label>Name: </label><p class="name"></p>
+        <label>Address: </label><p class="address"></p>
+        <label>City: </label><p class="city"></p>
+        <label>Email: </label><p class="email"></p>
+        <label>Phone: </label><p class="phone"></p>
+        <p>Block of help text to describe the field above if need be.</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit "Yes", :class => "btn btn-primary" %>
+      <a href="#" class="btn" data-dismiss="modal">No</a>
+    </div>
+  <%end%>
+</div>

@@ -21,6 +21,10 @@ class EventsController < ApplicationController
       render 'task.js.erb'
     end
   end
+  
+  def accept
+    @event = Event.find(params[:id])
+  end
 
   def update
     @event = Event.find(params[:id])

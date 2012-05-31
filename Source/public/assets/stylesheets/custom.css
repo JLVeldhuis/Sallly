@@ -75,3 +75,23 @@ footer {
 	height: 48px;
 	background: url(../images/linkedin.png) no-repeat top left;
 }
+
+.modal .column {
+  float: left;
+}
+
+.modal .datePickers {
+  width: 310px;
+}
+
+.modal .modal-body {
+  overflow: hidden;
+}
+
+.modal .crmData {
+  width: 280px;
+}
+
+.modal .info {
+  width: 200px;
+}
