@@ -1,5 +1,5 @@
 $('#myModal').html('<%= escape_javascript(render(:partial => "accept")) %>');
 $('#myModal').modal();
 initDateTimePicker();
-$('#from').datepicker("setDate",  "<%= @event.date_from.iso8601 %>");
-$('#to').datepicker("setDate", "<%= @event.date_to.iso8601 %>");
+$('#from').datepicker("setDate",  new Date(<%= @event.date_from.year %>, <%= @event.date_from.month %>, <%= @event.date_from.day %>));
+$('#to').datepicker("setDate", new Date(<%= @event.date_to.year %>, <%= @event.date_to.month %>, <%= @event.date_to.day %>));
