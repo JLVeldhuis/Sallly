@@ -1,11 +1,14 @@
-<script>
-  $(document).ready(function() {
-    $('#myModal').modal('show')
+<script type="text/javascript">
+  $(function() {
+    var client = new Faye.Client('http://localhost:9292/faye');
+    client.subscribe("<%= task_path %>", function(data) {
+      $('#myModal').modal('show');
+    });
   });
 </script>
 
 <h1>Cold call event</h1>
-<div class="modal" id="myModal">
+<div class="modal hide" id="myModal">
   <div class="modal-header">
     <button class="close" data-dismiss="modal">×</button>
     <h3>Cold call event</h3>
