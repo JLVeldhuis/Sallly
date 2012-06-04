@@ -32,7 +32,7 @@
 	function init() {
     	var ctx = document.getElementById("monitor").getContext("2d");
         window.heartRate = new HeartRate({ context: ctx });
-        window.setInterval(draw, 50);
+        window.setInterval(draw, 100);
     }
 
     // Draws the heartrate monitor.
