@@ -1,3 +1,4 @@
+<script type="text/javascript" src="/assets/javascript/jquery-ui-timepicker-addon.js"></script>
 <style type="text/css"> 
 /* css for timepicker */
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
@@ -7,45 +8,20 @@
 .ui-timepicker-div td { font-size: 90%; }
 .ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
 </style>
-<script>
-  
+<script> 
   function initDateTimePicker() {
     $('#from').datetimepicker({
-      timeFormat: "hh:mm:ss",
+      timeFormat: "",
       dateFormat: "yy-mm-dd",
-      onClose: function(dateText, inst) {
-        var endDateTextBox = $('#to');
-        if (endDateTextBox.val() != '') {
-          var testStartDate = new Date(dateText);
-          var testEndDate = new Date(endDateTextBox.val());
-          if (testStartDate > testEndDate)
-            endDateTextBox.val(dateText);
-        }
-        else {
-          endDateTextBox.val(dateText);
-        }
-      },
       onSelect: function (selectedDateTime){
         var start = $(this).datetimepicker('getDate');
         $('#from').datetimepicker('option', 'minDate', new Date(start.getTime()));
       }
     });
-    
+  
     $('#to').datetimepicker({
-      timeFormat: "hh:mm:ss",
+      timeFormat: "",
       dateFormat: "yy-mm-dd",
-      onClose: function(dateText, inst) {
-        var startDateTextBox = $('#from');
-        if (startDateTextBox.val() != '') {
-            var testStartDate = new Date(startDateTextBox.val());
-            var testEndDate = new Date(dateText);
-            if (testStartDate > testEndDate)
-                startDateTextBox.val(dateText);
-        }
-        else {
-            startDateTextBox.val(dateText);
-        }
-      },
       onSelect: function (selectedDateTime){
         var end = $(this).datetimepicker('getDate');
         $('#from').datetimepicker('option', 'maxDate', new Date(end.getTime()) );
@@ -89,9 +65,8 @@ What is the average amount you qoute to your customers? This is needed to calcul
         <%= f.label :average_start %>
         <div class="input">
             <div class="inline-inputs">
-                <%= f.text_field :average_start, :id => 'to' %>
-                to
-                <%= f.text_field :average_end, :id => 'from' %>
+                <%= f.text_field :average_start, :id => "from", :class => "span3", :placeholder => "From date" %>
+                <%= f.text_field :average_end, :id => "to", :class => "span3", :style => "margin-left: 17px;", :placeholder => "To date" %>
             </div>
         </div>
     </div>
@@ -131,3 +106,8 @@ How many days do you work a year?
         <%= f.submit "Save", :class => "btn btn-primary" %>
     </div>
 <% end %>
+<script>
+  $(document).ready(function() {
+    initDateTimePicker();
+  });
+</script>

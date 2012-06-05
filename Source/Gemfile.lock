@@ -189,8 +189,8 @@ DEPENDENCIES
   databasedotcom
   debugger
   devise
-  highrise
   faye (= 0.5.5)
+  highrise
   jquery-rails
   json
   mysql2
