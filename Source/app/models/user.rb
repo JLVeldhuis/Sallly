@@ -109,11 +109,16 @@ class User < ActiveRecord::Base
   def refresh_leads
     leads_via_highrise = Highrise::Person.find(:all)
     leads_via_highrise.each do |l|
-      self.leads.create({
-                          :name => "#{l.first_name} #{l.last_name}",
-                          :phone => l.contact_data.phone_numbers[0].number#,
-                          #:address => l.contact_data.addresses
-                       })
+      lead    = self.leads.find_by_crm_id(l.id)
+      lead  ||= self.leads.build({:crm_id => l.id})
+      
+      lead.name  = "#{l.first_name} #{l.last_name}"
+      lead.phone = l.contact_data.phone_numbers[0].number if l.contact_data.phone_numbers.count > 0
+      lead.email = l.contact_data.email_addresses
+      if l.contact_data.addresses.count > 0
+        lead.city = l.contact_data.addresses[0].city
+        lead.address = "#{l.contact_data.addresses[0].street} #{l.contact_data.addresses[0].city} #{l.contact_data.addresses[0].country} #{l.contact_data.addresses[0].zip}"
+      end
     end
   end
 end
