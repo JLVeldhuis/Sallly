@@ -1,29 +1,82 @@
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type='text/javascript'>
-	google.load('visualization', '1', {packages:['gauge']});
-    google.setOnLoadCallback(drawChart);
-    function drawChart() {
-    	var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Label');
-        data.addColumn('number', 'Value');
-        data.addRows([
-          	['Status', 10],
-         	['Pro-activity', 55],
-          	['task', 55]
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>
+      Google Visualization API Sample
+    </title>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1.1', {packages: ['controls']});
+    </script>
+    <script type="text/javascript">
+      function drawVisualization() {
+        // Prepare the data.
+        var data = google.visualization.arrayToDataTable([
+          ['Metric', 'Value'],
+          ['Task' , 12],
+          ['Pro-activity', 20],
+          ['Ranking', 7],
+          ['Yield', 54]
         ]);
+      
+        // Define a category picker for the 'Metric' column.
+        var categoryPicker = new google.visualization.ControlWrapper({
+          'controlType': 'CategoryFilter',
+          'containerId': 'control1',
+          'options': {
+            'filterColumnLabel': 'Metric',
+            'ui': {
+              'allowTyping': false,
+              'allowMultiple': true,
+              'selectedValuesLayout': 'belowStacked'
+            }
+          },
+          // Define an initial state, i.e. a set of metrics to be initially selected.
+          'state': {'selectedValues': ['Task', 'Pro-activity', 'Ranking']}
+        });
+      
+        // Define a gauge chart.
+        var gaugeChart = new google.visualization.ChartWrapper({
+          'chartType': 'Gauge',
+          'containerId': 'chart1',
+          'options': {
+            'width': 300,
+            'height': 150
+          }
+        });
+      
+        // Create the dashboard.
+        var dashboard = new google.visualization.Dashboard(document.getElementById('dashboard')).
+          // Configure the category picker to affect the gauge chart
+          bind(categoryPicker, gaugeChart).
+          // Draw the dashboard
+          draw(data);
+      }
+      
 
-        var options = {
-        	width: 250, height: 165,
-          	redFrom: 50, redTo: 100,
-          	yellowFrom:25, yellowTo: 50,
-          	minorTicks: 5
-        };
-
-        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
-        chart.draw(data, options);
-	}
-</script>
-
+      google.setOnLoadCallback(drawVisualization);
+    </script>
+  </head>
+  <body style="font-family: Arial;border: 0 none;">
+    <div id="dashboard">
+      <table>
+        <tr style='vertical-align: top'>
+          <td style='width: 300px; font-size: 0.9em;'>
+            <div id="control1"></div>
+            <div id="control2"></div>
+            <div id="control3"></div>
+          </td>
+          <td style='width: 600px'>
+            <div style="float: left;" id="chart1"></div>
+            <div style="float: left;" id="chart2"></div>
+            <div style="float: left;" id="chart3"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
+​
 <script type="text/javascript" src="/assets/javascript/heartrate.js"></script>
 <script type="text/javascript">
 	document.addEventListener("DOMContentLoaded", init, false);
@@ -32,7 +85,7 @@
 	function init() {
     	var ctx = document.getElementById("monitor").getContext("2d");
         window.heartRate = new HeartRate({ context: ctx });
-        window.setInterval(draw, 50);
+        window.setInterval(draw, 100);
     }
 
     // Draws the heartrate monitor.
@@ -50,26 +103,26 @@
     </section>
     <section class="span4 well">
         <h4>Activities</h4>
-        <div id='chart_div' style="margin-top: 25px;"></div>
+        <div id='dashboard' style="margin-top: 25px;"></div>
     </section>
     <section class="span3 well">
         <h4>Ranking</h4>
-        <%= image_tag 'images/ninja.png', :width => 125 %>
+        <%= image_tag 'images/ninja.png', :width => 85 %>
     </section>
 </section>
 
 <section class="row">
 	<section class="span7">
-    	<a data-toggle="modal" class="btn btn-info addNewEvent" href="#"><i class="icon-plus"></i>Add new event</a>
+    	<a data-toggle="modal" class="btn btn-info addNewEvent" href="#"><i class="icon-plus"></i>  Add Task</a>
     </section>
     <section class="span5">
-	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #1B50E0;"></div>
+	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #90EE90;"></div>
     	Others
-	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #1BE01E;"></div>
+	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #FFB6C1;"></div>
     	Quotes
-	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #E0AF1B;"></div>
+	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #87CEFA;"></div>
     	Visits
-	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #E01B1B;"></div>
+	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #ADD8E6;"></div>
     	Cold calls
     </section>
 </section>

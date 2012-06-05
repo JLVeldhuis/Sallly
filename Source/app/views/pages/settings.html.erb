@@ -54,10 +54,12 @@
   };
 </script>
 
-<h1>Change settings here</h1>
+<h1>Welcome to the settings page</h1>
+Fill out these settings to work back from your revenue goal to a set of activities. Sallly helps you generate sales activities without any sales experience. Just fill out the question's as good as possible. No harm done if you made a mistake. You simply can adjust them during the process of using Sallly.
 <%= form_for current_user.setting do |f| %>
     <hr />
     <h3>Goal</h3>
+Which revenue do you want to achieve with you're business?
     <div class="clearfix">
         <%= f.label :goal_revenue %>
         <div class="input">
@@ -76,6 +78,7 @@
     </div>
     <hr />
     <h3>Average</h3>
+What is the average amount you qoute to your customers? This is needed to calculate you're hitrate!
     <div class="clearfix">
         <%= f.label :average_revenue %>
         <div class="input">
@@ -93,9 +96,10 @@
         </div>
     </div>
     <hr />
-    <h3>Activity</h3>
+    <h3>Experience</h3>
+How long have you been doing sales? 
     <div class="controls">
-        <%= f.select :activity_level, {"Level 1: Rookie" => 0, "Level 2: Novice" => 1, "Level 3: Ninja" => 2} %>
+        <%= f.select :activity_level, {"Level 1: Less than 1 year" => 0, "Level 2: Between 1 and 3 years" => 1, "Level 3: More than 3 years" => 2} %>
     </div>
     <div class="clearfix">
         <%= f.label :activity_calls %>
@@ -111,6 +115,7 @@
         </div>
     </div>
     <h3>Average workdays</h3>
+How many days do you work a year?
     <div class="clearfix">
         <div class="input">
             <div class="inline-inputs">
