@@ -17,6 +17,8 @@ class Setting < ActiveRecord::Base
   # populate events like cold calls, cold visits, cold quotes
   # Calls: depends upon number of cold_calls and goal_start and goal_end
   def populate_events_if_required
+    @lcounter = 0
+    @userLeads = self.user.leads
     if relevant_fields_changed
       # remove redundant events from the system for the setting
       flush_redundant_events
@@ -50,9 +52,11 @@ class Setting < ActiveRecord::Base
                                               :eventtype  => 1,
                                               :date_from  => timePeriods[counter][0],
                                               :date_to    => timePeriods[counter][1],
-                                              :source     => true
+                                              :source     => true,
+                                              :lead_id    => get_next_lead
                                            })
               counter +=1
+              @lcounter +=1
             end
           end
         end
@@ -60,6 +64,13 @@ class Setting < ActiveRecord::Base
       end
     
       self.user.save
+    end
+  end
+  
+  def get_next_lead
+    if @userLeads.count > 0
+      @lcounter = 0 if @lcounter >= @userLeads.count
+      @userLeads[@lcounter]
     end
   end
   

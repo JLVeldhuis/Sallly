@@ -110,7 +110,9 @@ class User < ActiveRecord::Base
     leads_via_highrise = Highrise::Person.find(:all)
     leads_via_highrise.each do |l|
       self.leads.create({
-                          :name => "#{l.first_name} #{l.last_name}"
+                          :name => "#{l.first_name} #{l.last_name}",
+                          :phone => l.contact_data.phone_numbers[0].number#,
+                          #:address => l.contact_data.addresses
                        })
     end
   end
