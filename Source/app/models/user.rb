@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   
   # associations
   has_one :setting
+  has_many :leads
   has_many :events
   has_many :authentications
   
@@ -102,6 +103,15 @@ class User < ActiveRecord::Base
       user = User.new(:email => data.email, :password => Devise.friendly_token[0,20], :name => username) 
       user.authentications.build(:provider => access_token.provider, :uid => access_token.uid)
       user.save ? user : nil
+    end
+  end
+  
+  def refresh_leads
+    leads_via_highrise = Highrise::Person.find(:all)
+    leads_via_highrise.each do |l|
+      self.leads.create({
+                          :name => "#{l.first_name} #{l.last_name}"
+                       })
     end
   end
 end

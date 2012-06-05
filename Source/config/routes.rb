@@ -10,17 +10,16 @@ Forevenue::Application.routes.draw do
   match '/registrations' => 'registrations#email', :via => :get,  :as => "email"
   match '/registrations' => 'registrations#email', :via => :post
   
-  resources :events
-  resources :setting
+  resources :events, :setting, :leads
 
   match '/contact',     :to => 'pages#contact'
   match '/about',       :to => 'pages#about'
   match '/welcome',     :to => 'pages#welcome'
   match '/activities',  :to => 'pages#activities'
   match '/average',     :to => 'pages#average'
-    match '/goal',        :to => 'pages#goal'
-    match '/settings',    :to => 'pages#settings'
-    match '/task',    :to => 'pages#task'
+  match '/goal',        :to => 'pages#goal'
+  match '/settings',    :to => 'pages#settings'
+  match '/task',        :to => 'pages#task'
   match '/status',      :to => 'pages#status', :as => "status"
   match '/video',       :to => 'pages#video'
 
@@ -29,6 +28,7 @@ Forevenue::Application.routes.draw do
   match '/get_events.json', :to => 'pages#get_events'
   
   match '/events/accept/:id', :to => 'events#accept'
+  match 'refresh/leads' , :to => 'leads#refresh', :as => 'refresh_leads'
 
   root  :to => 'pages#home'
 end

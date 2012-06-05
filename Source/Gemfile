@@ -11,6 +11,7 @@ gem "omniauth-twitter"
 gem 'omniauth-google-apps'
 gem 'omniauth-linkedin'
 gem "omniauth-salesforce"
+gem "highrise"
 
 gem 'databasedotcom'
 gem 'mysql2'

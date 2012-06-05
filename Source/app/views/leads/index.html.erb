@@ -1,0 +1,6 @@
+<h1>Leads</h1>
+
+<%=link_to "Refresh Leads", refresh_leads_path%>
+<%@leads.each do |l|%>
+  <div><%=l.name%></div>
+<%end%>
