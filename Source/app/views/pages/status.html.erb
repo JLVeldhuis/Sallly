@@ -1,9 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>
-      Google Visualization API Sample
-    </title>
+
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load('visualization', '1.1', {packages: ['controls']});
@@ -40,13 +35,13 @@
           'chartType': 'Gauge',
           'containerId': 'chart1',
           'options': {
-            'width': 300,
-            'height': 150
+            'width': 200,
+            'height': 80
           }
         });
       
         // Create the dashboard.
-        var dashboard = new google.visualization.Dashboard(document.getElementById('dashboard')).
+        var dashboard = new google.visualization.Dashboard(document.getElementById("dashboard")).
           // Configure the category picker to affect the gauge chart
           bind(categoryPicker, gaugeChart).
           // Draw the dashboard
@@ -56,26 +51,8 @@
 
       google.setOnLoadCallback(drawVisualization);
     </script>
-  </head>
-  <body style="font-family: Arial;border: 0 none;">
-    <div id="dashboard">
-      <table>
-        <tr style='vertical-align: top'>
-          <td style='width: 300px; font-size: 0.9em;'>
-            <div id="control1"></div>
-            <div id="control2"></div>
-            <div id="control3"></div>
-          </td>
-          <td style='width: 600px'>
-            <div style="float: left;" id="chart1"></div>
-            <div style="float: left;" id="chart2"></div>
-            <div style="float: left;" id="chart3"></div>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </body>
-</html>
+
+ 
 ​
 <script type="text/javascript" src="/assets/javascript/heartrate.js"></script>
 <script type="text/javascript">
@@ -95,7 +72,7 @@
     }
 </script>
     
-<h1>Status</h1>
+<h1>Status Dashboard</h1>
 <section class="row info">
     <section class="span3 well first">
         <h4>Heart rate</h4>
@@ -103,7 +80,24 @@
     </section>
     <section class="span4 well">
         <h4>Activities</h4>
-        <div id='dashboard' style="margin-top: 25px;"></div>
+        <div id= "dashboard" style="margin-top: 25px;"></div>
+
+	      <table>
+	        <tr style='vertical-align: top'>
+		
+	          <td style='width: 200px; font-size: 0.9em;'>
+	            <div id="control1"></div>
+	            <div id="control2"></div>
+	            <div id="control3"></div>
+	          </td>
+	          <td style='width: 600px'>
+	            <div style="float: left;" id="chart1"></div>
+	            <div style="float: left;" id="chart2"></div>
+	            <div style="float: left;" id="chart3"></div>
+	          </td>
+	        </tr>
+	      </table>
+	    </div>
     </section>
     <section class="span3 well">
         <h4>Ranking</h4>
@@ -115,7 +109,7 @@
 	<section class="span7">
     	<a data-toggle="modal" class="btn btn-info addNewEvent" href="#"><i class="icon-plus"></i>  Add Task</a>
     </section>
-    <section class="span5">
+    <section class="span5">3
 	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #90EE90;"></div>
     	Others
 	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #FFB6C1;"></div>
@@ -132,11 +126,11 @@
         <%= render 'shared/calendar' %>
     </section>
     <section class="span3">
-        <span>Your upcoming events.</span>
+        <span>Your upcoming Tasks.</span>
         <table class="table table-striped table-bordered table-condensed">
             <thead>
                 <tr>
-                    <th>Title</th>
+                    <th>Type of Task</th>
                 </tr>
             </thead>
             <tbody>
@@ -158,3 +152,5 @@
   	});
   });
 </script>
+</body>
+</html>
