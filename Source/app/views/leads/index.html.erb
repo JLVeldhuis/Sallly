@@ -1,6 +1,21 @@
 <h1>Leads</h1>
 
 <%=link_to "Refresh Leads", refresh_leads_path%>
-<%@leads.each do |l|%>
-  <div><%=l.name%></div>
-<%end%>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>City</th>
+    <th>Address</th>
+  </tr>
+  <%@leads.each do |l|%>
+    <tr>
+      <td><%=l.name%></td>
+      <td><%=l.email%></td>
+      <td><%=l.phone%></td>
+      <td><%=l.city%></td>
+      <td><%=l.address%></td>
+    </tr>
+  <%end%>
+</table>

@@ -5,7 +5,12 @@ class LeadsController < ApplicationController
   end
   
   def refresh
-    current_user.refresh_leads
+    begin
+      current_user.refresh_leads
+    rescue SocketError => e
+      logger.error e.message
+      flash[:error] = "Oops! couldn't connect to the server."
+    end
     redirect_to leads_path
   end
 end
