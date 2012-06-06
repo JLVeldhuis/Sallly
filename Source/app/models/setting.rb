@@ -46,13 +46,20 @@ class Setting < ActiveRecord::Base
             end
             total_activities_per_day.times do
               next_lead = get_next_lead
+              if next_lead 
+                next_lead_id = next_lead.id
+                title = "Call: Via setting with #{next_lead.name}" 
+              else
+                title = "Call: Via setting"
+                next_lead_id = nil
+              end
               self.user.events << Event.new({
-                                              :title      => "Call: Via setting with #{next_lead.name}",
+                                              :title      => title,
                                               :eventtype  => 1,
                                               :date_from  => timePeriods[counter][0],
                                               :date_to    => timePeriods[counter][1],
                                               :source     => true,
-                                              :lead_id    => next_lead.id
+                                              :lead_id    => next_lead_id
                                            })
               counter +=1
               @lcounter +=1
