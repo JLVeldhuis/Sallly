@@ -23,8 +23,9 @@
       timeFormat: "",
       dateFormat: "yy-mm-dd",
       onSelect: function (selectedDateTime){
+        var start = $(this).datetimepicker('getDate');
         var end = $(this).datetimepicker('getDate');
-        $(this).datepicker('option', 'minDate', new Date(end) );
+        $(this).datepicker('option', 'minDate', new Date(start) );
       }
     });
   };

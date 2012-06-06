@@ -34,7 +34,6 @@ class Setting < ActiveRecord::Base
         activity_period_in_mins = ((WORKING_MINS_A_DAY/activities_per_day)/60).floor
         eStart                  = 0
         eEnd                    = 0
-      
         gStart.to_date.upto(gEnd.to_date) do |gp|
           unless [0,6].include?(gp.wday) #is_working_day
             counter = 0 
@@ -45,7 +44,6 @@ class Setting < ActiveRecord::Base
               timePeriods << [eStart, eEnd]
               eStart      = eEnd
             end
-          
             total_activities_per_day.times do
               next_lead = get_next_lead
               self.user.events << Event.new({
@@ -165,7 +163,7 @@ class Setting < ActiveRecord::Base
   end
   
   def cold_calls_per_day
-    (cold_calls/average_workdays_a_week).ceil
+    (cold_calls.to_f/average_workdays_a_week.to_f).ceil
   end
   
   # cold visits
