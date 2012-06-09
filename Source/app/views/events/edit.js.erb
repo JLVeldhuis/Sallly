@@ -1,5 +1,5 @@
 $('#myModal').html('<%= escape_javascript(render(:partial => "edit")) %>');
 $('#myModal').modal();
 initDateTimePicker();
-$('#from').datepicker("setDate",  new Date(<%= @event.date_from.year %>, <%= @event.date_from.month %>, <%= @event.date_from.day %>));
-$('#to').datepicker("setDate", new Date(<%= @event.date_to.year.to_i %>, <%= @event.date_to.month.to_i %>, <%= @event.date_to.day.to_i %>));
+$('#from').datepicker("setDate",  new Date(<%= @event.date_from.year %>, <%= @event.date_from.month - 1 %>, <%= @event.date_from.day %>, <%= @event.date_from.hour %>, <%= @event.date_from.min %>, <%= @event.date_to.sec %>));
+$('#to').datepicker("setDate", new Date(<%= @event.date_to.year %>, <%= @event.date_to.month - 1 %>, <%= @event.date_to.day %>, <%= @event.date_to.hour %>, <%= @event.date_to.min %>, <%= @event.date_to.sec %>));

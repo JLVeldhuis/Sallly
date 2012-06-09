@@ -30,8 +30,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
       if @event.update_attributes(params[:event])
         message = {:channel => task_path, :data => { :event_id => @event.id, :event_title => @event.title}}
-        uri = URI.parse("http://localhost:9292/faye")
-        Net::HTTP.post_form(uri, :message => message.to_json)
+        # uri = URI.parse("http://localhost:9292/faye")
+        # Net::HTTP.post_form(uri, :message => message.to_json)
         flash[:success] = "Event updated."
     else
       flash[:error] = "Event creation failed"
