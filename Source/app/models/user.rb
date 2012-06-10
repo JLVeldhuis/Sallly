@@ -119,6 +119,14 @@ class User < ActiveRecord::Base
         lead.city = l.contact_data.addresses[0].city
         lead.address = "#{l.contact_data.addresses[0].street} #{l.contact_data.addresses[0].city} #{l.contact_data.addresses[0].country} #{l.contact_data.addresses[0].zip}"
       end
+      
+      if l.notes.count > 0
+        crm_data = []
+        l.notes.each do |note|
+          crm_data << note.body
+        end
+        lead.crm_notes = crm_data.join(' ')
+      end
       lead.save
     end
   end

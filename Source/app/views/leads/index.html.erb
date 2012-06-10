@@ -8,6 +8,7 @@
     <th>Phone</th>
     <th>City</th>
     <th>Address</th>
+    <th>CRM Notes</th>
   </tr>
   <%@leads.each do |l|%>
     <tr>
@@ -16,6 +17,7 @@
       <td><%=l.phone%></td>
       <td><%=l.city%></td>
       <td><%=l.address%></td>
+      <td><%=l.crm_notes%></td>
     </tr>
   <%end%>
 </table>
