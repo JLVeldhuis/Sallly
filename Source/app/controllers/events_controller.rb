@@ -26,6 +26,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     render :nothing => true unless @event.update_attributes(:is_active => true)
   end
+  
+  def end
+    @event = Event.find(params[:id])
+  end
 
   def update
     @event = Event.find(params[:id])

@@ -10,14 +10,7 @@
       <textarea></textarea>
       <p>This field contains sales tips and your CRM hosted Data</p>
     </div>
-    <div class="info column">
-      <label>Name: <%=@event.lead.name%></label><p class="name"></p>
-      <label>Address: <%=@event.lead.address%></label><p class="address"></p>
-      <label>City: <%=@event.lead.city%></label><p class="city"></p>
-      <label>Email: <%=@event.lead.email%></label><p class="email"></p>
-      <label>Phone: <%=@event.lead.phone%></label><p class="phone"></p>
-      <p>Block of help text to describe the field above if need be.</p>
-    </div>
+    <%=render :partial=>'user_details', :locals => {:event => @event}%>
   </div>
   <div class="modal-footer">
     <a href="#" class="btn btn-primary accept" data-id="<%=@event.id%>">Accept</a>

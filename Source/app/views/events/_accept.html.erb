@@ -2,28 +2,32 @@
 <div class="modal" id="myModal">
   <div class="modal-header">
     <button class="close" data-dismiss="modal">×</button>
-    <h2>Did you made planned a meeting visit?</h2>
+    <h2>Incoming Cold Call</h2>
+    <h3>Tips &amp; CRM Data</h3>
   </div>
-  <%= form_for(@event) do |f| %>
-    <div class="modal-body">
-      <div class="column datePickers clearfix">
-        <div class="input">
-          <%= f.text_field :date_from, :id => "from", :class => "span2", :placeholder => "From date" %>
-          <%= f.text_field :date_to, :id => "to", :class => "span2", :style => "margin-left: 17px;", :placeholder => "To date" %>
-        </div>
-      </div>
-      <div class="info column">
-        <label>Name: <%=@event.lead.name%></label><p class="name"></p>
-        <label>Address: <%=@event.lead.address%></label><p class="address"></p>
-        <label>City: <%=@event.lead.city%></label><p class="city"></p>
-        <label>Email: <%=@event.lead.email%></label><p class="email"></p>
-        <label>Phone: <%=@event.lead.phone%></label><p class="phone"></p>
-        <p>Block of help text to describe the field above if need be.</p>
-      </div>
+  <div class="modal-body">
+    <div class="crmData column">
+      <textarea></textarea>
+      <p>This field contains sales tips and your CRM hosted Data</p>
     </div>
-    <div class="modal-footer">
-      <%= f.submit "Yes", :class => "btn btn-primary" %>
-      <a href="#" class="btn" data-dismiss="modal">No</a>
-    </div>
-  <%end%>
+    <%=render :partial=>'user_details', :locals => {:event => @event}%>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary accept" data-id="<%=@event.id%>">End</a>
+  </div>
 </div>
+<script>
+  function endCall(event_id){
+  	$.ajax({
+  		dataType: 'script',
+  		type: 'get',
+  		url: "events/end/"+event_id
+  	});
+  };
+  
+  $(".accept").click(function(){
+    event_id = $(this).attr("data-id");
+    endCall(event_id);
+    return false;
+  });
+</script>
