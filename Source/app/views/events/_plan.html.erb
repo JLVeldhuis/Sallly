@@ -1,8 +1,8 @@
-<h1>Incoming Cold Call</h1>
+<h1>Incoming <%=User.get_event_class_name(@event.eventtype)%></h1>
 <div class="modal" id="myModal">
   <div class="modal-header">
     <button class="close" data-dismiss="modal">×</button>
-    <h2>Did you made planned a meeting visit?</h2>
+    <h2><%=get_title(@event.eventtype, @event.source)%></h2>
   </div>
   <%= form_for(@event) do |f| %>
     <div class="modal-body">

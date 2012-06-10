@@ -51,13 +51,13 @@ class User < ActiveRecord::Base
   
   def self.get_event_class_name(clnm)
     if clnm == 1
-      return "Cold Calls"
+      return "Cold Call"
     elsif clnm == 2
-      return "Visits"
+      return "Visit"
     elsif clnm == 3
-      return "Quotes"
+      return "Quote"
     else
-      return "Others"
+      return "Other"
     end
   end
   

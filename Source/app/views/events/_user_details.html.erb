@@ -1,8 +1,8 @@
 <div class="info column">
-  <label>Name: <%=event.lead.name%></label><p class="name"></p>
-  <label>Address: <%=event.lead.address%></label><p class="address"></p>
-  <label>City: <%=event.lead.city%></label><p class="city"></p>
-  <label>Email: <%=event.lead.email%></label><p class="email"></p>
-  <label>Phone: <%=event.lead.phone%></label><p class="phone"></p>
+  <label>Name: <%=event.lead.name if event.lead%></label><p class="name"></p>
+  <label>Address: <%=event.lead.address if event.lead%></label><p class="address"></p>
+  <label>City: <%=event.lead.city if event.lead%></label><p class="city"></p>
+  <label>Email: <%=event.lead.email if event.lead%></label><p class="email"></p>
+  <label>Phone: <%=event.lead.phone if event.lead%></label><p class="phone"></p>
   <p>Block of help text to describe the field above if need be.</p>
 </div>

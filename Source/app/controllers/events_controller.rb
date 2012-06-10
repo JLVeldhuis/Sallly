@@ -15,7 +15,7 @@ class EventsController < ApplicationController
   
   def edit
     @event = Event.find(params[:id])
-    if @event.eventtype != 1
+    if @event.eventtype != 1 || @event.source != true
       render 'edit.js.erb'
     else
       render 'task.js.erb'
@@ -39,10 +39,17 @@ class EventsController < ApplicationController
       # uri = URI.parse("http://localhost:9292/faye")
       # Net::HTTP.post_form(uri, :message => message.to_json)
       flash[:success] = "Event updated."
+      respond_to do |format|
+        format.html { redirect_to status_path }
+        format.js   { render 'update.js.erb' }
+      end
     else
       flash[:error] = "Event creation failed"
+      respond_to do |format|
+        format.html { render 'edit' }
+        format.js   { render :nothing => true}
+      end
     end
-    redirect_to status_path
   end
 
   def destroy

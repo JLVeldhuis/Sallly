@@ -1,4 +1,4 @@
-<h1>Incoming Cold Call</h1>
+<h1>Incoming <%=User.get_event_class_name(@event.eventtype)%></h1>
 <div class="modal" id="myModal">
   <div class="modal-header">
     <button class="close" data-dismiss="modal">×</button>
@@ -7,7 +7,7 @@
   </div>
   <div class="modal-body">
     <div class="crmData column">
-      <textarea><%= @event.lead.crm_notes %></textarea>
+      <textarea><%= @event.crm %></textarea>
       <p>This field contains sales tips and your CRM hosted Data</p>
     </div>
     <%=render :partial=>'user_details', :locals => {:event => @event}%>

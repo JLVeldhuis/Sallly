@@ -49,6 +49,7 @@ class Setting < ActiveRecord::Base
               if next_lead 
                 next_lead_id = next_lead.id
                 title = "Call: Via setting with #{next_lead.name}" 
+                crm_data = next_lead.crm_notes
               else
                 title = "Call: Via setting"
                 next_lead_id = nil
@@ -59,7 +60,8 @@ class Setting < ActiveRecord::Base
                                               :date_from  => timePeriods[counter][0],
                                               :date_to    => timePeriods[counter][1],
                                               :source     => true,
-                                              :lead_id    => next_lead_id
+                                              :lead_id    => next_lead_id,
+                                              :crm        => crm_data
                                            })
               counter +=1
               @lcounter +=1
