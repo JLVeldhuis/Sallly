@@ -95,3 +95,10 @@ footer {
 .modal .info {
   width: 200px;
 }
+
+/* heart styles */
+
+#monitor {
+  margin-left: -4px;
+  text-align: center;
+}

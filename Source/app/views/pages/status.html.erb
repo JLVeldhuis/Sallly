@@ -1,82 +1,61 @@
-
-    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      google.load('visualization', '1.1', {packages: ['controls']});
-    </script>
-    <script type="text/javascript">
-      function drawVisualization() {
-        // Prepare the data.
-        var data = google.visualization.arrayToDataTable([
-          ['Metric', 'Value'],
-          ['Task' , 12],
-          ['Pro-activity', 20],
-          ['Ranking', 7],
-          ['Yield', 54]
-        ]);
-      
-        // Define a category picker for the 'Metric' column.
-        var categoryPicker = new google.visualization.ControlWrapper({
-          'controlType': 'CategoryFilter',
-          'containerId': 'control1',
-          'options': {
-            'filterColumnLabel': 'Metric',
-            'ui': {
-              'allowTyping': false,
-              'allowMultiple': true,
-              'selectedValuesLayout': 'belowStacked'
-            }
-          },
-          // Define an initial state, i.e. a set of metrics to be initially selected.
-          'state': {'selectedValues': ['Task', 'Pro-activity', 'Ranking']}
-        });
-      
-        // Define a gauge chart.
-        var gaugeChart = new google.visualization.ChartWrapper({
-          'chartType': 'Gauge',
-          'containerId': 'chart1',
-          'options': {
-            'width': 200,
-            'height': 80
-          }
-        });
-      
-        // Create the dashboard.
-        var dashboard = new google.visualization.Dashboard(document.getElementById("dashboard")).
-          // Configure the category picker to affect the gauge chart
-          bind(categoryPicker, gaugeChart).
-          // Draw the dashboard
-          draw(data);
-      }
-      
-
-      google.setOnLoadCallback(drawVisualization);
-    </script>
-
- 
-​
-<script type="text/javascript" src="/assets/javascript/heartrate.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<%=javascript_include_tag "/assets/raphael-min.js", "heart.js"%>
 <script type="text/javascript">
-	document.addEventListener("DOMContentLoaded", init, false);
-	
-	/* The init function creates a 2d context, runs setup and starts draw loop */
-	function init() {
-    	var ctx = document.getElementById("monitor").getContext("2d");
-        window.heartRate = new HeartRate({ context: ctx });
-        window.setInterval(draw, 100);
-    }
-
-    // Draws the heartrate monitor.
-    function draw() {     
-    	// heartRate.monitor(xPosition, yPosition);
-        heartRate.monitor();
-    }
+  google.load('visualization', '1.1', {packages: ['controls']});
 </script>
-    
+<script type="text/javascript">
+  function drawVisualization() {
+    // Prepare the data.
+    var data = google.visualization.arrayToDataTable([
+      ['Metric', 'Value'],
+      ['Task' , 12],
+      ['Pro-activity', 20],
+      ['Ranking', 7],
+      ['Yield', 54]
+    ]);
+  
+    // Define a category picker for the 'Metric' column.
+    var categoryPicker = new google.visualization.ControlWrapper({
+      'controlType': 'CategoryFilter',
+      'containerId': 'control1',
+      'options': {
+        'filterColumnLabel': 'Metric',
+        'ui': {
+          'allowTyping': false,
+          'allowMultiple': true,
+          'selectedValuesLayout': 'belowStacked'
+        }
+      },
+      // Define an initial state, i.e. a set of metrics to be initially selected.
+      'state': {'selectedValues': ['Task', 'Pro-activity', 'Ranking']}
+    });
+  
+    // Define a gauge chart.
+    var gaugeChart = new google.visualization.ChartWrapper({
+      'chartType': 'Gauge',
+      'containerId': 'chart1',
+      'options': {
+        'width': 200,
+        'height': 80
+      }
+    });
+  
+    // Create the dashboard.
+    var dashboard = new google.visualization.Dashboard(document.getElementById("dashboard")).
+      // Configure the category picker to affect the gauge chart
+      bind(categoryPicker, gaugeChart).
+      // Draw the dashboard
+      draw(data);
+  }
+  
+
+  google.setOnLoadCallback(drawVisualization);
+</script>   
 <h1>Status Dashboard</h1>
 <section class="row info">
     <section class="span3 well first">
         <h4>Heart rate</h4>
-        <canvas id="monitor" width="220" height="50" style="margin-top: 40px;"></canvas>
+        <div id="monitor"></div>
     </section>
     <section class="span4 well">
         <h4>Activities</h4>
@@ -143,14 +122,6 @@
         </table>
     </section>
 </section>
-<script>
-  $(".addNewEvent").click(function() {
-    $.ajax({
-  		dataType: 'script',
-  		type: 'get',
-  		url: "events/new"
-  	});
-  });
-</script>
+
 </body>
 </html>

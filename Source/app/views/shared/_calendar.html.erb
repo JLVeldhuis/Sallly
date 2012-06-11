@@ -12,6 +12,19 @@
 .ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
 </style>
 <script type='text/javascript'>
+  var c;
+  
+  function initHeart() {
+    var monitor = document.getElementById("monitor");
+    var paper = Raphael(monitor, 100, 100);
+    
+    var solidheart = "M 58,17 C 52,7 42,0 30,0 C 13,0 0,13 0,30 C 0,63 18,68 58,106 C 98,68 116,63 116,30 C 116,13 103,0 86,0 C 74,0 64,7 58,17 z";
+    c = paper.path(solidheart).attr({fill: "#ff0707", stroke: "none", scale: "0.5 0.5"}).click(heartbeat);
+    
+    heartbeat();
+    setInterval("heartbeat();", 1000);
+  };
+
 	$(document).ready(function() {
 		initMenu();
 		var date = new Date();
@@ -35,6 +48,8 @@
                 editEvent(event.event_id);
               }
     });
+    
+    initHeart();
 	});
 	
   function initMenu() {
@@ -45,10 +60,19 @@
   		function() {
   			$(this).parents('div:eq(0)').find('.open').slideToggle('slow');	
   		});
-	};	
+	};
+		
   function set_type(type){
     $("#event_eventtype").val(type);
-  }
+  };
+  
+  $(".addNewEvent").click(function() {
+    $.ajax({
+  		dataType: 'script',
+  		type: 'get',
+  		url: "events/new"
+  	});
+  });
 </script>
 <div id="myModal" class="modal hide fade"></div>
 <div id='cal' style="width:
