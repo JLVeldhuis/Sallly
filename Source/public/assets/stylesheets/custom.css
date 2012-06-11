@@ -116,3 +116,12 @@ footer {
 #deal_description {
   height: 50px;
 }
+
+.edit_setting .column {
+  width: 240px;
+  float: left;
+}
+
+.edit_setting .input.smallText {
+  width: 230px;
+}
