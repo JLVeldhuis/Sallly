@@ -2,6 +2,8 @@ class Event < ActiveRecord::Base
   belongs_to :user
   belongs_to :lead
   
+  has_one :deal
+  
   MAX_EVENT_COUNT = 10
   
   Eventtype = {

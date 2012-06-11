@@ -1,4 +1,6 @@
 Forevenue::Application.routes.draw do  
+  resources :deals
+
   devise_scope :user do
     get "sign_in", :to => "devise/sessions#new"
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'

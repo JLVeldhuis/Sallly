@@ -102,3 +102,17 @@ footer {
   margin-left: -4px;
   text-align: center;
 }
+
+/* deal page */
+
+#new_deal input[type="text"],  #new_deal textarea, #new_deal .input {
+  width: 500px;
+}
+
+#new_deal .smallWidth, #new_deal input[type="text"].smallWidth, #new_deal select.smallWidth {
+  width: 100px;
+}
+
+#deal_description {
+  height: 50px;
+}

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  event_id: 1
+  description: MyText
+  how_much: 9.99
+  currency: MyString
+  deal_type: MyString
+  category_id: 1
+
+two:
+  name: MyString
+  event_id: 1
+  description: MyText
+  how_much: 9.99
+  currency: MyString
+  deal_type: MyString
+  category_id: 1

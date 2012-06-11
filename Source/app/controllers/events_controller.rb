@@ -39,9 +39,15 @@ class EventsController < ApplicationController
       # uri = URI.parse("http://localhost:9292/faye")
       # Net::HTTP.post_form(uri, :message => message.to_json)
       flash[:success] = "Event updated."
+      if params[:source] == "plan"
+        template = 'deal.js.erb'
+        @deal = @event.deal ? @event.deal : @event.build_deal
+      else
+        template = 'update.js.erb'
+      end
       respond_to do |format|
         format.html { redirect_to status_path }
-        format.js   { render 'update.js.erb' }
+        format.js   { render template }
       end
     else
       flash[:error] = "Event creation failed"

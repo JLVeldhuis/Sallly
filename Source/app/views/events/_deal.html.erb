@@ -1,0 +1,43 @@
+<h1>Who's this deal with?</h1>
+<div class="modal" id="myModal">
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h2>Make your deal</h2>
+  </div>
+  <%= form_for(@deal, :remote => true) do |f| %>
+    <div class="modal-body">
+      <div class="column datePickers clearfix">
+        <div class="input">
+          <label>Who's this deal with?</label>
+          <label><%=@event.lead.name if @event.lead%></label>
+        </div>
+        
+        <div class="input">
+          <%=f.label :name, "Name the deal"%>
+          <%=f.text_field :name%>
+        </div>
+        
+        <div class="input">
+          <%=f.label :description, "Describe the deal"%>
+          <%=f.text_area :description%>
+        </div>
+        
+        <div class="input">
+          <%=f.label :how_much, "How much?"%>
+          <%=f.select :currency, ["$-USD"], {}, :class=>"smallWidth"%>
+          <%=f.text_field :how_much, :class=>"smallWidth"%>
+          <%=f.select :deal_type, ["Fixed bid"], {}, :class=>"smallWidth"%>
+        </div>
+        
+        <div class="input">
+          <%=f.label :category_id, "Category"%>
+          <%=f.select :category_id, ["None"], {}, :class=>"smallWidth"%>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit "Add this deal", :class => "btn btn-primary" %>
+      <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+    </div>
+  <%end%>
+</div>
