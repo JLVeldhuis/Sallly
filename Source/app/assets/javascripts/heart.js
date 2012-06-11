@@ -3,7 +3,6 @@
 // I'd recommend using proper looping if you wanted 
 //      more. This is just for a demonstration!
 function heartbeat(){
-  console.log("hello");
   c.animate({
     "0%": {scale: "0.5 0.5"}, 
     "10%": {scale: "0.5 0.5"},

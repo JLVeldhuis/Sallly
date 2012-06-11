@@ -25,9 +25,10 @@ Forevenue::Application.routes.draw do
   match '/status',      :to => 'pages#status', :as => "status"
   match '/video',       :to => 'pages#video'
 
-  match '/events/new',      :to => 'events#new'  
-  match '/events/:id/edit', :to => 'events#edit'
-  match '/get_events.json', :to => 'pages#get_events'
+  match '/events/new',              :to => 'events#new'  
+  match '/events/:id/edit',         :to => 'events#edit'
+  match '/get_events.json',         :to => 'pages#get_events'
+  match '/get_upcoming_event.json', :to => 'pages#get_upcoming_event'
   
   match '/events/accept/:id', :to => 'events#accept'
   match '/events/end/:id', :to => 'events#end'

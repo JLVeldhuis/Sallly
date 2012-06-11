@@ -50,7 +50,16 @@
     });
     
     initHeart();
+    
+    triggerEvents();
 	});
+	
+	function triggerEvents() {
+    if("<%=@pending_event.to_s%>" == "false")
+      return true;
+    else
+      editEvent("<%=@pending_event.id%>");
+	};
 	
   function initMenu() {
 	  var block = $(".day");
