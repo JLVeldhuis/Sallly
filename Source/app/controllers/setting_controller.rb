@@ -16,6 +16,8 @@ class SettingController < ApplicationController
       end
           
       redirect_to status_path
+    else
+      render 'pages/settings'
     end
   end
 end

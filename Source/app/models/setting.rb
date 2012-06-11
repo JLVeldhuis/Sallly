@@ -11,6 +11,7 @@ class Setting < ActiveRecord::Base
   validates :activity_calls,
             :activity_visits,
             :activity_quotes,
+            :numericality => {:greater_than => 0, :less_than => 11},
             :presence => true,
             :on       => :update
   

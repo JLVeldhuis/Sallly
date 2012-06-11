@@ -19,10 +19,10 @@ class Event < ActiveRecord::Base
   # all inactive events from taskmanager 
   scope :via_taskmanager_and_inactive, where(:source => true, :is_active => false)
   
-  before_validation :check_event_limit,
-                    :on => :create
+  # before_validation :check_event_limit,
+  #                   :on => :create
   
-  def check_event_limit
-    self.errors.add(:user_id, "User has reached his activity limit of #{MAX_EVENT_COUNT}") if self.user.events.count >= 10
-  end
+  # def check_event_limit
+  #   self.errors.add(:user_id, "User has reached his activity limit of #{MAX_EVENT_COUNT}") if self.user.events.count >= 10
+  # end
 end
