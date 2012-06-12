@@ -27,7 +27,7 @@
           <%=f.label :how_much, "How much?"%>
           <%=f.select :currency, CURRENCIES_MAP, {}, :class=>"currency smallWidth"%>
           <%=f.text_field :how_much, :class=>"smallWidth"%>
-          <%=f.select :deal_type, ["Fixed bid"] , {}, :class=>"smallWidth"%>
+          <%=f.select :deal_type, Deal::DEALTYPE , {}, :class=>"smallWidth"%>
         </div>
         
         <div class="input">

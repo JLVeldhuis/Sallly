@@ -18,7 +18,6 @@ class DealsController < ApplicationController
   # end
 
   def create
-    debugger
     @deal = @event.build_deal(params[:deal])
 
     if @deal.save
