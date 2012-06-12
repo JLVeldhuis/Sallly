@@ -21,7 +21,11 @@ class Deal < ActiveRecord::Base
   def update_to_highrise
     if highrised
       ddeal     = Highrise::Deal.find(dealId) unless dealId.blank?
-      params    = {"name"=> name,"currency"=> currency,"price_type"=> deal_type,"category_id"=> category.categoryId.to_i, "party_id"=> event.lead.crm_id.to_i, "price" => how_much.to_i}
+      params    = {"name"=> name, "currency"=> currency, "price_type"=> deal_type, "category_id"=> category.categoryId.to_i, "price" => how_much.to_i}
+      
+      params["party_id"]    = event.lead.crm_id.to_i if event.lead
+      params["category_id"] = category.categoryId.to_i if category.categoryId
+      
       if ddeal
         # params["id"]  = dealId
         # response      = ddeal.update_attributes(params)
