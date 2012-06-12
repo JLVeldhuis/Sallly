@@ -7,3 +7,5 @@
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
 
 # Category.create([{ :name => '' }, { :name => '' }])
+
+Deal.fetch_categories
