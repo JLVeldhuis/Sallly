@@ -1,6 +1,4 @@
 Forevenue::Application.routes.draw do  
-  resources :deals
-
   devise_scope :user do
     get "sign_in", :to => "devise/sessions#new"
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
@@ -11,6 +9,8 @@ Forevenue::Application.routes.draw do
 
   match '/registrations' => 'registrations#email', :via => :get,  :as => "email"
   match '/registrations' => 'registrations#email', :via => :post
+  
+  resources :deals, :only => [:create, :update]
   
   resources :events, :setting, :leads
 

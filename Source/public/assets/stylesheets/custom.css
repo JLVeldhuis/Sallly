@@ -113,6 +113,14 @@ footer {
   width: 100px;
 }
 
+.edit_deal input[type="text"],  .edit_deal textarea, .edit_deal .input {
+  width: 500px;
+}
+
+.edit_deal .smallWidth, .edit_deal input[type="text"].smallWidth, .edit_deal select.smallWidth {
+  width: 100px;
+}
+
 #deal_description {
   height: 50px;
 }

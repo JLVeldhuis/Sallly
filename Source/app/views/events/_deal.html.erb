@@ -15,6 +15,7 @@
         <div class="input">
           <%=f.label :name, "Name the deal"%>
           <%=f.text_field :name%>
+          <%=hidden_field_tag :event_id, @event.id%>
         </div>
         
         <div class="input">
