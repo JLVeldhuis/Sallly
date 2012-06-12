@@ -106,18 +106,18 @@ CURRENCIES = [
     "thousands_separator"=> ",",
     "iso_numeric"=> "533"
   },
-  {
-    "priority"=> 100,
-    "iso_code"=> "AZN",
-    "name"=> "Azerbaijani Manat",
-    "symbol"=> nil,
-    "subunit_to_unit"=> 100,
-    "symbol_first"=> true,
-    "html_entity"=> "",
-    "decimal_mark"=> ".",
-    "thousands_separator"=> ",",
-    "iso_numeric"=> "944"
-  },
+  # {
+  #   "priority"=> 100,
+  #   "iso_code"=> "AZN",
+  #   "name"=> "Azerbaijani Manat",
+  #   "symbol"=> nil,
+  #   "subunit_to_unit"=> 100,
+  #   "symbol_first"=> true,
+  #   "html_entity"=> "",
+  #   "decimal_mark"=> ".",
+  #   "thousands_separator"=> ",",
+  #   "iso_numeric"=> "944"
+  # },
   {
     "priority"=> 100,
     "iso_code"=> "BAM",

@@ -19,16 +19,25 @@ class DealsController < ApplicationController
 
   def create
     @deal = @event.build_deal(params[:deal])
-
-    if @deal.save
-      redirect_to status_path, notice: 'Deal was successfully created.'
-    else
-      render action: "new"
+    @deal.highrised = true
+    begin
+      if @deal.save
+        redirect_to status_path, notice: 'Deal was successfully created.'
+      else
+        render action: "new"
+      end
+    rescue ActiveResource::ServerError => e
+      logger.error e.message
+      redirect_to status_path, notice: 'Oops there was some issue and the data did not update to the api server. Contact your administrator'
+    rescue ActiveResource::ResourceNotFound => e
+      logger.error e.message
+      redirect_to status_path, notice: 'Oops there was some issue and the data for this deal has beed removed from the api.'
     end
   end
 
   def update
     @deal = @event.deal
+    # @deal.highrised = true
 
     if @deal.update_attributes(params[:deal])
       redirect_to status_path, notice: 'Deal was successfully updated.'
