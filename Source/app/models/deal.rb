@@ -8,12 +8,8 @@ class Deal < ActiveRecord::Base
                "Per year"     => "year"
              }
              
-  CURRENCY = {
-                "$ - USD"   => "USD",
-                "# - POUND" => "POUND"
-             }
-             
-  CATEGORY = {
-                "None" => "NONE"
-             }
+  def self.fetch_categories
+    categories = Highrise::DealCategory.find(:all)
+    categories.each { |cat| Category.create!(:name => cat.name, :categoryId=>cat.id)}
+  end
 end

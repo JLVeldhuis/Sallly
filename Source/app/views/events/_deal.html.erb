@@ -25,14 +25,14 @@
         
         <div class="input">
           <%=f.label :how_much, "How much?"%>
-          <%=f.select :currency, ["$-USD"], {}, :class=>"smallWidth"%>
+          <%=f.select :currency, CURRENCIES_MAP, {}, :class=>"currency smallWidth"%>
           <%=f.text_field :how_much, :class=>"smallWidth"%>
-          <%=f.select :deal_type, ["Fixed bid"], {}, :class=>"smallWidth"%>
+          <%=f.select :deal_type, ["Fixed bid"] , {}, :class=>"smallWidth"%>
         </div>
         
         <div class="input">
           <%=f.label :category_id, "Category"%>
-          <%=f.select :category_id, ["None"], {}, :class=>"smallWidth"%>
+          <%=f.select :category_id, (Category.all.collect {|cat| [cat.name, cat.id]}), {}, :class=>"smallWidth"%>
         </div>
       </div>
     </div>
