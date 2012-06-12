@@ -15,9 +15,9 @@ class Event < ActiveRecord::Base
               
   # all inactive events 
   scope :inactive, where(:is_active => false)
-  # scope :upcoming, where(:date_from => (Time.now)..(15.minutes.since(Time.now)))
+  scope :upcoming, where(:date_from => (Time.now)..(15.minutes.since(Time.now)))
   
-  scope :upcoming, where("date_from <= ?", 15.minutes.since(Time.now))
+  # scope :upcoming, where("date_from <= ? and date_from >= ?", 15.minutes.since(Time.now), Time.now)
   
   # all inactive events from taskmanager 
   scope :via_taskmanager_and_inactive, where(:source => true, :is_active => false)
