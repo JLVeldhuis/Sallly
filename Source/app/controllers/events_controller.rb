@@ -3,7 +3,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     if @event.save
       flash[:success] = "Event created"
-      else
+    else
       flash[:error] = "Event creation failed"
     end
     redirect_to status_path
@@ -24,7 +24,10 @@ class EventsController < ApplicationController
   
   def accept
     @event = Event.find(params[:id])
-    render :nothing => true unless @event.update_attributes(:is_active => true)
+    unless @event.update_attributes(:is_active => true)
+      @error_messages = @event.errors.full_messages.join('\n')
+      render "errors.js.erb"
+    end
   end
   
   def end
@@ -53,7 +56,10 @@ class EventsController < ApplicationController
       flash[:error] = "Event creation failed"
       respond_to do |format|
         format.html { render 'edit' }
-        format.js   { render :nothing => true}
+        format.js   do 
+          @error_messages = @event.errors.full_messages.join('\n')
+          render "errors.js.erb"
+        end
       end
     end
   end

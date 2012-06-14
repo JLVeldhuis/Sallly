@@ -12,6 +12,9 @@ class Deal < ActiveRecord::Base
              }
              
   after_save :update_to_highrise
+  
+  validates :name, :how_much,
+            :presence => true
              
   def self.fetch_categories
     categories = Highrise::DealCategory.find(:all)

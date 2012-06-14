@@ -21,17 +21,18 @@ class DealsController < ApplicationController
     @deal = @event.build_deal(params[:deal])
     @deal.highrised = true
     begin
-      if @deal.save
-        redirect_to status_path, notice: 'Deal was successfully created.'
-      else
-        render action: "new"
+      unless @deal.save
+        @error_messages = @deal.errors.full_messages.join('\n')
+        render "events/errors.js.erb"
       end
     rescue ActiveResource::ServerError => e
       logger.error e.message
-      redirect_to status_path, notice: 'Oops there was some issue and the data did not update to the api server. Contact your administrator'
+      @error_messages = 'Oops you have reached your limit to add deals.'
+      render "events/errors.js.erb"
     rescue ActiveResource::ResourceNotFound => e
       logger.error e.message
-      redirect_to status_path, notice: 'Oops there was some issue and the data for this deal has beed removed from the api.'
+      @error_messages = 'Oops there was some issue and the data for this deal has beed removed from the api.'
+      render "events/errors.js.erb"
     end
   end
 
