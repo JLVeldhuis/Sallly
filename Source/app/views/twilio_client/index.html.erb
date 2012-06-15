@@ -1,0 +1,41 @@
+<%= javascript_tag do %>
+  Twilio.Device.setup("<%= twilio_token %>");
+ 
+   Twilio.Device.ready(function (device) {
+     $("#log").text("Ready");
+   });
+    
+   Twilio.Device.error(function (error) {
+     $("#log").text("Error: " + error.message);
+   });
+ 
+   Twilio.Device.connect(function (conn) {
+     $("#log").text("Successfully established call");
+     $(".call").addClass("disable");
+     $(".hangup").removeClass("disable");
+   });
+ 
+   Twilio.Device.disconnect(function (conn) {
+     $("#log").text("Call ended");
+     $(".hangup").addClass("disable");
+     $(".call").removeClass("disable");
+   });
+ 
+   function call() {
+     // get the phone number to connect the call to
+     params = {"PhoneNumber": $("#number").val()};
+     Twilio.Device.connect(params);
+   }
+ 
+   function hangup() {
+     Twilio.Device.disconnectAll();
+   }
+ <% end %>
+ <section id="twilio-call">
+   <section id=buttons>
+     <button class="call" onclick="call();">Call</button>
+     <button class="hangup disable" onclick="hangup();">Hangup</button>
+   </section>
+   <input type="text" id="number" name="number" placeholder="Enter a phone number to call"/>
+   <div id="log">Loading pigeons...</div>
+ </section>
