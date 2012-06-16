@@ -1,45 +1,5 @@
-#twilio-call #log {
-  width: 466px;
-  height: 25px;
-  background: #404040;
-  padding: 10px;
-  /*margin-left: -243px;*/
-  margin: 25px auto 0 auto;
-  border: 1px solid #d4d4d4;
-  text-decoration: none;
-  font:18px/normal sans-serif;
-  color: white;
-  white-space: nowrap;
-  outline: none;
-  background-color: #404040;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#000), to(#404040));
-  background-image: -moz-linear-gradient(#000, #404040);
-  background-image: -o-linear-gradient(#000, #404040);
-  background-image: linear-gradient(#000, #404040);
-  -webkit-background-clip: padding;
-  -moz-background-clip: padding;
-  -o-background-clip: padding-box;
-  /*background-clip: padding-box;*/ /* commented out due to Opera 11.10 bug */
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  line-height: 25px;
-  border-radius: 5px;
-  /* IE hacks */
-  zoom: 1;
-  *display: inline;
-}
-
-/* ------------------------------------------
-CSS3 GITHUB BUTTONS (Nicolas Gallagher)
-Licensed under Unlicense
-http://github.com/necolas/css3-github-buttons
------------------------------------------- */
-
-
-/* ------------------------------------------------------------------------------------------------------------- BUTTON */
-
 #twilio-call #buttons {
-	width: 490px;
+	width: 205px;
 	margin: 0 auto;
 }
 
@@ -55,10 +15,10 @@ http://github.com/necolas/css3-github-buttons
     display: inline-block;
     padding: 0.5em 1em;
     border: 1px solid #d4d4d4;
-    margin: 0 auto;
+    margin: 1em auto;
     text-decoration: none;
     text-shadow: 1px 1px 0 #fff;
-    font:35px/normal sans-serif;
+    font:15px/normal sans-serif;
     font-weight: bold;
     color: #333;
     white-space: nowrap;
@@ -76,16 +36,20 @@ http://github.com/necolas/css3-github-buttons
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
+    width: 100px;
     /* IE hacks */
     zoom: 1;
     *display: inline;
 }
 
 #twilio-call button.call.disable, #twilio-call button.hangup.disable {
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#747474), to(#3c3c3c));
-    background-image: -moz-linear-gradient(#f4f4f4, #ececec);
-    background-image: -o-linear-gradient(#f4f4f4, #ececec);
-    background-image: linear-gradient(#f4f4f4, #ececec);
+    color: #eee;
+    text-shadow: 1px 1px 0 #000;
+    background-color: #353535;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FD0D0D), to(#353535));
+    background-image: -moz-linear-gradient(#FD0D0D, #353535);
+    background-image: -o-linear-gradient(#FD0D0D, #353535);
+    background-image: linear-gradient(#FD0D0D, #353535);
 }
 
 #twilio-call button.call:hover,
@@ -130,39 +94,9 @@ http://github.com/necolas/css3-github-buttons
 
 #twilio-call input {
   display: block;
-  margin: 25px auto 0 auto;
+  margin: 0 auto 0 auto;
   outline: none;
   border: 1px solid #999;
-  line-height: 1.4em;
-  font-size: 24px;
   padding: 10px;
-  width: 466px;
+  width: 205px;
 }
-
-/* ............................................................................................................. Icons */
-
-#twilio-call button.call:before,
-#twilio-call button.hangup:before {
-    content: "";
-    position: relative;
-    top: 1px;
-    float:left;
-    width: 44px;
-    height: 37px;
-    margin: 0 0.75em 0 -0.25em;
-    background: url(../images/twilio-buttons.png) 0 99px no-repeat;
-}
-
-#twilio-call button.call:before { background-position: 0 -48px; }
-#twilio-call button.call:hover:before,
-#twilio-call button.call:focus:before,
-#twilio-call button.call:active:before { background-position: 0 0; }
-
-#twilio-call button.hangup {
-   margin-left: 25px;
-}
-
-#twilio-call button.hangup:before { background-position: 0 -131px; }
-#twilio-call button.hangup:hover:before,
-#twilio-call button.hangup:focus:before,
-#twilio-call button.hangup:active:before { background-position: 0 -88px; }
