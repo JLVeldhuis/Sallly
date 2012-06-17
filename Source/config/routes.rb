@@ -24,8 +24,6 @@ Forevenue::Application.routes.draw do
   match '/task',        :to => 'pages#task'
   match '/status',      :to => 'pages#status', :as => "status"
   match '/video',       :to => 'pages#video'
-  
-  match '/twilio',      :to => 'twilio_client#index' 
 
   match '/events/new',              :to => 'events#new'  
   match '/events/:id/edit',         :to => 'events#edit'
