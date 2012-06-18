@@ -1,8 +1,116 @@
 body {
 	background: none scroll no-repeat top left #E9E9E9;
-	margin-top: 60px;
 }
 
+/**
+ * 	Header section
+ */
+header {
+	background-color:#222;
+	border-bottom: 1px solid #111;
+	clear: both; 
+	color: #999;
+	height: 45px;
+	margin: 0;
+	padding: 0;
+}
+
+	header #header-inner {
+		margin: 0 auto;
+		width: 962px;
+	}
+	
+		header #header-inner .logo {
+			color: #fff;
+			display: inline-block;
+			font: 13px/1.7em 'Open Sans';
+			font-size: 20px;
+			font-weight: bold;
+			line-height: 1em;
+			margin-left: -20px;
+			padding: 8px 20px 12px;
+			text-decoration: none;
+		}
+
+		header #header-inner .form-search {
+			display: inline-block;
+			margin-left: 535px;
+		}
+		
+		header #header-inner .account {
+			display: inline-block;
+		}
+
+/**
+ * 	Navbar section
+ */
+nav {
+	background-color: #444;
+	background-image: -moz-linear-gradient(top, #414141, #323232);
+	background-image: -ms-linear-gradient(top, #414141, #323232);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#414141), to(#323232));
+	background-image: -webkit-linear-gradient(top, #414141, #323232);
+	background-image: -o-linear-gradient(top, #414141, #323232);
+	background-image: linear-gradient(top, #414141, #323232);
+	background-repeat: repeat-x;
+	border-bottom: 1px solid #000;
+	border-top: 1px solid #666;
+	margin-bottom: 1em;
+}
+
+	nav #nav-inner {
+		margin: 0 auto;
+		width: 962px;
+	}
+	
+		nav #nav-inner .menu {
+			border-left: 1px solid #333;
+			border-right: 1px solid #555;
+			font: 13px/1.7em 'Open Sans';
+			display: inline-block;
+			margin: 0;
+			padding: 0;
+		}
+		
+			nav #nav-inner .menu li {
+				border-left: 1px solid #555;
+				border-right: 1px solid #333;
+				display: list-item;
+				float: left;
+				list-style: none;
+				margin: 0;
+				min-width: 90px;
+				padding: 0;
+				text-align: center
+			}
+			
+				nav #nav-inner .menu li a {
+					color: #666;
+					display: block;
+					font-size: 12px;
+					font-weight: bold;
+					height: 100%;
+					padding: 0 15px .5em;
+					text-decoration: none;
+					text-transform: uppercase;
+					text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+				}
+				
+				nav #nav-inner .menu li:hover > a {
+					color: #CCC;
+				}
+				
+				nav #nav-inner .menu li.active a {
+					background: #333;
+					color: #F90;
+				}
+				
+					nav #nav-inner .menu li a i {
+						height: 16px;
+						margin: .5em 0;
+						width: 16px;
+					}
+		
 /**
  * 	Content section
  */
