@@ -30,6 +30,6 @@ gem 'jquery-rails'
 gem 'thin', :group => [:production]
 
 group :development do 
-  gem 'debugger'
+  # gem 'debugger'
 end
 
