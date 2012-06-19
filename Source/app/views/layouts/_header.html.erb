@@ -1,7 +1,10 @@
-<header><section id="header-inner">
-  <a class="logo" href="<%= root_url %>">Sallly</a>
-  <form class="form-search">
-    <input type="text" class="search-query" placeholder="Type search string" />
+<header><section id="header-inner" class="row">
+	<div class="span2">
+  		<a class="logo" href="<%= root_url %>"><h1>Sallly</h1></a>
+  	</div>
+  	<div class="span6 offset4">
+  		<form class="form-search">
+    	<input type="text" class="search-query" placeholder="Type search string" />
   </form>
   <% if signed_in? %>
   	<a href="<%= settings_path %>" class="settings"><i class="icon-cog icon-white"></i> Settings</a>
@@ -9,6 +12,7 @@
   <% else %>
     <%= link_to "Sign up now!", new_user_registration_path, :class => "btn btn-primary" %> or <%= link_to "sign in", new_user_session_path %>
   <% end %>
+  </div>
 </section></header>
 <nav><section id="nav-inner">
 	<ul class="menu">
