@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8" />
-  	<title><%= title %></title>
-  	<meta name="description" content="">
-  	<meta name="author" content="Forevenue team" />
-  	<%= render 'layouts/javascript' %>
-  	<%= render 'layouts/stylesheets' %>
- 
- 	<%= csrf_meta_tags %>
-</head>
-<body>
-	<%= render 'layouts/header' %>
-	<section class="container content">
-		<% flash.each do |key, value| %>
-			<section class="alert-message <%= key %>"><%= value %></section>
-		<% end %>
-		<%= yield %>
-	</section>
-	<%= render 'layouts/footer' %>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= title %></title>
+    <meta name="description" content="">
+    <meta name="author" content="Forevenue team" />
+    <%= render 'layouts/javascript' %>
+    <%= render 'layouts/stylesheets' %>
+
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <section class="content">
+      <% flash.each do |key, value| %>
+      <section class="alert-message <%= key %>">
+        <%= value %>
+      </section>
+      <% end %>
+      <%= yield %>
+    </section>
+    <%= render 'layouts/footer' %>
+  </body>
 </html>
