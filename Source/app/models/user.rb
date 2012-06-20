@@ -89,12 +89,9 @@ class User < ActiveRecord::Base
   end
   
   def self.find_for_service_oauth(access_token, signed_in_resource=nil)
-    if access_token.provider == "facebook"
-      data = access_token.extra.raw_info
-    else
-      data = access_token['info']
-    end
-    if user = self.find_by_email(data.email)
+    data = access_token.provider == "facebook" ? access_token.extra.raw_info : access_token['info']
+    user = signed_in_resource ? signed_in_resource : self.find_by_email(data.email)
+    if user
       account = user.authentications.find_by_provider_and_uid(access_token.provider, access_token.uid)
       account ||= user.authentications.create(:provider => access_token.provider, :uid => access_token.uid)
       user
@@ -107,6 +104,14 @@ class User < ActiveRecord::Base
   end
   
   def refresh_leads
+    if setting.crm_option == "salesforce"
+      refresh_leads_via_salesforce
+    else
+      refresh_leads_via_highrise
+    end
+  end
+  
+  def refresh_leads_via_highrise
     leads_via_highrise = Highrise::Person.find(:all)
     leads_via_highrise.each do |l|
       lead    = self.leads.find_by_crm_id(l.id)
@@ -129,5 +134,9 @@ class User < ActiveRecord::Base
       end
       lead.save
     end
+  end
+  
+  def refresh_leads_via_salesforce
+    
   end
 end

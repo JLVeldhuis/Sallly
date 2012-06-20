@@ -12,7 +12,7 @@ Forevenue::Application.routes.draw do
 
   resources :deals, :only => [:create, :update]
 
-  resources :events, :setting, :leads
+  resources :events, :setting, :leads, :sfleads
 
   match '/contact',     :to => 'pages#contact'
   match '/about',       :to => 'pages#about'

@@ -13,9 +13,10 @@ gem "omniauth-twitter"
 gem 'omniauth-google-apps'
 gem 'omniauth-linkedin'
 gem "omniauth-salesforce"
+gem 'databasedotcom'
+gem 'databasedotcom-rails'
 gem "highrise"
 
-gem 'databasedotcom'
 gem 'mysql2'
 gem 'sqlite3'
 
@@ -30,6 +31,6 @@ gem 'jquery-rails'
 gem 'thin', :group => [:production]
 
 group :development do 
-  # gem 'debugger'
+  gem 'debugger'
 end
 

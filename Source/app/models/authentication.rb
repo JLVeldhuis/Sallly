@@ -3,5 +3,5 @@ class Authentication < ActiveRecord::Base
   
   validates :uid,
             :presence => true,
-            :uniqueness => {:scope => :provider}
+            :uniqueness => {:scope => [:provider, :user_id]}
 end

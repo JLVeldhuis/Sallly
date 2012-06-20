@@ -106,9 +106,19 @@ How many days do you work a year?
             </div>
         </div>
     </div>
+    
+    <div class="clearfix">
+        <div class="input">
+          <%= f.radio_button :crm_option, "salesforce" %> Salesforce
+          <%= f.radio_button :crm_option, "highrise" %> Highrise
+        </div>
+    </div>
 
     <div class="actions">
         <%= f.submit "Save", :class => "btn btn-primary" %>
+    </div>
+    <div>
+      <%= link_to "Link to Saleforce Account", omniauth_authorize_path(User, current_user.setting.crm_option), :class => current_user.setting.crm_option, :title => current_user.setting.crm_option if current_user.setting.crm_option && ["salesforce"].include?(current_user.setting.crm_option) %>
     </div>
 <% end %>
 <script>

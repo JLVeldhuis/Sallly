@@ -20,4 +20,8 @@ class SettingController < ApplicationController
       render 'pages/settings'
     end
   end
+  
+  def salesforce
+    render :text =>  "hello"
+  end
 end

@@ -1,4 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  before_filter :authenticate_user!, :only => :salesforce
+  
   def facebook
     # You need to implement the method below in your model
     @user = User.find_for_service_oauth(request.env["omniauth.auth"], current_user)
@@ -47,6 +49,17 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       session["devise.google_data"] = request.env["omniauth.auth"]
       redirect_to new_user_registration_url
+    end
+  end
+  
+  def salesforce
+    @user = User.find_for_service_oauth(request.env["omniauth.auth"], current_user)
+    if @user and @user.persisted?
+      flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "SalesForce"
+      redirect_to leads_url
+    else
+      session["devise.salesforce_data"] = request.env["omniauth.auth"]
+      redirect_to setting_path
     end
   end
   

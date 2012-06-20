@@ -226,8 +226,8 @@ Devise.setup do |config|
   require 'openid/store/filesystem'
   config.omniauth :google_apps, :store => OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com', :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
   
-  # require "omniauth-salesforce"
-  # config.omniauth :salesforce, AppConfiguration["salesforce_key"], AppConfiguration["salesforce_secret"], :strategy_class => OmniAuth::Strategies::Salesforce, :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
+  require "omniauth-salesforce"
+  config.omniauth :salesforce, AppConfiguration["salesforce_key"], AppConfiguration["salesforce_secret"], :strategy_class => OmniAuth::Strategies::Salesforce, :client_options => {:ssl => {:ca_path => '/etc/ssl/certs'}}
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
