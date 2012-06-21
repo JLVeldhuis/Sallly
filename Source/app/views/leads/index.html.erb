@@ -1,6 +1,11 @@
 <h1>Leads</h1>
 
-<%=link_to "Refresh Leads", refresh_leads_path%>
+<%if current_user.setting.crm_option && current_user.setting.crm_option == "salesforce"%>
+  <%= link_to "Refresh Leads", omniauth_authorize_path(User, current_user.setting.crm_option), :class => current_user.setting.crm_option, :title => current_user.setting.crm_option %>
+<%else%>
+  <%=link_to "Refresh Leads", refresh_leads_path%>
+<%end%>
+
 <table>
   <tr>
     <th>Name</th>

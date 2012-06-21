@@ -19,7 +19,7 @@ class DealsController < ApplicationController
 
   def create
     @deal = @event.build_deal(params[:deal])
-    @deal.highrised = true
+    @deal.highrised = true if @event.user.setting.crm_option == "highrise"
     begin
       unless @deal.save
         @error_messages = @deal.errors.full_messages.join('\n')
