@@ -29,10 +29,7 @@ class Deal < ActiveRecord::Base
       params["party_id"]    = event.lead.crm_id.to_i if event.lead
       params["category_id"] = category.categoryId.to_i if category.categoryId
       
-      if ddeal
-        # params["id"]  = dealId
-        # response      = ddeal.update_attributes(params)
-      else
+      unless ddeal
         response      = Highrise::Deal.create(params)
       end
       parseResp(response)
@@ -40,14 +37,18 @@ class Deal < ActiveRecord::Base
   end
   
   def parseResp(res)
-    if res.errors.messages.empty?
-      self.update_attributes(:dealId => res.id, :highrised => false)
-      return true
-    else
-      res.errors.messages.each_with_key do |k, e|
-        self.errors.add(k, e)
+    if res
+      if res.errors.messages.empty?
+        self.update_attributes(:dealId => res.id, :highrised => false)
+        return true
+      else
+        res.errors.messages.each_with_key do |k, e|
+          self.errors.add(k, e)
+        end
+        return false
       end
-      return false
     end
+    
+    return false
   end
 end

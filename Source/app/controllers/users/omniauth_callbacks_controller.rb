@@ -56,6 +56,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_for_service_oauth(request.env["omniauth.auth"], current_user)
     if @user and @user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "SalesForce"
+      
+      current_user.refresh_leads_via_salesforce(request.env["omniauth.auth"])
       redirect_to leads_url
     else
       session["devise.salesforce_data"] = request.env["omniauth.auth"]

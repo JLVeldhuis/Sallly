@@ -132,11 +132,24 @@ class User < ActiveRecord::Base
         end
         lead.crm_notes = crm_data.join(' ')
       end
+      lead.crm_name = "highrise"
       lead.save
     end
   end
   
-  def refresh_leads_via_salesforce
+  def refresh_leads_via_salesforce(auth)
+    config = YAML.load_file(File.join(::Rails.root, 'config', 'databasedotcom.yml'))
+    client = Databasedotcom::Client.new(config)
+    client.authenticate auth
     
+    leads_via_salesforce = client.query("select id, Name from lead__c")
+    leads_via_salesforce.each do |slead|
+      lead    = self.leads.find_by_crm_id(slead.Id)
+      lead  ||= self.leads.build({:crm_id => slead.Id})
+      lead.name     = slead.Name
+      lead.crm_id   = slead.Id
+      lead.crm_name = "salesforce"
+      lead.save
+    end
   end
 end
