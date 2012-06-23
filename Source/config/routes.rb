@@ -1,6 +1,7 @@
 Forevenue::Application.routes.draw do
   devise_scope :user do
     get "sign_in", :to => "devise/sessions#new"
+    get "sign_out", :to => "devise/sessions#destroy"
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   end
 

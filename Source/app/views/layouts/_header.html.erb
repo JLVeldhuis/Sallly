@@ -1,28 +1,21 @@
-<header><section id="header-inner" class="row">
-	<div class="span2">
-  		<a class="logo" href="<%= root_url %>"><h1>Sallly</h1></a>
-  	</div>
-  	<div class="span6 offset4">
-  		<form class="form-search">
-    	<input type="text" class="search-query" placeholder="Type search string" />
-  </form>
-  <% if signed_in? %>
-  	<a href="<%= settings_path %>" class="settings"><i class="icon-cog icon-white"></i> Settings</a>
-  	<a href="#" class="account"><i class="icon-user icon-white"></i> Edit</a>
-  <% else %>
-    <%= link_to "Sign up now!", new_user_registration_path, :class => "btn btn-primary" %> or <%= link_to "sign in", new_user_session_path %>
-  <% end %>
-  </div>
-</section></header>
 <nav><section id="nav-inner">
 	<ul class="menu">
-		<li><a href="<%= root_url %>"><i class="icon-home icon-white"></i><div>Home</div></a></li>
-		<li><a href="<%= leads_path %>"><i class="icon-share icon-white"></i><div>CRM</div></a></li>
-		<li><a href="<%= status_path %>"><i class="icon-indent-left icon-white"></i><div>Status</div></a></li>
-		<li><a href="#"><i class="icon-question-sign icon-white"></i><div>FAQ</div></a></li>
-		<li><a href="#"><i class="icon-shopping-cart icon-white"></i><div>Pricing plans</div></a></li>
-		<li><a href="#"><i class="icon-film icon-white"></i><div>Training</div></a></li>
-		<li><a href="<%= contact_path %>"><i class="icon-inbox icon-white"></i><div>Contact</div></a></li>
-		<li><a href="<%= about_path %>"><i class="icon-road icon-white"></i><div>About</div></a></li>
+		<li><a href="<%= status_url %>"><h1 class="logo">Sallly</h1></a></li>
 	</ul>
+	<% if signed_in? %>
+  		<div class="btn-group pull-right">
+        	<a class="btn btn-primary" href="<%= settings_url %>"><i class="icon-user icon-white"></i> User Settings</a>
+          	<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+          	<ul class="dropdown-menu">
+            	<li><a href="<%= sign_out_url %>"><i class="icon-pencil"></i> Account settings</a></li>
+            	<li class="divider"></li>
+            	<li><a href="<%= sign_out_url %>"><i class="i"></i> Sign out</a></li>
+          	</ul>
+        </div>
+		<ul class="menu pull-right">
+			<li><a href="<%= leads_path %>"><div>Address book</div> <i class="icon-share icon-white"></i></a></li>
+		</ul>
+  	<% else %>
+    	<%= link_to "Login", new_user_session_path, :class => "btn btn-primary pull-right" %>
+  	<% end %>
 </section></nav>

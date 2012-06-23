@@ -1,3 +1,44 @@
+	<script>
+	$(function() {
+		$( "#hitrate-calls" ).slider({
+			range: "min",
+			value: 10,
+			min: 0,
+			max: 100,
+			step: 10,
+			slide: function( event, ui ) {
+				$( "#hitrate-calls-amount" ).val( "%" + ui.value );
+			}
+		});
+		$( "#hitrate-calls-amount" ).val( "%" + $( "#hitrate-calls" ).slider( "value" ) );
+		
+		$( "#hitrate-visits" ).slider({
+			range: "min",
+			value: 10,
+			min: 0,
+			max: 100,
+			step: 10,
+			slide: function( event, ui ) {
+				$( "#hitrate-visits-amount" ).val( "%" + ui.value );
+			}
+		});
+		$( "#hitrate-visits-amount" ).val( "%" + $( "#hitrate-visits" ).slider( "value" ) );
+		
+		$( "#hitrate-quotes" ).slider({
+			range: "min",
+			value: 10,
+			min: 0,
+			max: 100,
+			step: 10,
+			slide: function( event, ui ) {
+				$( "#hitrate-quotes-amount" ).val( "%" + ui.value );
+			}
+		});
+		$( "#hitrate-quotes-amount" ).val( "%" + $( "#hitrate-quotes" ).slider( "value" ) );
+	});
+	</script>
+
+
 <script type="text/javascript" src="/assets/javascript/jquery-ui-timepicker-addon.js"></script>
 <style type="text/css"> 
 /* css for timepicker */
@@ -32,91 +73,101 @@
 </script>
 
 <h1>Welcome to the settings page</h1>
-Fill out these settings to work back from your revenue goal to a set of activities. Sallly helps you generate sales activities without any sales experience. Just fill out the question's as good as possible. No harm done if you made a mistake. You simply can adjust them during the process of using Sallly.
-<%= form_for current_user.setting do |f| %>
-    <hr />
-    <div class="clearfix">
-      <div class="column">
-        <h3>Goal Revenue</h3>
-        <div class="input">
-          <%= f.text_field :goal_revenue %>
-        </div>
-        Which revenue do you want to achieve with you're business?
-      </div>
-      <div class="column">
-        <h3>Average Revenue</h3>
-        <div class="input">
-          <%= f.text_field :average_revenue %>
-        </div>
-        What is the average amount you qoute to your customers? This is needed to calculate you're hitrate!
-      </div>
-    </div>
-    <hr />
-    <div class"clearfix">
-      <h3>Goal Dates</h3>
-      <%= f.label :goal_start %>
-      <div class="input">
-        <div class="inline-inputs">
-          <%= f.text_field :goal_start, :class => "from span3", :placeholder => "From date" %>
-          <%= f.text_field :goal_end, :class => "to span3", :style => "margin-left: 17px;", :placeholder => "To date" %>
-        </div>
-      </div>
-    </div>
-    <hr />
-    <!-- <div class"clearfix">
-        <%#= f.label :average_start %>
-        <div class="input">
-            <div class="inline-inputs">
-                <%#= f.text_field :average_start, :class => "from span3", :placeholder => "From date" %>
-                <%#= f.text_field :average_end, :class => "to span3", :style => "margin-left: 17px;", :placeholder => "To date" %>
-            </div>
-        </div>
-    </div> -->
-    <h3>Experience</h3>
-    <div class="clearfix">
-      <div class="controls column">
-        How long have you been doing sales? 
-        <%= f.select :activity_level, {"Level 1: Less than 1 year" => 0, "Level 2: Between 1 and 3 years" => 1, "Level 3: More than 3 years" => 2} %>
-      </div>
-      <div class="input column smallText">
-        Hitrate Calls
-        <%= f.text_field :activity_calls %>
-      </div>
-      
-      <div class="input column smallText">
-        Hitrate Visits
-        <%= f.text_field :activity_visits %>
-      </div>
-      
-      <div class="input column smallText">
-        Hitrate Quotes
-        <%= f.text_field :activity_quotes %>
-      </div>
-    </div>
-    <hr />
-    <h3>Average workdays</h3>
-How many days do you work a year?
-    <div class="clearfix">
-        <div class="input">
-            <div class="inline-inputs">
-                <span>a year:</span>
-                <%= f.text_field :average_workdays_a_year %>
-                <span>a week:</span>
-                <%= f.text_field :average_workdays_a_week %>
-            </div>
-        </div>
-    </div>
-    
-    <div class="clearfix">
-        <div class="input">
-          <%= f.radio_button :crm_option, "salesforce" %> Salesforce
-          <%= f.radio_button :crm_option, "highrise" %> Highrise
-        </div>
-    </div>
 
-    <div class="actions">
-        <%= f.submit "Save", :class => "btn btn-primary" %>
+    <div class="row">
+    	<div class="span8 settings">
+			Fill out these settings to work back from your revenue goal to a set of activities. Sallly helps you generate sales activities without any sales experience. Just fill out the question's as good as possible. No harm done if you made a mistake. You simply can adjust them during the process of using Sallly.
+			<%= form_for current_user.setting do |f| %>
+			<div class="row">
+				<div class="span4">
+       				<h3>Goal Revenue</h3>
+        			<div class="input">
+          				<%= f.text_field :goal_revenue %>
+        			</div>
+        			Which revenue do you want to achieve with you're business?
+				</div>
+				<div class="span4">
+        			<h3>Goal Revenue</h3>
+        			<div class="input">
+          				<%= f.text_field :goal_revenue %>
+        			</div>
+        			Which revenue do you want to achieve with you're business?
+				</div>
+			</div>
+			<div class="row">
+				<div class="span4">
+       				<h3>From</h3>
+        			<div class="input">
+          				<%= f.text_field :goal_start, :class => "from", :placeholder => "From date" %>
+        			</div>
+				</div>
+				<div class="span4">
+        			<h3>From</h3>
+        			<div class="input">
+          				<%= f.text_field :goal_end, :class => "to", :placeholder => "To date" %>
+        			</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span4">
+       				<h3>From</h3>
+        			<div class="input">
+          				<%= f.text_field :goal_start, :class => "from", :placeholder => "From date" %>
+        			</div>
+				</div>
+				<div class="span4">
+        			<h3>From</h3>
+        			<div class="input">
+          				<%= f.text_field :goal_end, :class => "to", :placeholder => "To date" %>
+        			</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span4">
+					<h3>Experience</h3>
+					<label for="hitrate-calls-amount">Hitrate calls:</label>
+					<input type="text" id="hitrate-calls-amount" disabled="true" style="border:0;" />
+					<div id="hitrate-calls"></div>
+					
+					<label for="hitrate-visits-amount">Hitrate visits:</label>
+					<input type="text" id="hitrate-visits-amount" disabled="true" style="border:0;" />
+					<div id="hitrate-visits"></div>
+					
+					<label for="hitrate-quotes-amount">Hitrate quotes:</label>
+					<input type="text" id="hitrate-quotes-amount" disabled="true" style="border:0;" />
+					<div id="hitrate-quotes"></div>
+				</div>
+				<div class="span4">
+    				<h3>Average workdays</h3>
+					How many days do you work a year?
+            		<div class="inline-inputs">
+                		<span>a year:</span>
+                		<%= f.text_field :average_workdays_a_year %>
+                		<span>a week:</span>
+                		<%= f.text_field :average_workdays_a_week %>
+            		</div>
+        		</div>
+			</div>
+			<div class="row">
+				<div class="span8">
+       				<h3>CRM</h3>
+        			<div class="input">
+ 				   		<%= f.radio_button :crm_option, "salesforce" %> Salesforce
+          				<%= f.radio_button :crm_option, "highrise" %> Highrise
+        			</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span8">
+    				<div class="actions">
+        				<%= f.submit "Save", :class => "btn btn-primary" %>
+    				</div>
+				</div>
+			</div>
+			<% end %>
+    	</div>
     </div>
+<%= form_for current_user.setting do |f| %>
     <div>
       <%= link_to "Link to Saleforce Account", omniauth_authorize_path(User, current_user.setting.crm_option), :class => current_user.setting.crm_option, :title => current_user.setting.crm_option if current_user.setting.crm_option && ["salesforce"].include?(current_user.setting.crm_option) %>
     </div>
