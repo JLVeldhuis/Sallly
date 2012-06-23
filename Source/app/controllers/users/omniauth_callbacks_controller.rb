@@ -60,6 +60,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         current_user.refresh_leads_via_salesforce(request.env["omniauth.auth"])
       rescue Exceptions::SalesforceAuthenticationFailure => e
         handle_exception(e, e.message)
+      rescue Faraday::Error::TimeoutError => e
+        handle_exception(e, e.message)
       end
       redirect_to leads_url
     else

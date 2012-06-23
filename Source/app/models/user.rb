@@ -149,11 +149,15 @@ class User < ActiveRecord::Base
   def refresh_leads_via_salesforce(auth)    
     sf = SSalesforce::SSalesforce.new({:auth => auth})
     leads_via_salesforce = sf.leads
-
+    
     leads_via_salesforce.each do |sLead|
       create_lead({
                     :name     => sLead.Name,
                     :crm_id   => sLead.Id,
+                    :email    => sLead.Email,
+                    :phone    => sLead.Phone,
+                    :city     => sLead.City,
+                    :address  => "#{sLead.Street} #{sLead.City} #{sLead.Country} #{sLead.PostalCode}",
                     :crm_name => "Salesforce"
                  })
     end

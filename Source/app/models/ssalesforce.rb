@@ -18,7 +18,8 @@ module SSalesforce
     end
   
     def leads
-      client.query("select id, Name from lead__c")
+      lead_class = client.materialize("Lead")
+      SFDC_Models::Lead.all
     end
   end
 end
