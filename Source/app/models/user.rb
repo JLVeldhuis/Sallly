@@ -1,4 +1,5 @@
 require 'ssalesforce.rb'
+require 'hhighrise.rb'
 class User < ActiveRecord::Base
   
   # setup devise
@@ -113,17 +114,24 @@ class User < ActiveRecord::Base
   end
   
   def refresh_leads_via_highrise
-    leads_via_highrise = Highrise::Person.find(:all)
+    hr = HHighrise::HHighrise.new
+    leads_via_highrise = hr.leads
+    
     leads_via_highrise.each do |l|
-      lead    = self.leads.find_by_crm_id(l.id)
-      lead  ||= self.leads.build({:crm_id => l.id})
       
-      lead.name  = "#{l.first_name} #{l.last_name}"
-      lead.phone = l.contact_data.phone_numbers[0].number if l.contact_data.phone_numbers.count > 0
-      lead.email = l.contact_data.email_addresses[0].address if l.contact_data.email_addresses.count > 0
+      options = {
+                  :name     => "#{l.first_name} #{l.last_name}",
+                  :crm_id   => l.id,
+                  :crm_name => "Highrise"
+                }
+      
+      options[:phone] = l.contact_data.phone_numbers[0].number if l.contact_data.phone_numbers.count > 0
+      
+      options[:email] = l.contact_data.email_addresses[0].address if l.contact_data.email_addresses.count > 0
+      
       if l.contact_data.addresses.count > 0
-        lead.city = l.contact_data.addresses[0].city
-        lead.address = "#{l.contact_data.addresses[0].street} #{l.contact_data.addresses[0].city} #{l.contact_data.addresses[0].country} #{l.contact_data.addresses[0].zip}"
+        options[:city]    = l.contact_data.addresses[0].city
+        options[:address] = "#{l.contact_data.addresses[0].street} #{l.contact_data.addresses[0].city} #{l.contact_data.addresses[0].country} #{l.contact_data.addresses[0].zip}"
       end
       
       if l.notes.count > 0
@@ -131,15 +139,15 @@ class User < ActiveRecord::Base
         l.notes.each do |note|
           crm_data << note.body
         end
-        lead.crm_notes = crm_data.join(' ')
+        options[:crm_notes] = crm_data.join(' ')
       end
-      lead.crm_name = "highrise"
-      lead.save
+      
+      create_lead(options)
     end
   end
   
   def refresh_leads_via_salesforce(auth)    
-    sf = SSalesforce::SSalesforce.new({:auth => nil})
+    sf = SSalesforce::SSalesforce.new({:auth => auth})
     leads_via_salesforce = sf.leads
 
     leads_via_salesforce.each do |sLead|
