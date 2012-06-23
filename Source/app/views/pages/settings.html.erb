@@ -80,32 +80,18 @@
 			<%= form_for current_user.setting do |f| %>
 			<div class="row">
 				<div class="span4">
-       				<h3>Goal Revenue</h3>
+       				<h3>Goal revenue</h3>
         			<div class="input">
           				<%= f.text_field :goal_revenue %>
         			</div>
         			Which revenue do you want to achieve with you're business?
 				</div>
 				<div class="span4">
-        			<h3>Goal Revenue</h3>
+        			<h3>Average revenue</h3>
         			<div class="input">
-          				<%= f.text_field :goal_revenue %>
+          				<%= f.text_field :average_revenue %>
         			</div>
         			Which revenue do you want to achieve with you're business?
-				</div>
-			</div>
-			<div class="row">
-				<div class="span4">
-       				<h3>From</h3>
-        			<div class="input">
-          				<%= f.text_field :goal_start, :class => "from", :placeholder => "From date" %>
-        			</div>
-				</div>
-				<div class="span4">
-        			<h3>From</h3>
-        			<div class="input">
-          				<%= f.text_field :goal_end, :class => "to", :placeholder => "To date" %>
-        			</div>
 				</div>
 			</div>
 			<div class="row">
