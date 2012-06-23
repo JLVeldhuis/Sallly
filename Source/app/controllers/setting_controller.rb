@@ -4,7 +4,6 @@ class SettingController < ApplicationController
   end
   
   def update
-    # @setting = Setting.find(current_user.setting.id)
     @setting  = current_user.setting
     if @setting.update_attributes(params[:setting])
       flash[:success] = "Setting updated."
@@ -19,9 +18,5 @@ class SettingController < ApplicationController
     else
       render 'pages/settings'
     end
-  end
-  
-  def salesforce
-    render :text =>  "hello"
   end
 end

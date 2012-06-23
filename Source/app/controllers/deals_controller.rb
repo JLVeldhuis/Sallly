@@ -1,21 +1,5 @@
 class DealsController < ApplicationController
   before_filter :require_event, :only => [:create, :update]
-  
-  # def index
-  #   @deals = Deal.all
-  # end
-  # 
-  # def show
-  #   @deal = Deal.find(params[:id])
-  # end
-  # 
-  # def new
-  #   @deal = Deal.new
-  # end
-  # 
-  # def edit
-  #   @deal = @event.deals.find(params[:id])
-  # end
 
   def create
     @deal = @event.build_deal(params[:deal])
@@ -38,7 +22,6 @@ class DealsController < ApplicationController
 
   def update
     @deal = @event.deal
-    # @deal.highrised = true
 
     if @deal.update_attributes(params[:deal])
       redirect_to status_path, notice: 'Deal was successfully updated.'
@@ -46,13 +29,6 @@ class DealsController < ApplicationController
       render action: "edit"
     end
   end
-
-  # def destroy
-  #   @deal = @event.deal
-  #   @deal.destroy
-  # 
-  #   redirect_to status_path
-  # end
   
   private
   

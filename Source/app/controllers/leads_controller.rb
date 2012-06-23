@@ -1,5 +1,4 @@
 class LeadsController < ApplicationController
-  
   def index
     @leads = current_user.leads
   end
@@ -8,8 +7,7 @@ class LeadsController < ApplicationController
     begin
       current_user.refresh_leads
     rescue SocketError => e
-      logger.error e.message
-      flash[:error] = "Oops! couldn't connect to the server."
+      handle_exception(e, "Couldn't connect to the server. Please try again later.")
     end
     redirect_to leads_path
   end

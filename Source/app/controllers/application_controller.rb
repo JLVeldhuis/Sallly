@@ -5,4 +5,10 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   
   before_filter :authenticate_user!
+  
+  def handle_exception(excptn, msg)
+    logger.error excptn.message
+    logger.error excptn.backtrace
+    flash[:error] = msg
+  end
 end

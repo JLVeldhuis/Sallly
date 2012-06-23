@@ -17,15 +17,6 @@ class Event < ActiveRecord::Base
   scope :inactive, where(:is_active => false)
   scope :upcoming, where(:date_from => (Time.now)..(15.minutes.since(Time.now)))
   
-  # scope :upcoming, where("date_from <= ? and date_from >= ?", 15.minutes.since(Time.now), Time.now)
-  
   # all inactive events from taskmanager 
   scope :via_taskmanager_and_inactive, where(:source => true, :is_active => false)
-  
-  # before_validation :check_event_limit,
-  #                   :on => :create
-  
-  # def check_event_limit
-  #   self.errors.add(:user_id, "User has reached his activity limit of #{MAX_EVENT_COUNT}") if self.user.events.count >= 10
-  # end
 end

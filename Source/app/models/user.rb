@@ -1,3 +1,4 @@
+require 'ssalesforce.rb'
 class User < ActiveRecord::Base
   
   # setup devise
@@ -137,19 +138,24 @@ class User < ActiveRecord::Base
     end
   end
   
-  def refresh_leads_via_salesforce(auth)
-    config = YAML.load_file(File.join(::Rails.root, 'config', 'databasedotcom.yml'))
-    client = Databasedotcom::Client.new(config)
-    client.authenticate auth
-    
-    leads_via_salesforce = client.query("select id, Name from lead__c")
-    leads_via_salesforce.each do |slead|
-      lead    = self.leads.find_by_crm_id(slead.Id)
-      lead  ||= self.leads.build({:crm_id => slead.Id})
-      lead.name     = slead.Name
-      lead.crm_id   = slead.Id
-      lead.crm_name = "salesforce"
-      lead.save
+  def refresh_leads_via_salesforce(auth)    
+    sf = SSalesforce::SSalesforce.new({:auth => nil})
+    leads_via_salesforce = sf.leads
+
+    leads_via_salesforce.each do |sLead|
+      create_lead({
+                    :name     => sLead.Name,
+                    :crm_id   => sLead.Id,
+                    :crm_name => "Salesforce"
+                 })
     end
+  end
+  
+  def create_lead(opts)
+    lead    = self.leads.find_by_crm_id(opts[:crm_id])
+    lead  ||= self.leads.build({:crm_id => opts[:crm_id]})
+    
+    lead.attributes = opts
+    lead.save
   end
 end

@@ -5,7 +5,6 @@ class RegistrationsController < ApplicationController
     if request.post?
       if session[:omniauth]
         if params[:email]
-          # You need to implement the method below in your model
           @user = User.find_for_service_oauth_with_email(params[:email], session[:omniauth], current_user)
           if @user and @user.persisted?
             flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => session[:omniauth][:provider]
