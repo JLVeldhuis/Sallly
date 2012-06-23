@@ -33,18 +33,20 @@ class EventsController < ApplicationController
   def end
     @event = Event.find(params[:id])
   end
+  
+  def deal
+    @event = Event.find(params[:id])
+    @deal = @event.deal ? @event.deal : @event.build_deal
+  end
 
   def update
     @event = Event.find(params[:id])
     @event.is_active = true
+    
+    template = params[:source] == "plan" ? "reload.js.erb" : "update.js.erb"
+    
     if @event.update_attributes(params[:event])
       flash[:success] = "Event updated."
-      if params[:source] == "plan"
-        template = 'deal.js.erb'
-        @deal = @event.deal ? @event.deal : @event.build_deal
-      else
-        template = 'update.js.erb'
-      end
       respond_to do |format|
         format.html { redirect_to status_path }
         format.js   { render template }

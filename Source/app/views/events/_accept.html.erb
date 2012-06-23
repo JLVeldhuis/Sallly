@@ -21,6 +21,9 @@
   </div>
   <div class="modal-footer">
     <a href="#" class="btn btn-primary accept" data-id="<%=@event.id%>">End</a>
+    <%if @event.visit_accepted?%>
+      <a href="#" class="btn btn-primary deal" data-id="<%=@event.id%>">Deal</a>
+    <%end%>
   </div>
 </div>
 <script>
@@ -35,6 +38,16 @@
   $(".accept").click(function(){
     event_id = $(this).attr("data-id");
     endCall(event_id);
+    return false;
+  });
+  
+  $(".deal").click(function(){
+    event_id = $(this).attr("data-id");
+    $.ajax({
+  		dataType: 'script',
+  		type: 'get',
+  		url: "events/deal/"+event_id
+  	});
     return false;
   });
 </script>
