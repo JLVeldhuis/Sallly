@@ -704,18 +704,18 @@ table.fc-border-separate {
     }
 
 
-.Cold *{
-	background-color: #E01B1B;
+.Cold.Call *{
+	background-color: #ADD8E6;
 }
 
 .Visits *{
-	background-color: #E0AF1B;
+	background-color: #87CEFA;
 }
 
 .Quotes *{
-	background-color: #1BE01E;
+	background-color: #FFB6C1;
 }
 
 .Other *{
-	background-color: #1B50E0;
+	background-color: #90EE90;
 }
