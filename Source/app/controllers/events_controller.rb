@@ -30,6 +30,10 @@ class EventsController < ApplicationController
     end
   end
   
+  def trigger
+    @event = Event.find(:first, :conditions => [ "id = 1"])
+  end
+  
   def end
     @event = Event.find(params[:id])
   end
