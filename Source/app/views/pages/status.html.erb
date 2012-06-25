@@ -1,27 +1,27 @@
 
-<%=javascript_include_tag "/assets/raphael-min.js", "heart.js"%>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Type', 'Goal', 'Current'],
-          ['Tasks',  1000,      400],
-          ['Proactive',  1170,      460],
-          ['Ranking',  660,       1120],
-          ['Goal',  1030,      540]
-        ]);
+<%=javascript_include_tag "/assets/raphael-min.js", "heart.js", "/assets/g.raphael.js", "/assets/g.bar.js" %>
+<script>
+            window.onload = function () {
+                var r = Raphael("holder"),
+                    fin = function () {
+                        this.flag = r.popup(this.bar.x, this.bar.y, this.bar.value || "0").insertBefore(this);
+                    },
+                    fout = function () {
+                        this.flag.animate({opacity: 0}, 300, function () {this.remove();});
+                    },
+                    txtattr = { font: "12px sans-serif" };
+                    
+                r.setSize(300, 118);
+                
+                r.barchart(0, 10, 300, 105, [[1000, 1170, 660, 1030], [400, 460, 1120, 540]]).hover(fin, fout);
+                
+                r.text(41, 105, "Tasks").attr(txtattr);
+                r.text(114, 105, "Proactive").attr(txtattr);
+                r.text(185, 105, "Ranking").attr(txtattr);
+                r.text(257, 105, "Goal").attr(txtattr);
+            };
+        </script>
 
-        var options = {
-          title: 'Performance',
-          hAxis: {title: 'Leaderboard', titleTextStyle: {color: 'blue'}}
-        };
-
-        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
-      }
-    </script> 
 <h1>Status Dashboard</h1>
 <section class="row info">
     <section class="span3 well first">
@@ -31,7 +31,7 @@
     </section>
     <section class="span4 well">
         <h4>Activities</h4>
-        <div id="chart_div" style="width: 300px; height: 200px;"></div>
+        <div id="holder" width="300" height="150"></div>
     </section>
     <section class="span3 well">
         <h4>Saleschance</h4>
