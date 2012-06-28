@@ -12,7 +12,7 @@
           <%= f.text_field :date_to, :id => "to", :class => "span2", :style => "margin-left: 17px;", :placeholder => "To date" %>
           <%= hidden_field_tag "source", "plan" %>
           <%= f.hidden_field :visit_accepted, :value => true %>
-		  <%= f.hidden_field :eventtype, :value => 4 %>
+		  <%= f.hidden_field :eventtype, :value => 2 %>
         </div>
       </div>
       <%= render :partial=>'user_details', :locals => {:event => @event} %>
