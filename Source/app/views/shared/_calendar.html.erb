@@ -73,6 +73,8 @@
 	};
 		
   function set_type(type){
+    $(".ic_frm").removeClass('btn btn-primary');
+    $(".ic_frm.type"+ type).addClass('btn btn-primary');
     $("#event_eventtype").val(type);
   };
   
