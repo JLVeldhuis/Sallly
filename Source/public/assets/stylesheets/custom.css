@@ -218,22 +218,24 @@ footer ul li a:hover {
 
 .modal .column {
 	float: left;
+	width: 50%;
 }
 
-.modal .datePickers {
-	width: 310px;
+.modal .currency {
+	width: 60px;
+}
+
+.modal .amount {
+	margin-left: 10px;
+	width: 140px;
+}
+
+.modal textarea {
+	height: 4em;
 }
 
 .modal .modal-body {
 	overflow: hidden;
-}
-
-.modal .crmData {
-	width: 280px;
-}
-
-.modal .info {
-	width: 200px;
 }
 
 /* heart styles */
@@ -243,33 +245,3 @@ footer ul li a:hover {
 	text-align: center;
 }
 
-/* deal page */
-
-#new_deal input[type="text"], #new_deal textarea, #new_deal .input {
-	width: 500px;
-}
-
-#new_deal .smallWidth, #new_deal input[type="text"].smallWidth, #new_deal select.smallWidth {
-	width: 100px;
-}
-
-.edit_deal input[type="text"], .edit_deal textarea, .edit_deal .input {
-	width: 500px;
-}
-
-.edit_deal .smallWidth, .edit_deal input[type="text"].smallWidth, .edit_deal select.smallWidth {
-	width: 100px;
-}
-
-#deal_description {
-	height: 50px;
-}
-
-.edit_setting .column {
-	width: 240px;
-	float: left;
-}
-
-.edit_setting .input.smallText {
-	width: 230px;
-}

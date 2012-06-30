@@ -15,10 +15,10 @@ class EventsController < ApplicationController
   
   def edit
     @event = Event.find(params[:id])
-    if @event.eventtype != 1 || @event.source != true
-      render 'edit.js.erb'
-    else
+    if (@event.eventtype == 1 || @event.eventtype == 2) || @event.source == true
       render 'task.js.erb'
+    else
+      render 'edit.js.erb'
     end
   end
   
@@ -36,11 +36,11 @@ class EventsController < ApplicationController
   
   def end
     @event = Event.find(params[:id])
+    @deal = @event.deal ? @event.deal : @event.build_deal
   end
   
   def deal
     @event = Event.find(params[:id])
-    @deal = @event.deal ? @event.deal : @event.build_deal
   end
 
   def update

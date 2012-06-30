@@ -1,45 +1,29 @@
-<h1>Who's this deal with?</h1>
-<div class="modal" id="myModal">
-  <div class="modal-header">
-    <button class="close" data-dismiss="modal">×</button>
-    <h2>Make your deal</h2>
-  </div>
-  <%= form_for(@deal, :remote => true) do |f| %>
-    <div class="modal-body">
-      <div class="column datePickers clearfix">
+  <div class="column clearfix">
+  <%= form_for(@deal, :remote => true) do |d| %>
         <div class="input">
           <label>Who's this deal with?</label>
-          <label><%=@event.lead.name if @event.lead%></label>
+          <label><%= @event.lead.name if @event.lead %></label>
         </div>
         
         <div class="input">
-          <%=f.label :name, "Name the deal"%>
-          <%=f.text_field :name%>
-          <%=hidden_field_tag :event_id, @event.id%>
+          <%= d.text_field :name, :placeholder => "Name the deal" %>
+          <%= hidden_field_tag :event_id, @event.id %>
         </div>
         
         <div class="input">
-          <%=f.label :description, "Describe the deal"%>
-          <%=f.text_area :description%>
+          <%= d.text_area :description, :placeholder => "Describe the deal" %>
         </div>
         
         <div class="input">
-          <%=f.label :how_much, "How much?"%>
-          <%=f.select :currency, CURRENCIES_MAP, {}, :class=>"currency smallWidth"%>
-          <%=f.text_field :how_much, :class=>"smallWidth"%>
-          <%=f.select :deal_type, Deal::DEALTYPE , {}, :class=>"smallWidth"%>
+          <%= d.select :currency, CURRENCIES_MAP, {}, :class => "column currency" %>
+          <%= d.text_field :how_much, :placeholder => "How much?", :class => "column amount" %>
+          <%= d.select :deal_type, Deal::DEALTYPE, {} %>
         </div>
         
         <div class="input">
-          <%=f.label :category_id, "Category"%>
-          <%=f.select :category_id, (Category.all.collect {|cat| [cat.name, cat.id]}), {}, :class=>"smallWidth"%>
+          <%= d.label :category_id, "Category" %>
+          <%= d.select :category_id, (Category.all.collect {|cat| [cat.name, cat.id]}), {} %>
         </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <%= f.submit "Add this deal", :class => "btn btn-primary" %>
-      <a href="#" style="display:none" class="btn closeBtn" data-dismiss="modal">Close</a>
-      <%=link_to "Cancel", status_path, :class=>"btn"%>
-    </div>
+		<%= d.submit "Add this deal", :class => "btn btn-primary" %>
   <%end%>
-</div>
+  </div>
