@@ -38,14 +38,4 @@
     endCall(event_id);
     return false;
   });
-  
-  $(".deal").click(function(){
-    event_id = $(this).attr("data-id");
-    $.ajax({
-  		dataType: 'script',
-  		type: 'get',
-  		url: "events/deal/"+event_id
-  	});
-    return false;
-  });
 </script>
