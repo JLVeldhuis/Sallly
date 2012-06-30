@@ -230,6 +230,13 @@ footer ul li a:hover {
 	width: 140px;
 }
 
+.modal .linkedin-picture {
+	border: 5px solid #666;
+	float: left;
+	height: 100px;
+	width: 100px;
+}
+
 .modal textarea {
 	height: 4em;
 }
