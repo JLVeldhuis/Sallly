@@ -31,7 +31,7 @@ Forevenue::Application.routes.draw do
   match '/get_events.json',         :to => 'pages#get_events'
   match '/get_upcoming_event.json', :to => 'pages#get_upcoming_event'
 
-  match '/events/accept/:id', :to => 'events#accept'
+  match '/events/call_accept/:id', :to => 'events#accept'
   match '/events/end/:id',    :to => 'events#end'
   match '/events/trigger/:id',    :to => 'events#trigger'
   match '/events/deal/:id',   :to => 'events#deal'
