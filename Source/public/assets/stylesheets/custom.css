@@ -21,44 +21,6 @@ input {
 }
 
 /**
- * 	Header section
- */
-header {
-	background-color: #222;
-	border-bottom: 1px solid #111;
-	clear: both;
-	color: #999;
-	height: 40px;
-	margin: 0;
-	padding: 0;
-}
-
-header #header-inner {
-	margin: 0 auto;
-	width: 962px;
-}
-
-header #header-inner .logo {
-	color: #fff;
-	display: block;
-	font: 13px/1.7em 'Open Sans';
-	font-size: 20px;
-	font-weight: bold;
-	line-height: 1em;
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-}
-
-header #header-inner .btn-group {
-	display: compact;
-}
-
-header #header-inner .btn {
-	margin-top: 6px;
-}
-
-/**
  * 	Navbar section
  */
 nav {
@@ -80,58 +42,15 @@ nav #nav-inner {
 	width: 962px;
 }
 
-nav #nav-inner .menu {
-	border-left: 1px solid #333;
+nav #nav-inner h1.logo {
+	color: #2480B6;
+	padding-top: 5px;
+}
+
+nav #nav-inner .link {
 	border-right: 1px solid #555;
-	font: 13px/1.7em 'Open Sans';
-	display: inline-block;
+	padding: 15px 10px 15px 0;
 	margin-right: 10px;
-	padding: 0;
-}
-
-nav #nav-inner .menu li {
-	border-left: 1px solid #555;
-	border-right: 1px solid #333;
-	display: list-item;
-	float: left;
-	list-style: none;
-	margin: 0;
-	min-width: 90px;
-	padding: 0;
-	text-align: center
-}
-
-nav #nav-inner .menu li a, nav #nav-inner .menu li .logo {
-	color: #317EAC;
-	display: block;
-	font-size: 12px;
-	font-weight: bold;
-	height: 100%;
-	margin-top: 20px;
-	padding: 0 15px .5em;
-	text-decoration: none;
-	text-transform: uppercase;
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
-}
-
-nav #nav-inner .menu li .logo {
-	font-size: 24px;
-	line-height: 42px;
-}
-
-nav #nav-inner .menu li:hover > a {
-	color: #CCC;
-}
-
-nav #nav-inner .menu li.active a {
-	background: #333;
-	color: #F90;
-}
-
-nav #nav-inner .menu li a i {
-	height: 16px;
-	margin: .5em 0;
-	width: 16px;
 }
 
 nav #nav-inner .btn-group {
@@ -139,7 +58,7 @@ nav #nav-inner .btn-group {
 }
 
 nav #nav-inner .btn {
-	margin-top: 15px;
+	margin: 10px 0;
 }
 
 /**
@@ -154,7 +73,8 @@ nav #nav-inner .btn {
  * 	Footer section
  */
 footer {
-	margin: 0 auto;
+	border-top: 1px solid #DDD;
+	margin: 15px auto 0;
 	text-align: center;
 	width: 962px;
 }
@@ -216,6 +136,10 @@ footer ul li a:hover {
 	background: url(../images/linkedin.png) no-repeat top left;
 }
 
+.addNewEvent {
+	margin-bottom: 10px;
+}
+
 .modal .column {
 	float: left;
 	width: 50%;
@@ -260,3 +184,29 @@ footer ul li a:hover {
 	text-align: center;
 }
 
+
+.legenda { 
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	display: inline-block;
+	height: 15px; 
+	margin-left: 15px; 
+	width: 25px;
+}
+
+.legenda.others {
+	background-color: #90EE90;
+}
+
+.legenda.quotes {
+	background-color: #FFB6C1;
+}
+
+.legenda.visits {
+	background-color: #87CEFA;
+}
+
+.legenda.calls {
+	background-color: #ADD8E6;
+}

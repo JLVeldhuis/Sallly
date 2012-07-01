@@ -1,21 +1,19 @@
 <nav><section id="nav-inner">
-	<ul class="menu">
-		<li><a href="<%= status_url %>"><h1 class="logo">Sallly</h1></a></li>
-	</ul>
+	<div class="pull-left"><a href="<%= status_url %>"><h1 class="logo">Sallly</h1></a></div>
+	
 	<% if signed_in? %>
-  		<div class="btn-group pull-right">
-        	<a class="btn btn-primary" href="<%= settings_url %>"><i class="icon-user icon-white"></i> User Settings</a>
-          	<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-          	<ul class="dropdown-menu">
-            	<li><a href="<%= sign_out_url %>"><i class="icon-pencil"></i> Account settings</a></li>
-            	<li class="divider"></li>
-            	<li><a href="<%= sign_out_url %>"><i class="i"></i> Sign out</a></li>
-          	</ul>
-        </div>
-		<ul class="menu pull-right">
-			<li><a href="<%= leads_path %>"><div>Address book</div> <i class="icon-share icon-white"></i></a></li>
-		</ul>
-  	<% else %>
-    	<%= link_to "Login", new_user_session_path, :class => "btn btn-primary pull-right" %>
+	<div class="btn-group pull-right">
+    	<a class="btn btn-primary" href="<%= settings_url %>"><i class="icon-user icon-white"></i> User Settings</a>
+        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+        <ul class="dropdown-menu">
+        	<li><a href="<%= sign_out_url %>"><i class="icon-pencil"></i> Account settings</a></li>
+            <li class="divider"></li>
+            <li><a href="<%= sign_out_url %>"><i class="i"></i> Sign out</a></li>
+        </ul>
+    </div>
+	<div class="link pull-right"><a href="<%= leads_path %>"><i class="icon-share icon-white"></i> Address book</a></div>
+	<% else %>
+    <%= link_to "Login", new_user_session_path, :class => "btn btn-primary pull-right" %>
   	<% end %>
+  	<div class="clearfix"></div>
 </section></nav>

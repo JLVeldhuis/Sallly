@@ -42,17 +42,13 @@
 
 <section class="row">
 	<section class="span7">
-    	<a data-toggle="modal" class="btn btn-primary addNewEvent" href="#"><i class="icon-plus"></i>  Add Task</a>
+    	<a data-toggle="modal" class="btn btn-primary addNewEvent" href="#"><i class="icon-plus"></i> Add Task</a>
     </section>
     <section class="span5">
-	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #90EE90;"></div>
-    	Others
-	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #FFB6C1;"></div>
-    	Quotes
-	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #87CEFA;"></div>
-    	Visits
-	    <div style="display: inline-block; height: 15px; width: 25px; margin-left: 15px; background-color: #ADD8E6;"></div>
-    	Cold calls
+	    <div class="legenda others"></div> Others
+	    <div class="legenda quotes"></div> Quotes
+	    <div class="legenda visits"></div> Visits
+	    <div class="legenda calls"></div> Cold calls
     </section>
 </section>
 
@@ -61,11 +57,10 @@
         <%= render 'shared/calendar' %>
     </section>
     <section class="span3">
-        <span>Your upcoming Tasks.</span>
         <table class="table table-striped table-bordered table-condensed">
             <thead>
                 <tr>
-                    <th>Type of Task</th>
+                    <th>Upcoming events</th>
                 </tr>
             </thead>
             <tbody>
