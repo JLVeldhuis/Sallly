@@ -3,34 +3,32 @@
 <%= javascript_tag do %>
   Twilio.Device.setup("<%= twilio_token %>");
   
-   Twilio.Device.connect(function (conn) {
-     $("#twilio-call .call").addClass("disable");
-     $("#twilio-call .hangup").removeClass("disable");
-   });
+  Twilio.Device.connect(function (conn) {
+    $("#twilio-call .call").addClass("disable");
+    $("#twilio-call .hangup").removeClass("disable");
+  });
  
-   Twilio.Device.disconnect(function (conn) {
-     $("#twilio-call .hangup").addClass("disable");
-     $("#twilio-call .call").removeClass("disable");
-   });
+  Twilio.Device.disconnect(function (conn) {
+    $("#twilio-call .hangup").addClass("disable");
+    $("#twilio-call .call").removeClass("disable");
+  });
  
-   function call() {
-     params = {"PhoneNumber": $("#twilio-call #number").val()};
-     Twilio.Device.connect(params);
-   }
+  function call() {
+    params = {"PhoneNumber": $("#twilio-call #number").val()};
+    Twilio.Device.connect(params);
+  }
  
-   function hangup() {
-     Twilio.Device.disconnectAll();
-   }
- <% end %>
-<script>
-setInterval(
-   (function x() {
-       $.ajax({
-	  		dataType: 'script',
-	  		type: 'get',
-	  		url: "events/trigger/1"
-	  	});
-		return x;
-   })(), 30000);
-
-</script>
+  function hangup() {
+    Twilio.Device.disconnectAll();
+  }
+  
+  setInterval(
+    (function x() {
+      $.ajax({
+        dataType: 'script',
+        type: 'get',
+        url: "events/trigger/1"
+      });
+      return x;
+  })(), 30000);
+<% end %>

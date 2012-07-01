@@ -1,30 +1,38 @@
-<h1>Leads</h1>
+<!--Page title-->
+<h1>Address book</h1>
 
+<!--Refresh leads button-->
 <%if current_user.setting.crm_option && current_user.setting.crm_option == "salesforce"%>
-  <%= link_to "Refresh Leads", omniauth_authorize_path(User, current_user.setting.crm_option), :class => current_user.setting.crm_option, :title => current_user.setting.crm_option %>
+<%= link_to "Refresh Leads", omniauth_authorize_path(User, current_user.setting.crm_option), :class => current_user.setting.crm_option, :title => current_user.setting.crm_option %>
 <%else%>
-  <%=link_to "Refresh Leads", refresh_leads_path%>
+<%= link_to "Refresh Leads", refresh_leads_path, :class => "btn btn-primary" %>
 <%end%>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>City</th>
-    <th>Address</th>
-    <th>CRM Notes</th>
-    <th>CRM Name</th>
-  </tr>
-  <%@leads.each do |l|%>
+<!--Table containing all leads from the CRM application-->
+<table class="row-fluid leads table table-bordered table-striped">
+  <!--Table header-->
+  <thead>
     <tr>
-      <td><%=l.name%></td>
-      <td><%=l.email%></td>
-      <td><%=l.phone%></td>
-      <td><%=l.city%></td>
-      <td><%=l.address%></td>
-      <td><%=l.crm_notes%></td>
-      <td><%=l.crm_name ? l.crm_name : "highrise" %></td>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>City</th>
+      <th>Address</th>
+      <th>CRM Notes</th>
+      <th>CRM Name</th>
     </tr>
-  <%end%>
+  </thead>
+  <tbody>
+    <%@leads.each do |lead|%>
+    <tr>
+      <td><%= lead.name%></td>
+      <td><%= lead.email%></td>
+      <td><%= lead.phone%></td>
+      <td><%= lead.city%></td>
+      <td><%= lead.address%></td>
+      <td><%= lead.crm_notes%></td>
+      <td><%= lead.crm_name ? lead.crm_name : "highrise" %></td>
+    </tr>
+    <%end%>
+  </tbody>
 </table>

@@ -1,25 +1,43 @@
 <!DOCTYPE html>
+<!--Start of HTML page-->
 <html lang="en">
+  <!--Header information of Sallly-->
   <head>
+  	<!--Character set-->
     <meta charset="utf-8" />
+    
+    <!--Site title-->
     <title><%= title %></title>
+    
+    <!--Site description-->
     <meta name="description" content="">
-    <meta name="author" content="Forevenue team" />
+    
+    <!--Site author-->
+    <meta name="author" content="Sallly team, Kasem Challio, Jim Veldhuis" />
+    
+    <!--Javascripts-->
     <%= render 'layouts/javascript' %>
+    <!--Stylesheets-->
     <%= render 'layouts/stylesheets' %>
 
+    <!--SQL/XSS-injection prevention-->
     <%= csrf_meta_tags %>
   </head>
   <body>
+  	<!--Sallly header-->
     <%= render 'layouts/header' %>
+    <!--Main content-->
     <section class="content">
+      <!--System messages-->
       <% flash.each do |key, value| %>
       <section class="alert-message <%= key %>">
         <%= value %>
       </section>
       <% end %>
+      <!--Dynamic content-->
       <%= yield %>
     </section>
+    <!--Footer-->
     <%= render 'layouts/footer' %>
   </body>
 </html>
