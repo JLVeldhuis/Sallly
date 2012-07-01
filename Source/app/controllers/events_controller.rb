@@ -32,7 +32,13 @@ class EventsController < ApplicationController
   
   def trigger
     time = Time.new
-    @event = Event.where("user_id == :user_id AND (date_from BETWEEN :date_start AND :date_end)", {:user_id => current_user.id,:date_start => (time - 5), :date_end => (time + 5)}).first
+    @event = Event.where("user_id = :user_id AND (date_from BETWEEN :date_start AND :date_end)", {:user_id => current_user.id,:date_start => (time - 30), :date_end => (time + 30)}).first
+    
+    if @event.nil?
+      render 'trigger.js.erb'
+    else
+      render 'task.js.erb'
+    end
   end
   
   def end
