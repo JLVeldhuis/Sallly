@@ -31,7 +31,8 @@ class EventsController < ApplicationController
   end
   
   def trigger
-    @event = Event.find(:first, :conditions => [ "id = 1"])
+    time = Time.new
+    @event = Event.where("user_id == :user_id AND (date_from BETWEEN :date_start AND :date_end)", {:user_id => current_user.id,:date_start => (time - 5), :date_end => (time + 5)}).first
   end
   
   def end
