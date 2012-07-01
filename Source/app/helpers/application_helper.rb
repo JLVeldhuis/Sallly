@@ -8,11 +8,6 @@ module ApplicationHelper
     end
   end
   
-  def logo
-    image_tag("images/logo.png", :alt => "Sallly", 
-                                 :class => "round logo")
-  end
-  
   def is_eventtype(cur, matching)
     cur == matching ? "btn btn-info" : ""
   end

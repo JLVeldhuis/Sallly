@@ -17,14 +17,9 @@ Forevenue::Application.routes.draw do
 
   match '/contact',     :to => 'pages#contact'
   match '/about',       :to => 'pages#about'
-  match '/welcome',     :to => 'pages#welcome'
-  match '/activities',  :to => 'pages#activities'
-  match '/average',     :to => 'pages#average'
-  match '/goal',        :to => 'pages#goal'
   match '/settings',    :to => 'pages#settings'
   match '/task',        :to => 'pages#task'
   match '/status',      :to => 'pages#status', :as => "status"
-  match '/video',       :to => 'pages#video'
 
   match '/events/new',              :to => 'events#new'
   match '/events/:id/edit',         :to => 'events#edit'

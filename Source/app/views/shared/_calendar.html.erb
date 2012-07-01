@@ -2,151 +2,158 @@
 <script type="text/javascript" src="/assets/javascript/jquery-ui-timepicker-addon.js"></script>
 <script type='text/javascript' src='/assets/javascript/fullcalendar/fullcalendar.js'></script>
 
-<style type="text/css"> 
-/* css for timepicker */
-.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
-.ui-timepicker-div dl { text-align: left; }
-.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
-.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
-.ui-timepicker-div td { font-size: 90%; }
-.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+<style type="text/css">
+  /* css for timepicker */
+  .ui-timepicker-div .ui-widget-header {
+    margin-bottom: 8px;
+  }
+  .ui-timepicker-div dl {
+    text-align: left;
+  }
+  .ui-timepicker-div dl dt {
+    height: 25px;
+    margin-bottom: -25px;
+  }
+  .ui-timepicker-div dl dd {
+    margin: 0 10px 10px 65px;
+  }
+  .ui-timepicker-div td {
+    font-size: 90%;
+  }
+  .ui-tpicker-grid-label {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
 </style>
 <script type='text/javascript'>
-  var pending = <%=@pending_event.to_json%>;
+  var pending =<%= @pending_event.to_json%>;
   var c;
-  
+
   function initHeart() {
     var monitor = document.getElementById("monitor");
     var paper = Raphael(monitor, 100, 100);
-    
+
     var solidheart = "M 58,17 C 52,7 42,0 30,0 C 13,0 0,13 0,30 C 0,63 18,68 58,106 C 98,68 116,63 116,30 C 116,13 103,0 86,0 C 74,0 64,7 58,17 z";
-    c = paper.path(solidheart).attr({fill: "#ff0707", stroke: "none", scale: "0.5 0.5"}).click(heartbeat);
-    
+    c = paper.path(solidheart).attr({
+      fill : "#ff0707",
+      stroke : "none",
+      scale : "0.5 0.5"
+    }).click(heartbeat);
+
     heartbeat();
     setInterval("heartbeat();", 1000);
   };
 
-	$(document).ready(function() {
-		initMenu();
-		var date = new Date();
-		var d = date.getDate();
-		var m = date.getMonth();
-		var y = date.getFullYear();
+  $(document).ready(function() {
+    initMenu();
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
     var all_events = []
-    		
+
     $('#cal').fullCalendar({
-     header: {
-       left: 'prev,next today',
-       center: 'title',
-       right: 'month,agendaWeek,agendaDay'
-     },
-     editable: true,
-     events:  "/get_events.json",
-              dayClick: function(date, allDay, jsEvent, view) {
-                newEvent();
-              },
-              eventClick: function(event, jsEvent, view){
-                editEvent(event.event_id);
-              }
+      header : {
+        left : 'prev,next today',
+        center : 'title',
+        right : 'month,agendaWeek,agendaDay'
+      },
+      editable : true,
+      events : "/get_events.json",
+      dayClick : function(date, allDay, jsEvent, view) {
+        newEvent();
+      },
+      eventClick : function(event, jsEvent, view) {
+        editEvent(event.event_id);
+      }
     });
-    
+
     initHeart();
-    
+
     triggerEvents();
-	});
-	
-	function triggerEvents() {
-    if(pending == 0)
+  });
+
+  function triggerEvents() {
+    if (pending == 0)
       return true;
     else
       editEvent(pending);
-	};
-	
+  };
+
   function initMenu() {
-	  var block = $(".day");
-		block.addClass("clickable");
-  	$('.open').hide();
-  	block.click(
-  		function() {
-  			$(this).parents('div:eq(0)').find('.open').slideToggle('slow');	
-  		});
-	};
-		
-  function set_type(type){
+    var block = $(".day");
+    block.addClass("clickable");
+    $('.open').hide();
+    block.click(function() {
+      $(this).parents('div:eq(0)').find('.open').slideToggle('slow');
+    });
+  };
+
+  function set_type(type) {
     $(".ic_frm").removeClass('btn btn-primary');
-    $(".ic_frm.type"+ type).addClass('btn btn-primary');
+    $(".ic_frm.type" + type).addClass('btn btn-primary');
     $("#event_eventtype").val(type);
   };
-  
+
   $(".addNewEvent").click(function() {
     $.ajax({
-  		dataType: 'script',
-  		type: 'get',
-  		url: "events/new"
-  	});
-  });
+      dataType : 'script',
+      type : 'get',
+      url : "events/new"
+    });
+  }); 
 </script>
 <div id="myModal" class="modal hide fade"></div>
-<div id='cal' style="width:
-100%">
-</div>
+<div id='cal' style="width:100%;"></div>
 <script>
-  function editEvent(event_id){
-  	$.ajax({
-  		dataType: 'script',
-  		type: 'get',
-  		url: "events/"+ event_id +"/edit"
-  	});
+  function editEvent(event_id) {
+    $.ajax({
+      dataType : 'script',
+      type : 'get',
+      url : "events/" + event_id + "/edit"
+    });
   };
-  
-  function newEvent(){
-  	$.ajax({
-  		dataType: 'script',
-  		type: 'get',
-  		url: "events/new"
-  	});
-  };
-  
+
   function initDateTimePicker() {
     $('#from').datetimepicker({
-      timeFormat: "hh:mm:ss",
-      dateFormat: "yy-mm-dd",
-      onClose: function(dateText, inst) {
+      timeFormat : "hh:mm:ss",
+      dateFormat : "yy-mm-dd",
+      onClose : function(dateText, inst) {
         var endDateTextBox = $('#to');
         if (endDateTextBox.val() != '') {
           var testStartDate = new Date(dateText);
           var testEndDate = new Date(endDateTextBox.val());
           if (testStartDate > testEndDate)
             endDateTextBox.val(dateText);
-        }
-        else {
+        } else {
           endDateTextBox.val(dateText);
         }
       },
-      onSelect: function (selectedDateTime){
+      onSelect : function(selectedDateTime) {
         var start = $(this).datetimepicker('getDate');
         $('#from').datetimepicker('option', 'minDate', new Date(start.getTime()));
       }
     });
-    
+
     $('#to').datetimepicker({
-      timeFormat: "hh:mm:ss",
-      dateFormat: "yy-mm-dd",
-      onClose: function(dateText, inst) {
+      timeFormat : "hh:mm:ss",
+      dateFormat : "yy-mm-dd",
+      onClose : function(dateText, inst) {
         var startDateTextBox = $('#from');
         if (startDateTextBox.val() != '') {
-            var testStartDate = new Date(startDateTextBox.val());
-            var testEndDate = new Date(dateText);
-            if (testStartDate > testEndDate)
-                startDateTextBox.val(dateText);
-        }
-        else {
+          var testStartDate = new Date(startDateTextBox.val());
+          var testEndDate = new Date(dateText);
+          if (testStartDate > testEndDate)
             startDateTextBox.val(dateText);
+        } else {
+          startDateTextBox.val(dateText);
         }
       },
-      onSelect: function (selectedDateTime){
+      onSelect : function(selectedDateTime) {
         var end = $(this).datetimepicker('getDate');
-        $('#from').datetimepicker('option', 'maxDate', new Date(end.getTime()) );
+        $('#from').datetimepicker('option', 'maxDate', new Date(end.getTime()));
       }
     });
   };

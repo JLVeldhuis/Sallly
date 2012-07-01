@@ -1,6 +1,12 @@
+<!--Page title-->
 <h2>Enter email address</h2>
+
+<!--Registration form-->
 <%= form_tag(:controller => "registrations", :action => "email") do %>
+  <!--Label for email field-->
   <p><%= label_tag(:email, 'Email') %><br />
+  <!--email field-->
   <%= email_field_tag(:email) %></p>
+  <!--Submit button-->
   <p><%= submit_tag("Ok") %></p>
 <% end %>
