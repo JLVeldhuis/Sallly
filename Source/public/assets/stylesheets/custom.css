@@ -1,6 +1,7 @@
 body {
 	background: none scroll no-repeat top left #FFF;
 	color: #999;
+	min-width: 1065px;
 }
 
 hr {
@@ -33,40 +34,32 @@ nav {
 	background-image: linear-gradient(top, #414141, #323232);
 	background-repeat: repeat-x;
 	border-bottom: 1px solid #000;
-	border-top: 1px solid #666;
-	margin-bottom: 1em;
 }
 
-nav #nav-inner {
-	margin: 0 auto;
-	width: 962px;
-}
-
-nav #nav-inner h1.logo {
+nav h1.logo {
 	color: #2480B6;
-	padding-top: 5px;
+	margin: 5px 10px;
 }
 
-nav #nav-inner .link {
+nav .link {
 	border-right: 1px solid #555;
-	padding: 15px 10px 15px 0;
-	margin-right: 10px;
+	padding: 15px 10px 15px;
 }
 
-nav #nav-inner .btn-group {
+nav .btn-group {
 	display: compact;
-}
-
-nav #nav-inner .btn {
-	margin: 10px 0;
+	padding: 10px;
 }
 
 /**
  * 	Content section
  */
 .content {
-	margin: 0 auto;
-	width: 962px;
+	margin: 0 10px;
+}
+
+#holder {
+	text-align: center;
 }
 
 /**

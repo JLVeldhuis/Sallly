@@ -1,165 +1,200 @@
-	<script>
-	$(function() {
-		$( "#hitrate-calls" ).slider({
-			range: "min",
-			value: 10,
-			min: 0,
-			max: 100,
-			step: 10,
-			slide: function( event, ui ) {
-				$( "#hitrate-calls-amount" ).val( "%" + ui.value );
-			}
-		});
-		$( "#hitrate-calls-amount" ).val( "%" + $( "#hitrate-calls" ).slider( "value" ) );
-		
-		$( "#hitrate-visits" ).slider({
-			range: "min",
-			value: 10,
-			min: 0,
-			max: 100,
-			step: 10,
-			slide: function( event, ui ) {
-				$( "#hitrate-visits-amount" ).val( "%" + ui.value );
-			}
-		});
-		$( "#hitrate-visits-amount" ).val( "%" + $( "#hitrate-visits" ).slider( "value" ) );
-		
-		$( "#hitrate-quotes" ).slider({
-			range: "min",
-			value: 10,
-			min: 0,
-			max: 100,
-			step: 10,
-			slide: function( event, ui ) {
-				$( "#hitrate-quotes-amount" ).val( "%" + ui.value );
-			}
-		});
-		$( "#hitrate-quotes-amount" ).val( "%" + $( "#hitrate-quotes" ).slider( "value" ) );
-	});
-	</script>
-
+<style type="text/css"> 
+  /* css for timepicker */
+  .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+  .ui-timepicker-div dl { text-align: left; }
+  .ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+  .ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+  .ui-timepicker-div td { font-size: 90%; }
+  .ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+</style>
 
 <script type="text/javascript" src="/assets/javascript/jquery-ui-timepicker-addon.js"></script>
-<style type="text/css"> 
-/* css for timepicker */
-.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
-.ui-timepicker-div dl { text-align: left; }
-.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
-.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
-.ui-timepicker-div td { font-size: 90%; }
-.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
-</style>
-<script> 
+<script>
+  $(function() {
+    $( "#hitrate-calls" ).slider({
+      range: "min",
+      value: 10,
+      min: 0,
+      max: 100,
+      step: 10,
+      slide: function( event, ui ) {
+        $( "#hitrate-calls-amount" ).val( "%" + ui.value );
+      }
+    });
+    $( "#hitrate-calls-amount" ).val( "%" + $( "#hitrate-calls" ).slider( "value" ) );
+
+    $( "#hitrate-visits" ).slider({
+      range: "min",
+      value: 10,
+      min: 0,
+      max: 100,
+      step: 10,
+      slide: function( event, ui ) {
+        $( "#hitrate-visits-amount" ).val( "%" + ui.value );
+      }
+    });
+    $( "#hitrate-visits-amount" ).val( "%" + $( "#hitrate-visits" ).slider( "value" ) );
+		
+    $( "#hitrate-quotes" ).slider({
+      range: "min",
+      value: 10,
+      min: 0,
+      max: 100,
+      step: 10,
+      slide: function( event, ui ) {
+        $( "#hitrate-quotes-amount" ).val( "%" + ui.value );
+      }
+    });
+    $( "#hitrate-quotes-amount" ).val( "%" + $( "#hitrate-quotes" ).slider( "value" ) );
+  }); 
+  
   function initDateTimePicker() {
     $('.from').datepicker({
       timeFormat: "",
       dateFormat: "yy-mm-dd",
       onSelect: function (selectedDateTime){
-        var start = $(this).datetimepicker('getDate');
-        $(this).datepicker('option', 'minDate', new Date(start));
+        var start = $('.from').datetimepicker('getDate');
+        $('.to').datepicker('option', 'minDate', new Date(start) );
       }
     });
   
     $('.to').datepicker({
       timeFormat: "",
-      dateFormat: "yy-mm-dd",
-      onSelect: function (selectedDateTime){
-        var start = $(this).datetimepicker('getDate');
-        var end = $(this).datetimepicker('getDate');
-        $(this).datepicker('option', 'minDate', new Date(start) );
-      }
+      dateFormat: "yy-mm-dd"
     });
   };
-</script>
-
-<h1>Welcome to the settings page</h1>
-
-    <div class="row">
-    	<div class="span8 settings">
-			Fill out these settings to work back from your revenue goal to a set of activities. Sallly helps you generate sales activities without any sales experience. Just fill out the question's as good as possible. No harm done if you made a mistake. You simply can adjust them during the process of using Sallly.
-			<%= form_for current_user.setting do |f| %>
-			<div class="row">
-				<div class="span4">
-       				<h3>Goal revenue</h3>
-        			<div class="input">
-          				<%= f.text_field :goal_revenue %>
-        			</div>
-        			Which revenue do you want to achieve with you're business?
-				</div>
-				<div class="span4">
-        			<h3>Average revenue</h3>
-        			<div class="input">
-          				<%= f.text_field :average_revenue %>
-        			</div>
-        			Which revenue do you want to achieve with you're business?
-				</div>
-			</div>
-			<div class="row">
-				<div class="span4">
-       				<h3>From</h3>
-        			<div class="input">
-          				<%= f.text_field :goal_start, :class => "from", :placeholder => "From date" %>
-        			</div>
-				</div>
-				<div class="span4">
-        			<h3>From</h3>
-        			<div class="input">
-          				<%= f.text_field :goal_end, :class => "to", :placeholder => "To date" %>
-        			</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="span4">
-					<h3>Experience</h3>
-					<label for="hitrate-calls-amount">Hitrate calls:</label>
-					<input type="text" id="hitrate-calls-amount" disabled="true" style="border:0;" />
-					<div id="hitrate-calls"></div>
-					
-					<label for="hitrate-visits-amount">Hitrate visits:</label>
-					<input type="text" id="hitrate-visits-amount" disabled="true" style="border:0;" />
-					<div id="hitrate-visits"></div>
-					
-					<label for="hitrate-quotes-amount">Hitrate quotes:</label>
-					<input type="text" id="hitrate-quotes-amount" disabled="true" style="border:0;" />
-					<div id="hitrate-quotes"></div>
-				</div>
-				<div class="span4">
-    				<h3>Average workdays</h3>
-					How many days do you work a year?
-            		<div class="inline-inputs">
-                		<span>a year:</span>
-                		<%= f.text_field :average_workdays_a_year %>
-                		<span>a week:</span>
-                		<%= f.text_field :average_workdays_a_week %>
-            		</div>
-        		</div>
-			</div>
-			<div class="row">
-				<div class="span8">
-       				<h3>CRM</h3>
-        			<div class="input">
- 				   		<%= f.radio_button :crm_option, "salesforce" %> Salesforce
-          				<%= f.radio_button :crm_option, "highrise" %> Highrise
-        			</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="span8">
-    				<div class="actions">
-        				<%= f.submit "Save", :class => "btn btn-primary" %>
-    				</div>
-				</div>
-			</div>
-			<% end %>
-    	</div>
-    </div>
-<%= form_for current_user.setting do |f| %>
-    <div>
-      <%= link_to "Link to Saleforce Account", omniauth_authorize_path(User, current_user.setting.crm_option), :class => current_user.setting.crm_option, :title => current_user.setting.crm_option if current_user.setting.crm_option && ["salesforce"].include?(current_user.setting.crm_option) %>
-    </div>
-<% end %>
-<script>
+  
   $(document).ready(function() {
     initDateTimePicker();
   });
 </script>
+
+<!--Page title-->
+<h1>Welcome to the settings page</h1>
+
+<!--Settings explanation-->
+Fill out these settings to work back from your revenue goal to a set of activities. Sallly helps you generate sales activities without any sales experience. Just fill out the question's as good as possible. No harm done if you made a mistake. You simply can adjust them during the process of using Sallly.
+
+<!--Start of settings form-->
+<%= form_for current_user.setting do |f| %>
+
+<!--Revenue settings-->
+<div class="row-fluid">
+  
+  <!--Goal revenue-->
+  <div class="span6">
+  	<!--Goal revenue: Title-->
+    <h3>Goal revenue</h3>
+    <!--Revenue revenue: Input-->
+    <div class="input">
+      <%= f.text_field :goal_revenue, :class => "span12" %>
+    </div>
+    <!--Goal revenue: Description-->
+    Which revenue do you want to achieve with you're business?
+  </div>
+  
+  <!--Average revenue-->
+  <div class="span6">
+  	<!--Average revenue: Title-->
+    <h3>Average revenue</h3>
+    <!--Average revenue: Input-->
+    <div class="input">
+      <%= f.text_field :average_revenue, :class => "span12" %>
+    </div>
+    <!--Average revenue: Description-->
+    Which revenue do you want to achieve with you're business?
+  </div>
+</div>
+
+<!--Date range-->    
+<div class="row-fluid">
+	
+  <!--From date-->
+  <div class="span6">
+  	<!--From date: Title-->
+    <h3>From</h3>
+    <!--From date: Input-->
+    <div class="input">
+      <%= f.text_field :goal_start, :class => "from span12", :placeholder => "From date" %>
+    </div>
+    <!--From date: Description-->
+    The date from which you want to start with improving your productivity.
+  </div>
+  
+  <!--To date-->
+  <div class="span6">
+  	<!--To date: Title-->
+    <h3>From</h3>
+    <!--To date: input-->
+    <div class="input">
+      <%= f.text_field :goal_end, :class => "to span12", :placeholder => "To date" %>
+    </div>
+    <!--To date: Description-->
+    The date to which you want to end with improving your productivity.
+  </div>
+</div>
+
+<!--Experience and workdays settings-->
+<div class="row-fluid">
+  <!--Experience settings-->
+  <div class="span6">
+  	<!--Experience: Title-->
+    <h3>Experience</h3>
+    
+    <!--Hitrate for phonecalls-->
+    <label for="hitrate-calls-amount">Hitrate calls:</label>
+    <input type="text" id="hitrate-calls-amount" disabled="true" style="border:0;" />
+    <div id="hitrate-calls"></div>
+	
+	<!--Hitrate for visits-->				
+    <label for="hitrate-visits-amount">Hitrate visits:</label>
+    <input type="text" id="hitrate-visits-amount" disabled="true" style="border:0;" />
+    <div id="hitrate-visits"></div>
+	
+	<!--Hitrate for quotes-->				
+    <label for="hitrate-quotes-amount">Hitrate quotes:</label>
+    <input type="text" id="hitrate-quotes-amount" disabled="true" style="border:0;" />
+    <div id="hitrate-quotes"></div>
+  </div>
+  
+  <!--Workday settings-->
+  <div class="span6">
+  	<!--Workday: Title-->
+    <h3>Average workdays</h3>
+    <!--Workday: Description-->
+    How many days do you work a year?
+    <!--Workday: Inputs-->
+    <div class="inline-inputs">
+      <span>a year:</span>
+      <%= f.text_field :average_workdays_a_year, :class => "span12" %>
+      <span>a week:</span>
+      <%= f.text_field :average_workdays_a_week, :class => "span12" %>
+    </div>
+  </div>
+</div>
+
+<!--CRM setting-->
+<div class="row-fluid">
+  <div class="span12">
+  	<!--CRM: Title-->
+    <h3>CRM</h3>
+    <!--CRM: Input-->
+    <div class="input">
+      <%= f.radio_button :crm_option, "salesforce" %>Salesforce
+      <%= f.radio_button :crm_option, "highrise" %>Highrise
+    </div>
+    <!--CRM: Description-->
+    Select your prefered CRM.
+  </div>
+</div>
+
+<!--Action buttons-->
+<div class="row-fluid">
+  <div class="span12">
+  	<!--Submit button-->
+    <div class="actions">
+      <%= f.submit "Save", :class => "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+<% end %>
