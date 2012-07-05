@@ -1,73 +1,52 @@
-<style type="text/css"> 
+<style type="text/css">
   /* css for timepicker */
-  .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
-  .ui-timepicker-div dl { text-align: left; }
-  .ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
-  .ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
-  .ui-timepicker-div td { font-size: 90%; }
-  .ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+  .ui-timepicker-div .ui-widget-header {
+    margin-bottom: 8px;
+  }
+  .ui-timepicker-div dl {
+    text-align: left;
+  }
+  .ui-timepicker-div dl dt {
+    height: 25px;
+    margin-bottom: -25px;
+  }
+  .ui-timepicker-div dl dd {
+    margin: 0 10px 10px 65px;
+  }
+  .ui-timepicker-div td {
+    font-size: 90%;
+  }
+  .ui-tpicker-grid-label {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
 </style>
 
 <script type="text/javascript" src="/assets/javascript/jquery-ui-timepicker-addon.js"></script>
 <script>
-  $(function() {
-    $( "#hitrate-calls" ).slider({
-      range: "min",
-      value: 10,
-      min: 0,
-      max: 100,
-      step: 10,
-      slide: function( event, ui ) {
-        $( "#hitrate-calls-amount" ).val( "%" + ui.value );
-      }
-    });
-    $( "#hitrate-calls-amount" ).val( "%" + $( "#hitrate-calls" ).slider( "value" ) );
-
-    $( "#hitrate-visits" ).slider({
-      range: "min",
-      value: 10,
-      min: 0,
-      max: 100,
-      step: 10,
-      slide: function( event, ui ) {
-        $( "#hitrate-visits-amount" ).val( "%" + ui.value );
-      }
-    });
-    $( "#hitrate-visits-amount" ).val( "%" + $( "#hitrate-visits" ).slider( "value" ) );
-		
-    $( "#hitrate-quotes" ).slider({
-      range: "min",
-      value: 10,
-      min: 0,
-      max: 100,
-      step: 10,
-      slide: function( event, ui ) {
-        $( "#hitrate-quotes-amount" ).val( "%" + ui.value );
-      }
-    });
-    $( "#hitrate-quotes-amount" ).val( "%" + $( "#hitrate-quotes" ).slider( "value" ) );
-  }); 
-  
+    $(function() {
   function initDateTimePicker() {
-    $('.from').datepicker({
-      timeFormat: "",
-      dateFormat: "yy-mm-dd",
-      onSelect: function (selectedDateTime){
-        var start = $('.from').datetimepicker('getDate');
-        $('.to').datepicker('option', 'minDate', new Date(start) );
-      }
-    });
-  
-    $('.to').datepicker({
-      timeFormat: "",
-      dateFormat: "yy-mm-dd"
-    });
-  };
-  
-  $(document).ready(function() {
-    initDateTimePicker();
+  $('.from').datepicker({
+  timeFormat: "",
+  dateFormat: "yy-mm-dd",
+  onSelect: function (selectedDateTime){
+  var start = $('.from').datetimepicker('getDate');
+  $('.to').datepicker('option', 'minDate', new Date(start) );
+  }
   });
-</script>
+
+  $('.to').datepicker({
+  timeFormat: "",
+  dateFormat: "yy-mm-dd"
+  });
+  };
+
+  $(document).ready(function() {
+  initDateTimePicker();
+  activity_visits_amount.value = 100;
+  });</script>
 
 <!--Page title-->
 <h1>Welcome to the settings page</h1>
@@ -80,10 +59,10 @@ Fill out these settings to work back from your revenue goal to a set of activiti
 
 <!--Revenue settings-->
 <div class="row-fluid">
-  
+
   <!--Goal revenue-->
   <div class="span6">
-  	<!--Goal revenue: Title-->
+    <!--Goal revenue: Title-->
     <h3>Goal revenue</h3>
     <!--Revenue revenue: Input-->
     <div class="input">
@@ -92,10 +71,10 @@ Fill out these settings to work back from your revenue goal to a set of activiti
     <!--Goal revenue: Description-->
     Which revenue do you want to achieve with you're business?
   </div>
-  
+
   <!--Average revenue-->
   <div class="span6">
-  	<!--Average revenue: Title-->
+    <!--Average revenue: Title-->
     <h3>Average revenue</h3>
     <!--Average revenue: Input-->
     <div class="input">
@@ -106,12 +85,12 @@ Fill out these settings to work back from your revenue goal to a set of activiti
   </div>
 </div>
 
-<!--Date range-->    
+<!--Date range-->
 <div class="row-fluid">
-	
+
   <!--From date-->
   <div class="span6">
-  	<!--From date: Title-->
+    <!--From date: Title-->
     <h3>From</h3>
     <!--From date: Input-->
     <div class="input">
@@ -120,10 +99,10 @@ Fill out these settings to work back from your revenue goal to a set of activiti
     <!--From date: Description-->
     The date from which you want to start with improving your productivity.
   </div>
-  
+
   <!--To date-->
   <div class="span6">
-  	<!--To date: Title-->
+    <!--To date: Title-->
     <h3>From</h3>
     <!--To date: input-->
     <div class="input">
@@ -138,28 +117,31 @@ Fill out these settings to work back from your revenue goal to a set of activiti
 <div class="row-fluid">
   <!--Experience settings-->
   <div class="span6">
-  	<!--Experience: Title-->
+    <!--Experience: Title-->
     <h3>Experience</h3>
-    
-    <!--Hitrate for phonecalls-->
-    <label for="hitrate-calls-amount">Hitrate calls:</label>
-    <input type="text" id="hitrate-calls-amount" disabled="true" style="border:0;" />
-    <div id="hitrate-calls"></div>
-	
-	<!--Hitrate for visits-->				
-    <label for="hitrate-visits-amount">Hitrate visits:</label>
-    <input type="text" id="hitrate-visits-amount" disabled="true" style="border:0;" />
-    <div id="hitrate-visits"></div>
-	
-	<!--Hitrate for quotes-->				
-    <label for="hitrate-quotes-amount">Hitrate quotes:</label>
-    <input type="text" id="hitrate-quotes-amount" disabled="true" style="border:0;" />
-    <div id="hitrate-quotes"></div>
+
+    <!--Hitrate for calls-->
+    <div class="input">
+      <label for="hitrate-calls-amount">Percentage hitrate calls: <output class="activity_calls_amount" name="activity_calls_amount" for="setting_activity_calls"></output></label>
+      <%= f.range_field :activity_calls, :step => 10, :min => 0, :max => 100, :class => "span12 themed", :onChange => "activity_calls_amount.value = this.value" %>
+    </div>
+
+    <!--Hitrate for visits-->
+    <div class="input">
+      <label for="hitrate-visits-amount">Percentage hitrate visits: <output class="activity_visit_amount" name="activity_visits_amount" for="setting_activity_visits"></output></label>
+      <%= f.range_field :activity_visits, :step => 10, :min => 0, :max => 100, :class => "span12 themed", :onChange => "activity_visits_amount.value = this.value" %>
+    </div>
+
+    <!--Hitrate for quotes-->
+    <div class="input">
+      <label for="hitrate-quotes-amount">Percentage hitrate quotes: <output class="activity_quotes_amount" name="activity_quotes_amount" for="setting_activity_quotes"></output></label>
+      <%= f.range_field :activity_quotes, :step => 10, :min => 0, :max => 100, :class => "span12 themed", :onChange => "activity_quotes_amount.value = this.value" %>
+    </div>
   </div>
-  
+
   <!--Workday settings-->
   <div class="span6">
-  	<!--Workday: Title-->
+    <!--Workday: Title-->
     <h3>Average workdays</h3>
     <!--Workday: Description-->
     How many days do you work a year?
@@ -176,7 +158,7 @@ Fill out these settings to work back from your revenue goal to a set of activiti
 <!--CRM setting-->
 <div class="row-fluid">
   <div class="span12">
-  	<!--CRM: Title-->
+    <!--CRM: Title-->
     <h3>CRM</h3>
     <!--CRM: Input-->
     <div class="input">
@@ -191,7 +173,7 @@ Fill out these settings to work back from your revenue goal to a set of activiti
 <!--Action buttons-->
 <div class="row-fluid">
   <div class="span12">
-  	<!--Submit button-->
+    <!--Submit button-->
     <div class="actions">
       <%= f.submit "Save", :class => "btn btn-primary" %>
     </div>

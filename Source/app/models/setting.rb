@@ -7,11 +7,10 @@ class Setting < ActiveRecord::Base
   
   
   # Validations
-  
   validates :activity_calls,
             :activity_visits,
             :activity_quotes,
-            :numericality => {:greater_than => 0, :less_than => 11},
+            :numericality => {:greater_than_or_equal_to => 0, :less_than_or_equal_to => 100},
             :presence => true,
             :on       => :update
   
