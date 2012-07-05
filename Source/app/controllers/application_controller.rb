@@ -5,6 +5,15 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   
   before_filter :authenticate_user!
+
+  def after_sign_in_path_for(resource)
+    if current_user.first_login?
+      current_user.update_attribute :first_login, 0
+      return settings_path
+    else
+      return status_path
+    end
+  end
   
   def handle_exception(excptn, msg)
     logger.error excptn.message
