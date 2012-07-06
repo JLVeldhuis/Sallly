@@ -31,7 +31,7 @@ class Setting < ActiveRecord::Base
       if total_activities_per_day > 0
         # goal_period_in_days = ((gEnd - gStart) / 1.day).ceil
         activities_per_day      = total_activities_per_day
-        activity_period_in_mins = ((WORKING_MINS_A_DAY/activities_per_day)/60).floor
+        activity_period_in_mins = 60
         eStart                  = 0
         eEnd                    = 0
         gStart.to_date.upto(gEnd.to_date) do |gp|

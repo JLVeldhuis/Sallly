@@ -26,26 +26,24 @@
 
 <script type="text/javascript" src="/assets/javascript/jquery-ui-timepicker-addon.js"></script>
 <script>
-    $(function() {
   function initDateTimePicker() {
-  $('.from').datepicker({
-  timeFormat: "",
-  dateFormat: "yy-mm-dd",
-  onSelect: function (selectedDateTime){
-  var start = $('.from').datetimepicker('getDate');
-  $('.to').datepicker('option', 'minDate', new Date(start) );
-  }
-  });
+    $('.from').datepicker({
+      timeFormat: "",
+      dateFormat: "yy-mm-dd",
+      onSelect: function (selectedDateTime){
+        var start = $('.from').datetimepicker('getDate');
+        $('.to').datepicker('option', 'minDate', new Date(start) );
+      }
+    });
 
-  $('.to').datepicker({
-  timeFormat: "",
-  dateFormat: "yy-mm-dd"
-  });
+    $('.to').datepicker({
+      timeFormat: "",
+      dateFormat: "yy-mm-dd"
+    });
   };
 
   $(document).ready(function() {
   initDateTimePicker();
-  activity_visits_amount.value = 100;
   });</script>
 
 <!--Page title-->
