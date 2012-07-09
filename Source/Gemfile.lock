@@ -70,6 +70,7 @@ GEM
     jquery-rails (1.0.19)
       railties (~> 3.0)
       thor (~> 0.14)
+    jquery_datepicker (0.4)
     json (1.6.3)
     jwt (0.1.4)
       json (>= 1.2.4)
@@ -188,6 +189,7 @@ DEPENDENCIES
   devise
   highrise
   jquery-rails
+  jquery_datepicker
   json
   mysql2
   omniauth-facebook
