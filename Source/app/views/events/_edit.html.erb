@@ -1,7 +1,12 @@
 <div class="modal-header">
 	<a class="close" data-dismiss="modal" >&times;</a>
-	<h3>Edit event : <%=@event.title%></h3>
+	<h3>Edit event : <%= @event.title%></h3>
 </div>
 <%= form_for(@event, :remote => true) do |f| %>
-  <%=render :partial => "form", :locals => {:f => f}%>
+<%= render :partial => "form", :locals => {:f => f}%>
+<div class="modal-footer">
+	<%= f.submit "Save Event", :class => "btn btn-primary" %>
+    <%= link_to 'Remove', event_path, :confirm => "Are you sure you want to remove this event?", :method => :delete, :class => "btn btn-danger" %>
+	<a href="#" class="btn closeBtn" data-dismiss="modal">Close</a>
+</div>
 <%end%>

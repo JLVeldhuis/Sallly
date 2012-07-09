@@ -3,5 +3,9 @@
 	<h3>New event</h3>
 </div>
 <%= form_for(@event) do |f| %>
-  <%=render :partial => "form", :locals => {:f => f}%>
+<%= render :partial => "form", :locals => {:f => f}%>
+<div class="modal-footer">
+	<%= f.submit "Save Event", :class => "btn btn-primary" %>
+	<a href="#" class="btn closeBtn" data-dismiss="modal">Close</a>
+</div>
 <%end%>
