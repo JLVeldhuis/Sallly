@@ -1,5 +1,30 @@
 <!--Page title-->
 <h1>Address book</h1>
+<!--Start of settings form-->
+<%= form_for current_user.setting do |f| %>
+<!--CRM setting-->
+<div class="row-fluid">
+  <div class="span12">
+    <!--CRM: Title-->
+    <h3>Select your prefered CRM</h3>
+    <!--CRM: Input-->
+    <div class="input">
+      <%= f.radio_button :crm_option, "salesforce" %>Salesforce
+      <%= f.radio_button :crm_option, "highrise" %>Highrise
+    </div>
+  </div>
+</div>
+
+<!--Action buttons-->
+<div class="row-fluid">
+  <div class="span12">
+    <!--Submit button-->
+    <div class="actions">
+      <%= f.submit "Save", :class => "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+<% end %>
 
 <!--Refresh leads button-->
 <%if current_user.setting.crm_option && current_user.setting.crm_option == "salesforce"%>
