@@ -1,41 +1,54 @@
 <div class="modal" id="myModal">
   <div class="modal-header">
-    <button class="close" data-dismiss="modal">×</button>
-    <h2>Accepted Incoming <%=User.get_event_class_name(@event.eventtype)%></h2>
+    <button class="close" data-dismiss="modal">
+      ×
+    </button>
+    <h2>Accepted Incoming <%= User.get_event_class_name(@event.eventtype)%></h2>
     <h3>Tips &amp; CRM Data</h3>
   </div>
   <div class="modal-body">
-    <div class="crmData column">
-      <textarea><%= @event.crm %></textarea>
-      <p>This field contains sales tips and your CRM hosted Data</p>
-      <% if @event.eventtype == 1 %>
-       <section id="twilio-call">
-         <input type="text" id="number" name="number" placeholder="Enter a phone number to call" value="<%=@event.lead.phone if @event.lead%>"/>
-         <section id=buttons>
-           <button class="call" onclick="call();">Call</button>
-           <button class="hangup disable" onclick="hangup();">Hangup</button>
-         </section>
-       </section>
-       <% end %>
-    </div>
-    <%=render :partial=>'user_details', :locals => {:event => @event}%>
+    <section class="row-fluid">
+      <div class="input span6">
+        <textarea><%= @event.crm %></textarea>
+        <p>
+          This field contains sales tips and your CRM hosted Data
+        </p>
+      </div>
+      <div class="span6">
+        <%= render :partial=>'user_details', :locals => {:event => @event}%>
+      </div>
+    </section>
+
+    <% if @event.eventtype == 1 %>
+    <section id="row-fluid twilio-call">
+      <input type="text" class="span12" id="number" name="number" placeholder="Enter a phone number to call" value="<%= @event.lead.phone if @event.lead%>"/>
+      <section id="buttons">
+        <button class="call span6" onclick="call();">
+          Call
+        </button>
+        <button class="hangup span6 disable" onclick="hangup();">
+          Hangup
+        </button>
+      </section>
+    </section>
+    <% end %>
   </div>
   <div class="modal-footer">
-    <a href="#" class="btn btn-primary accept" data-id="<%=@event.id%>">End</a>
+    <a href="#" class="btn btn-primary accept" data-id="<%= @event.id%>">End</a>
   </div>
 </div>
 <script>
-  function endCall(event_id){
-  	$.ajax({
-  		dataType: 'script',
-  		type: 'get',
-  		url: "events/end/"+event_id
-  	});
+  function endCall(event_id) {
+    $.ajax({
+      dataType : 'script',
+      type : 'get',
+      url : "events/end/" + event_id
+    });
   };
-  
-  $(".accept").click(function(){
+
+  $(".accept").click(function() {
     event_id = $(this).attr("data-id");
     endCall(event_id);
     return false;
-  });
+  }); 
 </script>

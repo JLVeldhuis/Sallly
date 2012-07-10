@@ -1,8 +1,6 @@
-<div class="info column">
-  <img src="#" class="linkedin-picture" />
-  <label><%=event.lead.name if event.lead%></label>
-  <label><%=event.lead.address if event.lead%></label>
-  <label><%=event.lead.city if event.lead%></label>
-  <label><%=event.lead.email if event.lead%></label>
-  <label><%=event.lead.phone if event.lead%></label>
-</div>
+<img src="#" class="linkedin-picture" />
+<label><%= event.lead.name if event.lead%></label>
+<label><%= event.lead.address if event.lead%></label>
+<label><%= event.lead.city if event.lead%></label>
+<label><%= event.lead.email if event.lead%></label>
+<label><%= event.lead.phone if event.lead%></label>

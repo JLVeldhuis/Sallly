@@ -1,35 +1,42 @@
-<h1>Incoming <%=User.get_event_class_name(@event.eventtype)%></h1>
 <div class="modal" id="myModal">
   <div class="modal-header">
-    <button class="close" data-dismiss="modal">×</button>
-    <h2>Incoming Cold Call</h2>
+    <button class="close" data-dismiss="modal">
+      ×
+    </button>
+    <h2>Incoming <%= User.get_event_class_name(@event.eventtype)%></h2>
     <h3>Tips &amp; CRM Data</h3>
   </div>
   <div class="modal-body">
-    <div class="crmData column">
-      <textarea><%= @event.crm %></textarea>
-      <p>This field contains sales tips and your CRM hosted Data</p>
-    </div>
-    <%=render :partial=>'user_details', :locals => {:event => @event}%>
+    <section class="row-fluid">
+      <div class="input span6">
+        <textarea><%= @event.crm %></textarea>
+        <p>
+          This field contains sales tips and your CRM hosted Data
+        </p>
+      </div>
+      <div class="span6">
+        <%= render :partial=>'user_details', :locals => {:event => @event}%>
+      </div>
+    </section>
   </div>
   <div class="modal-footer">
-    <a href="#" class="btn btn-primary accept" data-id="<%=@event.id%>">Accept</a>
+    <a href="#" class="btn btn-primary accept" data-id="<%= @event.id%>">Accept</a>
     <%= link_to 'Remove', event_path, :confirm => "Are you sure you want to remove this event?", :method => :delete, :class => "btn btn-danger" %>
     <a href="#" class="btn" data-dismiss="modal">Ignore</a>
   </div>
 </div>
 <script>
-  function acceptCall(event_id){
-  	$.ajax({
-  		dataType: 'script',
-  		type: 'get',
-  		url: "events/accept/"+event_id
-  	});
+  function acceptCall(event_id) {
+    $.ajax({
+      dataType : 'script',
+      type : 'get',
+      url : "events/accept/" + event_id
+    });
   };
-  
-  $(".accept").click(function(){
+
+  $(".accept").click(function() {
     event_id = $(this).attr("data-id");
     acceptCall(event_id);
     return false;
-  });
+  }); 
 </script>

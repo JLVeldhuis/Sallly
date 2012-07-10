@@ -30,7 +30,7 @@
     <section class="content">
       <!--System messages-->
       <% flash.each do |key, value| %>
-      <section class="alert-message <%= key %>">
+      <section class="alert-<%= key %>">
         <%= value %>
       </section>
       <% end %>
