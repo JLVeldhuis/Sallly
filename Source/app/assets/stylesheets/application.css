@@ -4417,6 +4417,11 @@ i[class^="icon-"] {
   visibility: hidden;
 }
 
+@font-face {
+  font-family: 'Lobster';
+  src: url("/assets/Lobster.otf");
+}
+
 /**
  *   Body styling
  */
@@ -4442,9 +4447,10 @@ nav {
 }
 
 nav h1.logo {
-  color: #2480B6;
+  color: white;
+  font-family: 'Lobster';
   margin: 5px 10px;
-  text-shadow: 1px 1px #777;
+  text-shadow: 2px 2px #2480B6;
 }
 
 nav .link {
