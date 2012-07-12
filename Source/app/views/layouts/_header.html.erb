@@ -1,28 +1,92 @@
 <!--Navigation/Header combination-->
 <nav>
   <!--Sallly logo-->
-  <div class="pull-left"><a href="<%= status_url %>"><h1 class="logo">Sallly</h1></a></div>
-	
+  <div class="pull-left">
+    <a href="<%= status_url %>"><h1 class="logo">Sallly</h1></a>
+  </div>
+
   <!--User-menu or login button-->
   <% if signed_in? %>
   <!--Button group containing settings links-->
   <div class="btn-group pull-right">
-  	<!--Settings button-->
+    <!--Settings button-->
     <a class="btn btn-primary" href="<%= settings_url %>"><i class="icon-user icon-white"></i> User Settings</a>
     <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
     <ul class="dropdown-menu">
       <!--Account settings link-->
-      <li><a href="<%= sign_out_url %>"><i class="icon-pencil"></i> Account settings</a></li>
+      <li>
+        <a href="<%= sign_out_url %>"><i class="icon-pencil"></i> Account settings</a>
+      </li>
       <li class="divider"></li>
       <!--Signout button-->
-      <li><a href="<%= sign_out_url %>"><i class="i"></i> Sign out</a></li>
+      <li>
+        <a href="<%= sign_out_url %>"><i class="i"></i> Sign out</a>
+      </li>
     </ul>
   </div>
   <!--Addressbook link-->
-  <div class="link pull-right"><a href="<%= leads_path %>"><i class="icon-share icon-white"></i> Address book</a></div>
+  <div class="link pull-right">
+    <a href="<%= leads_path %>"><i class="icon-share icon-white"></i> Address book</a>
+  </div>
   <% else %>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      $(".login").click(function(e) {
+        e.preventDefault();
+        $("section#signin_menu form").toggle();
+      });
+      $(document).mouseup(function(e) {
+        if ($(e.target).parent("a.login").length == 0) {
+          $("section#signin_menu form").hide();
+        }
+      });
+    });
+  </script>
+
   <!--Login button-->
-  <%= link_to "Login", new_user_session_path, :class => "btn btn-primary pull-right login" %>
+  <section id="signin_menu" class="pull-right">
+    <div class="btn-group">
+      <%= link_to "Login", "#", :class => "btn btn-primary login" %>
+      <a class="btn btn-primary login" href="#"><span class="caret"></span></a>
+    </div>
+
+    <%= form_for("user", :url => new_user_session_path) do |f| %>
+    <section class="row-fluid">
+        <div class="span3">
+          <a href="/users/auth/facebook" class="facebook" title="Facebook"></a>
+        </div>
+        <div class="span3">
+          <a href="/users/auth/twitter" class="twitter" title="Twitter"></a>
+        </div>
+        <div class="span3">
+          <a href="/users/auth/linkedin" class="linkedin" title="Linkedin"></a>
+        </div>
+        <div class="span3">
+          <a href="/users/auth/google_apps" class="google_apps" title="Google Apps"></a>
+        </div>
+    </section>
+    <hr>
+    <section class="row-fluid">
+      <div class="input">
+        <%= f.email_field :email, :placeholder => "E-mail", :class => "span12" %>
+      </div>
+    </section>
+    <section class="row-fluid">
+      <div class="input">
+        <%= f.password_field :password, :placeholder => "Password", :class => "span12" %>
+      </div>
+    </section>
+    <section class="row-fluid">
+      <div class="input">
+        <%= f.submit "Sign in", :class => "btn btn-success" %>
+        or
+        <%= link_to "Sign up", new_user_registration_path %>.
+      </div>
+    </section>
+    <% end %>
+  </section>
   <% end %>
   <div class="clearfix"></div>
 </nav>

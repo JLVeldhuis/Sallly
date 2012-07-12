@@ -1,57 +1,12 @@
-<div class="row">
-  <div class="span5">
-    <h2>Create your account</h2>
-    <hr>
-    Signup using your social media account:
-    <section class="links clearfix">
-      <div class="thirdPartyLink">
-        <a href="/users/auth/facebook" class="facebook" title="Facebook">Facebook</a>
-      </div>
-      <div class="thirdPartyLink">
-        <a href="/users/auth/twitter" class="twitter" title="Twitter">Twitter</a>
-      </div>
-      <div class="thirdPartyLink">
-        <a href="/users/auth/linkedin" class="linkedin" title="Linkedin">Linkedin</a>
-      </div>
-      <div class="thirdPartyLink">
-        <a href="/users/auth/google_apps" class="google_apps" title="Google Apps">Google Apps</a>
-      </div>
-    </section>
-    <hr>
-    <%= form_for("user", :url => user_registration_path) do |f| %>
-    Create your free account:
-    <div class="field">
-      <%= f.text_field :name, :placeholder => "Name", :class => "span4" %>
-    </div>
-
-    <div class="field">
-      <%= f.email_field :email, :placeholder => "E-mail", :class => "span4" %>
-    </div>
-
-    <div class="field">
-      <%= f.password_field :password, :placeholder => "Password", :class => "span4" %>
-    </div>
-
-    <div class="field">
-      <%= f.password_field :password_confirmation, :placeholder => "Confirm password", :class => "span4" %>
-    </div>
-
-    <div class="field">
-      <%= f.submit "Sign up", :class => "btn btn-primary" %>
-    </div>
-    <% end %>
-    Already have an account? <%= link_to "Login", new_user_session_path %>
-  </div>
-  <div class="span7">
-    <h2>Sallly</h2>
-    <p>
-      Sallly is a gamified taskmanager for salespeople
-    </p>
-    <p>
-      Sales is hard! Especially when you are not experienced enough in sales and you must pay the bills for your business. Sallly is a tool that changes human behaviour and makes sales fun again. Sallly keeps you motivated either you win or lose a deal by adding game mechanics to the task manager.
-    </p>
-    <p>
-      Sallly extract your CRM lead and prospect data and pushes it to the user. The only thing user has to is just accept the fact that a cold call will take place. When accepted your ranking will go up. If you don't accept your ranking goes down. For each activity that has been closed successful the user achieves point, that unlock all kinds of trainings and cool stuff
-    </p>
-  </div>
+<div class="row-fluid">
+  <h2>Sallly</h2>
+  <p>
+    Sallly is a gamified taskmanager for salespeople
+  </p>
+  <p>
+    Sales is hard! Especially when you are not experienced enough in sales and you must pay the bills for your business. Sallly is a tool that changes human behaviour and makes sales fun again. Sallly keeps you motivated either you win or lose a deal by adding game mechanics to the task manager.
+  </p>
+  <p>
+    Sallly extract your CRM lead and prospect data and pushes it to the user. The only thing user has to is just accept the fact that a cold call will take place. When accepted your ranking will go up. If you don't accept your ranking goes down. For each activity that has been closed successful the user achieves point, that unlock all kinds of trainings and cool stuff
+  </p>
 </div>
