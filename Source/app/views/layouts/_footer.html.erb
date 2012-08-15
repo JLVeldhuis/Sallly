@@ -1,16 +1,43 @@
 <!--Footer-->
 <footer>
-  <!--Footer menu-->
-  <ul>
-  	<!--Pricingplans page-->
-    <li><a href="#">Pricing plan</a></li> |
-    <!--FAQ page--> 
-    <li><a href="#">FAQ</a></li> |
-    <!--Contact page-->
-    <li><a href="<%= contact_path %>">Contact</a></li> |
-    <!--About page-->
-    <li><a href="<%= about_path %>	">About</a></li>
-  </ul>
-  <!--Copyright disclaimer-->
-  <p id="copyright">&copy; Copyright 2012 by Sallly.</p>
+  <section class="row first social">
+    <div class="span8">
+      <h2>Follow <span>Sallly</span> on Twitter</h2>
+      <div class="date">Last post on: 15 Aug 2012</div>
+      <a href="#" class="twitter-bar">Example twitter tweet. Tweets show up here.</a>
+    </div>
+    <div class="span4">
+      <h2>Like <span>Sallly</span> on Facebook</h2>
+      <div class="date">&nbsp;</div>
+      <a href="#" class="facebook-bar">Like</a>
+    </div>
+  </section>
+
+  <section class="row">
+    Logo's clients
+  </section>
+
+  <section class="row last">
+    <p id="copyright" class="pull-left">
+      &copy; Copyright 2012 by Sallly.
+    </p>
+    <ul class="pull-right">
+      <!--Pricingplans page-->
+      <li>
+        <a href="#">Pricing plan</a>
+      </li>
+      <!--FAQ page-->
+      <li>
+        <a href="#">FAQ</a>
+      </li>
+      <!--Contact page-->
+      <li>
+        <a href="<%= contact_path %>">Contact</a>
+      </li>
+      <!--About page-->
+      <li>
+        <a href="<%= about_path %>  ">About</a>
+      </li>
+    </ul>
+  </section>
 </footer>

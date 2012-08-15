@@ -1,23 +1,26 @@
 <script>
-  window.onload = function () {
-    var r = Raphael("holder"),
-    fin = function () {
+  window.onload = function() {
+    var r = Raphael("holder"), fin = function() {
       this.flag = r.popup(this.bar.x, this.bar.y, this.bar.value || "0").insertBefore(this);
-    },
-    fout = function () {
-      this.flag.animate({opacity: 0}, 300, function () {this.remove();});
-    },
-    txtattr = { font: "12px sans-serif" };
-                    
+    }, fout = function() {
+      this.flag.animate({
+        opacity : 0
+      }, 300, function() {
+        this.remove();
+      });
+    }, txtattr = {
+      font : "12px sans-serif"
+    };
+
     r.setSize(300, 118);
-                
+
     r.barchart(0, 10, 300, 105, [[1000, 1170, 660, 1030], [400, 460, 1120, 540]]).hover(fin, fout);
-                
+
     r.text(41, 105, "Tasks").attr(txtattr);
     r.text(114, 105, "Proactive").attr(txtattr);
     r.text(185, 105, "Ranking").attr(txtattr);
     r.text(257, 105, "Goal").attr(txtattr);
-  };
+  }; 
 </script>
 
 <!--Page title-->
@@ -25,51 +28,54 @@
 
 <!--Activity monitors for Sallly activity-->
 <section class="row-fluid info">
-	
+
   <!--Heartbeat monitor-->
   <section class="span4 well first">
     <h4>Heart rate</h4>
     <div id="monitor"></div>
     <div class="bpm pull-right"></div>
   </section>
-  
+
   <!--Activity monitor-->
   <section class="span4 well">
     <h4>Activities</h4>
     <div id="holder" width="300" height="150"></div>
   </section>
-  
+
   <!--Saleschance monitor-->
   <section class="span4 well">
     <h4>Saleschance</h4>
   </section>
-  
+
 </section>
 
 <!--"Add new Event"-button and Calendar legenda-->
 <section class="row-fluid">
 
-  <!--"Add new Event"-button-->	
+  <!--"Add new Event"-button-->
   <section class="pull-left">
     <a data-toggle="modal" class="btn btn-primary addNewEvent" href="#"><i class="icon-plus"></i> Add Task</a>
   </section>
-    
+
   <!--Calendar legenda-->
   <section class="pull-right">
-    <div class="legenda others"></div> Others
-    <div class="legenda quotes"></div> Quotes
-    <div class="legenda visits"></div> Visits
-    <div class="legenda calls"></div> Cold calls
+    <div class="legenda others"></div>
+    Others <div class="legenda quotes"></div>
+    Quotes <div class="legenda visits"></div>
+    Visits <div class="legenda calls"></div>
+    Cold calls
   </section>
-    
+
 </section>
 
 <!--Calendar area-->
 <section class="row-fluid">
-	
+
   <!--Calendar renderer-->
-  <section class="span9"><%= render 'shared/calendar' %></section>
-  
+  <section class="span9">
+    <%= render 'shared/calendar' %>
+  </section>
+
   <!--Upcoming events-->
   <section class="span3">
     <table class="table table-striped table-bordered table-condensed">
@@ -86,4 +92,5 @@
         <% end %>
       </tbody>
     </table>
+  </section>
 </section>

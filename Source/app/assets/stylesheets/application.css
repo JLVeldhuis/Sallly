@@ -4032,7 +4032,7 @@ i[class^="icon-"] {
  *   Body styling
  */
 body {
-  background: none scroll no-repeat top left #FFF;
+  background: none scroll no-repeat top left #272727;
   color: #999;
   min-width: 1065px;
 }
@@ -4073,14 +4073,78 @@ nav .btn-group {
  *  Footer section
  */
 footer {
-  border-top: 1px solid #DDD;
-  margin: 15px auto 0;
-  text-align: center;
-  width: 962px;
+  margin: -80px 0 0;
+  padding: 0;
 }
 
-footer ul {
-  text-align: center;
+footer .row {
+  border-top: 1px solid #3D3D3D;
+  border-bottom: 1px solid black;
+  margin: 0 auto;
+  padding: 10px 0;
+  width: 960px;
+}
+
+footer .row.first {
+  border-top: 0 none;
+}
+
+footer .row.last {
+  border-bottom: 0 none;
+}
+
+footer .social h2 {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  font-family: 'Lobster';
+  margin: 0;
+}
+
+footer .social h2 span {
+  color: #2480B6;
+}
+
+footer .social .date {
+  display: block;
+  text-align: right;
+  color: #999;
+  margin: 0 0 6px 0;
+}
+
+footer .social .twitter-bar, footer .social .facebook-bar {
+  background-color: #E4E4E4;
+  color: black;
+  padding: 8px;
+  border-radius: 4px;
+  padding-left: 65px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  position: relative;
+  display: block;
+  text-decoration: none;
+}
+
+footer .social .twitter-bar:before {
+  content: '';
+  display: block;
+  width: 76px;
+  height: 68px;
+  background-image: url('/assets/twitter.png');
+  position: absolute;
+  left: -15px;
+  top: -16px;
+}
+
+footer .social .facebook-bar:before {
+  content: '';
+  display: block;
+  width: 76px;
+  height: 68px;
+  background-image: url('/assets/facebook.png');
+  position: absolute;
+  left: -15px;
+  top: -16px;
 }
 
 footer ul li {
@@ -4088,20 +4152,22 @@ footer ul li {
 }
 
 footer ul li a {
-  color: #444;
+  color: #999;
   text-decoration: none;
 }
 
 footer ul li a:hover {
-  color: #999;
-  text-decoration: underline;
+  color: #fff;
+  text-decoration: none;
 }
 
 /**
  *  Content section
  */
 .content {
-  margin: 0 10px;
+  background: url('/assets/footer_dark.png') no-repeat scroll bottom center #fff;
+  margin: 0;
+  padding: 0 0 150px;
 }
 
 /**
